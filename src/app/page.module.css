@@ -1,0 +1,30 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(
+    120% 80% at 50% -10%,
+    #1b0f35 0%,
+    #0c0718 45%,
+    #08050e 100%
+  );
+  color: #f3efff;
+  font-family: "Public Sans", system-ui, sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 46px 20px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.levels {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

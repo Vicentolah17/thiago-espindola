@@ -1,0 +1,56 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-3);
+  padding: var(--sr-space-8) var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  background: var(--sr-grad-card-violet);
+  box-shadow: var(--sr-inset);
+  text-align: center;
+}
+
+.seal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 92px;
+  height: 92px;
+  margin-bottom: var(--sr-space-1);
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid var(--sr-violet-line);
+  background: rgba(var(--sr-violet), 0.16);
+  color: var(--sr-violet-text);
+  box-shadow: var(--sr-shadow-avatar);
+}
+
+.sealDays {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-micro);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-badge-sm);
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.text {
+  margin: 0;
+  max-width: 56ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-1);
+  text-wrap: pretty;
+}

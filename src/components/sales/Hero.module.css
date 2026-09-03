@@ -1,0 +1,144 @@
+.hero {
+  padding-block: clamp(40px, 10vw, 76px) var(--sr-section);
+  scroll-margin-top: var(--sr-nav-h);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-5);
+  width: 100%;
+  max-width: calc(760px + var(--sr-gutter) * 2);
+  margin: 0 auto;
+  padding-inline: var(--sr-gutter);
+  text-align: center;
+}
+
+/* pilula identica a "Gratuito" do hub */
+.badge {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-2);
+  padding: 7px 14px 7px 11px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid var(--sr-line-strong);
+  background: var(--sr-glass);
+  backdrop-filter: blur(6px);
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--sr-radius-pill);
+  background: var(--sr-magenta-dot);
+  box-shadow: 0 0 12px 3px rgba(244, 91, 208, 0.8);
+}
+
+.badgeLabel {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge);
+  text-transform: uppercase;
+  color: #f6eeff;
+}
+
+.title {
+  margin: 0;
+  max-width: 17ch;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h1);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: var(--sr-ls-tighter);
+  background: var(--sr-grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-wrap: balance;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 46ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sr-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 9px 15px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid var(--sr-line-mid);
+  background: var(--sr-glass-soft);
+  font-size: var(--sr-fs-small);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--sr-text-1);
+}
+
+/* ---------- player ---------- */
+
+.player {
+  width: 100%;
+  margin-top: var(--sr-space-1);
+  border-radius: var(--sr-radius-lg);
+  padding: 1px;
+  background: var(--sr-grad-feature-border);
+  box-shadow: var(--sr-shadow-feature);
+}
+
+.playerFrame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sr-space-2);
+  aspect-ratio: 16 / 9;
+  border-radius: 23px;
+  background: var(--sr-grad-feature);
+}
+
+/* triangulo de play, desenhado em CSS como os icones sociais do hub */
+.playerGlyph {
+  width: 0;
+  height: 0;
+  margin-bottom: 2px;
+  border-left: 22px solid rgba(233, 219, 255, 0.55);
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+}
+
+.playerLabel {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+}
+
+.playerDim {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: var(--sr-fs-caption);
+  color: var(--sr-text-6);
+}
+
+.cta {
+  width: 100%;
+  max-width: 420px;
+  margin-top: var(--sr-space-1);
+}

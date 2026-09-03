@@ -1,0 +1,131 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+/* Logo solta, sem circulo e sem recorte: serve pra qualquer proporcao.
+   O glow vem de drop-shadow, e nao de box-shadow, pra acompanhar o
+   contorno do desenho em vez de desenhar um retangulo luminoso atras.
+   Mesma cor e mesma intensidade do anel do avatar. */
+/* O arquivo da logo tem margem transparente sobrando: o desenho ocupa
+   660x655 de uma tela de 1536x1024, ou seja, 64% da altura. A altura
+   abaixo ja considera isso, entao o surfista sai por volta de 120px,
+   perto dos 92px do circulo de retrato que ele substitui.
+   As margens negativas so descontam o vazio transparente de cima e de
+   baixo, pra logo nao empurrar a assinatura pra longe. Se o arquivo
+   for trocado por um ja recortado, e so zerar as tres linhas.
+   O glow vem de drop-shadow, e nao de box-shadow, pra acompanhar o
+   contorno do desenho em vez de desenhar um retangulo luminoso atras. */
+.logo {
+  display: block;
+  width: auto;
+  height: 190px;
+  max-width: 100%;
+  margin-top: -30px;
+  margin-bottom: -22px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 38px rgba(151, 92, 255, 0.6));
+}
+
+@media (max-width: 400px) {
+  .logo {
+    height: 164px;
+    margin-top: -26px;
+    margin-bottom: -19px;
+  }
+}
+
+.avatarRing {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;
+  padding: 2px;
+  background: linear-gradient(
+    150deg,
+    rgba(178, 132, 255, 0.9),
+    rgba(233, 74, 200, 0.55) 50%,
+    rgba(255, 255, 255, 0.08)
+  );
+  box-shadow: 0 18px 50px -18px rgba(151, 92, 255, 0.8);
+}
+
+.avatarInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  overflow: hidden;
+  background: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.07) 0 6px,
+      rgba(255, 255, 255, 0.02) 6px 12px
+    ),
+    #140c24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarPlaceholder {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(226, 214, 255, 0.62);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.92;
+}
+
+.eyebrow {
+  font-family: Archivo, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  text-transform: uppercase;
+  color: rgba(215, 199, 255, 0.78);
+}
+
+.title {
+  font-family: Archivo, sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #d6c4ff 68%, #b48cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.tagline {
+  margin: 0;
+  max-width: 340px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(213, 202, 240, 0.68);
+  text-wrap: pretty;
+}

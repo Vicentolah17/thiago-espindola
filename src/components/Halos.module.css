@@ -1,0 +1,82 @@
+@keyframes drift1 {
+  0% {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, 4%, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+}
+
+@keyframes drift2 {
+  0% {
+    transform: translate3d(3%, 2%, 0) scale(1.08);
+  }
+  50% {
+    transform: translate3d(-5%, -4%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(3%, 2%, 0) scale(1.08);
+  }
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.violet {
+  position: absolute;
+  top: -22vh;
+  left: 50%;
+  width: 130vw;
+  max-width: 1100px;
+  height: 70vh;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(151, 92, 255, 0.5) 0%,
+    rgba(151, 92, 255, 0.16) 45%,
+    rgba(151, 92, 255, 0) 72%
+  );
+  filter: blur(30px);
+  animation: drift1 26s ease-in-out infinite;
+}
+
+.magenta {
+  position: absolute;
+  top: 26vh;
+  right: -18vw;
+  width: 80vw;
+  max-width: 700px;
+  height: 60vh;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(233, 74, 200, 0.34) 0%,
+    rgba(233, 74, 200, 0.1) 45%,
+    rgba(233, 74, 200, 0) 72%
+  );
+  filter: blur(40px);
+  animation: drift2 34s ease-in-out infinite;
+}
+
+.indigo {
+  position: absolute;
+  bottom: -18vh;
+  left: -14vw;
+  width: 80vw;
+  max-width: 720px;
+  height: 55vh;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(96, 92, 255, 0.3) 0%,
+    rgba(96, 92, 255, 0.08) 48%,
+    rgba(96, 92, 255, 0) 74%
+  );
+  filter: blur(44px);
+  animation: drift1 30s ease-in-out infinite reverse;
+}

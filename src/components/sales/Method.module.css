@@ -1,0 +1,202 @@
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-9);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-4);
+}
+
+/* mesmo rotulo com regua do "Proximos niveis" do hub */
+.blockHead {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-3);
+  padding: 0 4px;
+}
+
+.blockIndex {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-label);
+  text-transform: uppercase;
+  color: var(--sr-text-6);
+}
+
+.blockName {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-label);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+}
+
+.blockRule {
+  flex: 1;
+  height: 1px;
+  background: var(--sr-grad-rule);
+}
+
+/* auto-fit para cada bloco preencher a propria linha: o bloco de
+   base tem 2 modulos, o de conteudo tem 4 e o de co-producao tem 3.
+   Com colunas fixas, os blocos curtos deixariam buracos na grade. */
+.modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--sr-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.module {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-2);
+  padding: var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  box-shadow: var(--sr-inset);
+}
+
+.violet {
+  background: var(--sr-grad-card-violet);
+}
+
+.magenta {
+  background: var(--sr-grad-card-magenta);
+  border-color: var(--sr-magenta-line);
+}
+
+.moduleTop {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-2);
+  margin-bottom: var(--sr-space-1);
+}
+
+/* quadrado numerado identico ao dos cards de nivel do hub */
+.moduleNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--sr-radius-chip);
+  border: 1px solid var(--sr-line-mid);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body);
+  font-weight: 700;
+}
+
+.violet .moduleNumber {
+  background: rgba(var(--sr-violet), 0.16);
+  color: var(--sr-violet-text);
+}
+
+.magenta .moduleNumber {
+  background: rgba(var(--sr-magenta), 0.16);
+  color: var(--sr-magenta-text);
+}
+
+.moduleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--sr-radius-sm);
+  border: 1px solid var(--sr-line-soft);
+}
+
+.violet .moduleIcon {
+  color: rgba(216, 198, 255, 0.65);
+}
+
+.magenta .moduleIcon {
+  color: rgba(255, 201, 239, 0.65);
+}
+
+.moduleTitle {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.moduleText {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+/* ---------- reforcos ---------- */
+
+.reinforcements {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-3);
+  margin: var(--sr-space-9) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reinforcement {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-4);
+  padding: var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  background: var(--sr-grad-card-mute);
+  box-shadow: var(--sr-inset);
+}
+
+.reinforcementIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--sr-radius-sm);
+  border: 1px solid var(--sr-line-mid);
+  background: rgba(var(--sr-violet), 0.14);
+  color: var(--sr-violet-text);
+}
+
+.reinforcementTitle {
+  margin: 0 0 var(--sr-space-1);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+}
+
+.reinforcementText {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+@media (min-width: 560px) {
+  .reinforcements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,75 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-2);
+  padding: var(--sr-space-6) var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  background: var(--sr-grad-card-violet);
+  box-shadow: var(--sr-inset);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sr-space-3);
+  margin-bottom: var(--sr-space-1);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--sr-radius-chip);
+  border: 1px solid var(--sr-line-mid);
+  background: rgba(var(--sr-violet), 0.16);
+  color: var(--sr-violet-text);
+}
+
+/* etiqueta com a mesma anatomia do "por aplicacao" do hub */
+.tag {
+  padding: 4px 9px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid var(--sr-violet-line);
+  font-size: var(--sr-fs-micro);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge-sm);
+  text-transform: uppercase;
+  color: var(--sr-violet-text);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h3);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.text {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

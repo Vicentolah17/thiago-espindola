@@ -1,0 +1,45 @@
+/* Casca da pagina.
+   O hub usa o radial direto no elemento, mas la a pagina cabe numa
+   tela. Aqui a pagina e longa, entao o mesmo gradiente vai numa
+   camada fixa: ele fica ancorado na viewport em vez de esticar por
+   toda a altura do documento e virar outra coisa.
+
+   A camada usa z-index -1 e a .page fica sem fundo proprio, senao o
+   fundo da .page cobriria o gradiente. O preto de base vem do body,
+   que o hub ja define. Nada de z-index nos filhos diretos: isso
+   sobrescreveria o position sticky da nav e o position fixed do CTA
+   do mobile.
+
+   Sem halos e sem grain: eles sao animados no hub, e o orcamento de
+   movimento desta pagina e so a faixa e o FAQ. */
+.page {
+  position: relative;
+  min-height: 100vh;
+  color: var(--sr-text);
+  font-family: var(--sr-font-body);
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--sr-grad-page);
+  pointer-events: none;
+}
+
+/* Foco de teclado visivel em tudo que e interativo dentro da pagina.
+   Escopado aqui de proposito, para nao mexer no hub. */
+.page :focus-visible {
+  outline: 2px solid var(--sr-violet-text);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Rolagem suave nas ancoras da nav. Precisa ir no elemento que rola,
+   e este CSS so carrega nesta rota. */
+@media (prefers-reduced-motion: no-preference) {
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+}

@@ -1,0 +1,80 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-2);
+  padding: var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  background: var(--sr-grad-card-violet);
+  box-shadow: var(--sr-inset);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--sr-space-1);
+  border-radius: var(--sr-radius-sm);
+  border: 1px solid var(--sr-line-mid);
+  background: rgba(var(--sr-violet), 0.16);
+  color: var(--sr-violet-text);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.text {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--sr-space-9);
+}
+
+/* o ultimo card e o de quem nao quer aparecer: recebe o acento magenta,
+   que e a cor com que a pagina inteira marca a trilha de co-producao */
+.item:last-child {
+  background: var(--sr-grad-card-magenta);
+  border-color: var(--sr-magenta-line);
+}
+
+.item:last-child .icon {
+  background: rgba(var(--sr-magenta), 0.16);
+  color: var(--sr-magenta-text);
+}
+
+@media (min-width: 560px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

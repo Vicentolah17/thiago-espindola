@@ -1,0 +1,110 @@
+.paths {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-3);
+}
+
+.path {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-4);
+  padding: var(--sr-space-7) var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  box-shadow: var(--sr-inset);
+}
+
+/* negativo: mesmo card, sem acento e com o texto recuado */
+.negative {
+  background: var(--sr-grad-card-mute);
+}
+
+/* positivo: o card ganha o acento e a sombra do hub */
+.positive {
+  background: var(--sr-grad-card-violet);
+  border-color: var(--sr-violet-line);
+  box-shadow: var(--sr-inset-strong), var(--sr-shadow-card-violet);
+}
+
+.pathTitle {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h3);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  text-wrap: balance;
+}
+
+.negative .pathTitle {
+  color: var(--sr-text-2);
+}
+
+.positive .pathTitle {
+  color: var(--sr-text-strong);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-3);
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  text-wrap: pretty;
+}
+
+.negative .item {
+  color: var(--sr-text-6);
+}
+
+.positive .item {
+  color: var(--sr-text-1);
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -1px;
+  border-radius: var(--sr-radius-pill);
+}
+
+.negative .mark {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--sr-text-6);
+}
+
+.positive .mark {
+  background: rgba(var(--sr-violet), 0.2);
+  color: var(--sr-violet-text);
+}
+
+.closing {
+  max-width: 46ch;
+  margin: var(--sr-space-9) auto 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .paths {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

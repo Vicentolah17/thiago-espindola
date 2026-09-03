@@ -1,0 +1,192 @@
+/* ============================================================
+   TOKENS DO SISTEMA DE DESIGN "SURFE A REALIDADE"
+   Todos os valores abaixo foram extraidos do hub existente
+   (src/components/*.module.css). Nada aqui e cor nova.
+   O hub continua com os valores literais; esta folha e a
+   fonte unica para telas novas, como a pagina de vendas.
+   ============================================================ */
+
+:root {
+  /* ---------- fundo ---------- */
+  --sr-bg: #08050e;
+  --sr-bg-deep: #0c0718;
+  --sr-bg-top: #1b0f35;
+
+  /* ---------- superficies ---------- */
+  --sr-surface-1: #120b22;
+  --sr-surface-2: #1a0e33;
+  --sr-surface-3: #2a1550;
+  --sr-surface-flat: #140c24;
+
+  /* ---------- acentos (triplet para usar com rgba()) ---------- */
+  --sr-violet: 151, 92, 255;
+  --sr-magenta: 233, 74, 200;
+  --sr-indigo: 96, 92, 255;
+
+  --sr-violet-line: rgba(196, 158, 255, 0.42);
+  --sr-violet-text: #d8c6ff;
+  --sr-magenta-line: rgba(244, 129, 214, 0.42);
+  --sr-magenta-text: #ffc9ef;
+  --sr-magenta-dot: #f45bd0;
+  --sr-link: #c9b4ff;
+
+  /* ---------- texto ---------- */
+  --sr-text: #f3efff;
+  --sr-text-strong: #fbf8ff;
+  --sr-text-1: rgba(219, 208, 245, 0.78);
+  --sr-text-2: rgba(213, 202, 240, 0.68);
+  --sr-text-3: rgba(211, 200, 238, 0.66);
+  /* O hub usa esta mesma cor com alpha .5, .42 e .3. Medido sobre o
+     fundo da pagina, isso da 3.32:1, 2.69:1 e 1.95:1, ou seja, abaixo
+     do minimo de 4.5:1 do WCAG AA para texto. No hub sao tres rotulos
+     curtos; aqui o mesmo tom carrega paragrafo, tabela e disclaimer.
+     Os alphas foram levantados para 4.7:1 no pior caso, mantendo o
+     matiz exato. A hierarquia entre calado e forte passa a vir do
+     tamanho, do peso e do fundo do card, nao da opacidade do texto. */
+  --sr-text-4: rgba(196, 181, 232, 0.72); /* 5.65:1 */
+  --sr-text-5: rgba(196, 181, 232, 0.68); /* 5.16:1 */
+  --sr-text-6: rgba(196, 181, 232, 0.64); /* 4.70:1 */
+  --sr-text-eyebrow: rgba(226, 212, 255, 0.72);
+
+  /* ---------- tracos e vidro ---------- */
+  --sr-line: rgba(255, 255, 255, 0.09);
+  --sr-line-mid: rgba(255, 255, 255, 0.1);
+  --sr-line-strong: rgba(255, 255, 255, 0.16);
+  --sr-line-soft: rgba(255, 255, 255, 0.07);
+  --sr-glass: rgba(255, 255, 255, 0.07);
+  --sr-glass-soft: rgba(255, 255, 255, 0.035);
+  --sr-inset: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --sr-inset-strong: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  /* ---------- gradientes ---------- */
+  --sr-grad-page: radial-gradient(
+    120% 80% at 50% -10%,
+    #1b0f35 0%,
+    #0c0718 45%,
+    #08050e 100%
+  );
+  --sr-grad-cta: linear-gradient(100deg, #8d4dff 0%, #a94bf2 46%, #e44fbe 100%);
+  --sr-grad-feature: linear-gradient(
+    158deg,
+    #2a1550 0%,
+    #1a0e33 46%,
+    #120b22 100%
+  );
+  --sr-grad-feature-border: linear-gradient(
+    155deg,
+    rgba(196, 158, 255, 0.85),
+    rgba(233, 74, 200, 0.45) 42%,
+    rgba(255, 255, 255, 0.07) 78%
+  );
+  --sr-grad-title: linear-gradient(168deg, #ffffff 0%, #eadbff 52%, #b98cff 100%);
+  --sr-grad-wordmark: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #d6c4ff 68%,
+    #b48cff 100%
+  );
+  --sr-grad-rule: linear-gradient(
+    90deg,
+    rgba(178, 141, 255, 0.3),
+    rgba(178, 141, 255, 0)
+  );
+  --sr-grad-gloss: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0) 34%
+  );
+
+  /* card padrao: mesmo gradiente 150deg do card de nivel do hub */
+  --sr-grad-card-violet: linear-gradient(
+    150deg,
+    rgba(151, 92, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.028) 55%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+  --sr-grad-card-magenta: linear-gradient(
+    150deg,
+    rgba(233, 74, 200, 0.12) 0%,
+    rgba(255, 255, 255, 0.028) 55%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+  /* mesmo card, acento removido: usado no lado negativo das comparacoes */
+  --sr-grad-card-mute: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.035) 0%,
+    rgba(255, 255, 255, 0.028) 55%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+
+  /* ---------- sombras ---------- */
+  --sr-shadow-cta: 0 20px 44px -20px rgba(184, 76, 234, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  --sr-shadow-feature: 0 44px 110px -44px rgba(151, 92, 255, 0.95),
+    0 8px 30px -18px rgba(233, 74, 200, 0.5);
+  --sr-shadow-feature-hover: 0 56px 130px -44px rgba(168, 108, 255, 1),
+    0 10px 34px -16px rgba(233, 74, 200, 0.62);
+  --sr-shadow-card-violet: 0 26px 60px -30px rgba(151, 92, 255, 0.8);
+  --sr-shadow-card-magenta: 0 26px 60px -30px rgba(214, 74, 190, 0.7);
+  --sr-shadow-avatar: 0 18px 50px -18px rgba(151, 92, 255, 0.8);
+
+  /* ---------- tipografia ---------- */
+  --sr-font-display: Archivo, sans-serif;
+  --sr-font-body: "Public Sans", system-ui, sans-serif;
+
+  /* escala fechada: nenhum tamanho novo por secao */
+  --sr-fs-micro: 9.5px;
+  --sr-fs-label: 10.5px;
+  --sr-fs-caption: 11.5px;
+  --sr-fs-small: 12.5px;
+  --sr-fs-eyebrow: 13px;
+  --sr-fs-body-s: 14px;
+  --sr-fs-body: 15px;
+  --sr-fs-body-l: 16px;
+  --sr-fs-h3: 21px; /* titulo do card de nivel do hub */
+  --sr-fs-h2: clamp(25px, 6vw, 34px); /* teto = wordmark do hub */
+  --sr-fs-h1: clamp(32px, 7.5vw, 46px);
+  --sr-fs-display: clamp(40px, 12vw, 60px); /* display do hub, so no preco */
+
+  --sr-ls-wordmark: 0.42em;
+  --sr-ls-brand: 0.34em;
+  --sr-ls-label: 0.24em;
+  --sr-ls-badge: 0.22em;
+  --sr-ls-badge-sm: 0.16em;
+  --sr-ls-wide: 0.04em;
+  --sr-ls-tight: -0.015em;
+  --sr-ls-tighter: -0.035em;
+
+  --sr-lh-display: 0.92;
+  --sr-lh-tight: 1.15;
+  --sr-lh-body: 1.5;
+  --sr-lh-body-l: 1.6;
+
+  /* ---------- espaco ---------- */
+  --sr-space-1: 6px;
+  --sr-space-2: 10px;
+  --sr-space-3: 14px;
+  --sr-space-4: 20px;
+  --sr-space-5: 22px;
+  --sr-space-6: 26px;
+  --sr-space-7: 30px;
+  --sr-space-8: 34px;
+  --sr-space-9: 40px;
+  --sr-space-10: 46px;
+  --sr-section: clamp(56px, 12vw, 96px);
+
+  /* ---------- raios ---------- */
+  --sr-radius-sm: 13px;
+  --sr-radius-chip: 14px;
+  --sr-radius-md: 18px;
+  --sr-radius-lg: 24px;
+  --sr-radius-xl: 30px;
+  --sr-radius-pill: 999px;
+
+  /* ---------- largura ---------- */
+  --sr-container: 620px; /* mesma coluna do hub, para texto corrido */
+  --sr-container-wide: 1080px; /* so para grades */
+  --sr-gutter: 20px;
+
+  /* ---------- movimento ---------- */
+  --sr-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --sr-nav-h: 58px;
+}

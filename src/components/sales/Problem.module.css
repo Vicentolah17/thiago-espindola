@@ -1,0 +1,141 @@
+/* ---------- cards de dor: card do hub com o acento removido ---------- */
+
+.pains {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pain {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-4);
+  padding: var(--sr-space-5) var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  background: var(--sr-grad-card-mute);
+  box-shadow: var(--sr-inset);
+}
+
+.painIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--sr-radius-sm);
+  border: 1px solid var(--sr-line-mid);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--sr-text-6);
+}
+
+.painBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-1);
+}
+
+.painTitle {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-2);
+}
+
+.painText {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-6);
+  text-wrap: pretty;
+}
+
+/* ---------- cards de virada: o acento volta ---------- */
+
+.turns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-3);
+  margin: var(--sr-space-9) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.turn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-3);
+  padding: var(--sr-space-6) var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  box-shadow: var(--sr-inset);
+}
+
+.violet {
+  background: var(--sr-grad-card-violet);
+  border-color: var(--sr-violet-line);
+}
+
+.magenta {
+  background: var(--sr-grad-card-magenta);
+  border-color: var(--sr-magenta-line);
+}
+
+.turnIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--sr-radius-chip);
+  border: 1px solid var(--sr-line-mid);
+}
+
+.violet .turnIcon {
+  background: rgba(var(--sr-violet), 0.16);
+  color: var(--sr-violet-text);
+}
+
+.magenta .turnIcon {
+  background: rgba(var(--sr-magenta), 0.16);
+  color: var(--sr-magenta-text);
+}
+
+.turnTitle {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h3);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.turnText {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+@media (min-width: 768px) {
+  .pains {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* o quinto card, o de quem nao quer aparecer, ocupa a linha inteira */
+  .pain:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .turns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

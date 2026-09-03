@@ -1,0 +1,62 @@
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.strip {
+  overflow: hidden;
+  border-top: 1px solid var(--sr-line-soft);
+  border-bottom: 1px solid var(--sr-line-soft);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.viewport {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.clone {
+  display: flex;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-8);
+  /* o mesmo espaco na ponta mantem o ritmo na emenda do loop */
+  padding: var(--sr-space-3) 0;
+  padding-right: var(--sr-space-8);
+  margin: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-3);
+  white-space: nowrap;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--sr-radius-pill);
+  background: rgba(var(--sr-magenta), 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    animation: none;
+  }
+}

@@ -1,0 +1,133 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-2);
+}
+
+.item {
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  background: var(--sr-grad-card-mute);
+  box-shadow: var(--sr-inset);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.item[data-open="true"] {
+  border-color: var(--sr-violet-line);
+  background: var(--sr-grad-card-violet);
+}
+
+.heading {
+  margin: 0;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sr-space-4);
+  width: 100%;
+  padding: var(--sr-space-4) var(--sr-space-5);
+  border: 0;
+  border-radius: var(--sr-radius-lg);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--sr-violet-text);
+  outline-offset: 2px;
+}
+
+.question {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}
+
+.item[data-open="true"] .question {
+  color: var(--sr-text-strong);
+}
+
+/* sinal de mais que vira menos: duas barras, uma delas gira */
+.sign {
+  position: relative;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid var(--sr-line-mid);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.signBar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: var(--sr-text-2);
+  transform: translate(-50%, -50%);
+}
+
+.signBarV {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition: transform 0.3s var(--sr-ease), opacity 0.3s ease;
+}
+
+.item[data-open="true"] .signBarV {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+}
+
+/* abre e fecha sem medir altura em JS */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s var(--sr-ease);
+}
+
+.panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+/* Fechado, o conteudo sai do foco e do leitor de tela.
+   A troca e instantanea com atraso, nao uma transicao de 0.3s sobre
+   visibility: assim ela nunca depende do motor interpolar a
+   propriedade. Abrindo, aparece na hora; fechando, espera a linha
+   terminar de encolher antes de sumir. */
+.panelInner {
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s;
+}
+
+.panel[data-open="true"] .panelInner {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.answer {
+  margin: 0;
+  padding: 0 var(--sr-space-5) var(--sr-space-5);
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panelInner,
+  .signBarV,
+  .item {
+    transition: none;
+  }
+}

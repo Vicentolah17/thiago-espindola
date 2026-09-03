@@ -1,0 +1,89 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-3);
+  width: 100%;
+}
+
+/* valores identicos ao botao do card "Kit de Aplicacao" do hub */
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sr-space-3);
+  border-radius: var(--sr-radius-md);
+  background: var(--sr-grad-cta);
+  box-shadow: var(--sr-shadow-cta);
+  color: #ffffff;
+  transition: transform 0.35s var(--sr-ease), box-shadow 0.35s ease;
+}
+
+.button:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.lg {
+  min-height: 62px;
+  padding: 0 10px 0 26px;
+}
+
+.sm {
+  height: 40px;
+  padding: 0 18px;
+  justify-content: center;
+  border-radius: var(--sr-radius-chip);
+}
+
+.block {
+  width: 100%;
+}
+
+.label {
+  font-family: var(--sr-font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.lg .label {
+  font-size: var(--sr-fs-body-l);
+}
+
+.sm .label {
+  font-size: var(--sr-fs-small);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--sr-radius-sm);
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.note {
+  margin: 0;
+  font-size: var(--sr-fs-small);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-4);
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .lg {
+    padding-left: 18px;
+  }
+
+  .lg .label {
+    font-size: var(--sr-fs-body);
+  }
+}

@@ -1,0 +1,73 @@
+.footer {
+  border-top: 1px solid var(--sr-line-soft);
+  padding-block: var(--sr-space-10) var(--sr-space-9);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-4);
+  width: 100%;
+  max-width: calc(var(--sr-container) + var(--sr-gutter) * 2);
+  margin: 0 auto;
+  padding-inline: var(--sr-gutter);
+  text-align: center;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-3);
+}
+
+/* mesma assinatura do rodape do hub */
+.brand {
+  font-family: var(--sr-font-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-brand);
+  text-indent: var(--sr-ls-brand);
+  text-transform: uppercase;
+  color: var(--sr-text-5);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-4);
+}
+
+.link {
+  font-size: var(--sr-fs-small);
+  color: var(--sr-text-4);
+  transition: color 0.25s ease;
+}
+
+.link:hover {
+  color: #ffffff;
+}
+
+.copyright {
+  margin: 0;
+  font-size: var(--sr-fs-caption);
+  color: var(--sr-text-6);
+}
+
+.disclaimers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-2);
+  max-width: 62ch;
+  padding-top: var(--sr-space-4);
+  border-top: 1px solid var(--sr-line-soft);
+}
+
+.disclaimer {
+  margin: 0;
+  font-size: var(--sr-fs-caption);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-6);
+  text-wrap: pretty;
+}

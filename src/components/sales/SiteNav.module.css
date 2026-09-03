@@ -1,0 +1,78 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--sr-nav-h);
+  border-bottom: 1px solid var(--sr-line-soft);
+  background: rgba(12, 7, 24, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sr-space-4);
+  height: 100%;
+  max-width: calc(var(--sr-container-wide) + var(--sr-gutter) * 2);
+  margin: 0 auto;
+  padding-inline: var(--sr-gutter);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-2);
+  flex: none;
+  color: var(--sr-text-strong);
+}
+
+.brand:hover {
+  color: #ffffff;
+}
+
+/* mesmo ponto luminoso da pilula "Gratuito" do hub */
+.brandDot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--sr-radius-pill);
+  background: var(--sr-magenta-dot);
+  box-shadow: 0 0 12px 3px rgba(244, 91, 208, 0.8);
+}
+
+.brandName {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-small);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-badge-sm);
+  text-transform: uppercase;
+}
+
+.anchors {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-6);
+}
+
+.anchor {
+  font-size: var(--sr-fs-small);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--sr-text-3);
+  transition: color 0.25s ease;
+}
+
+.anchor:hover {
+  color: #ffffff;
+}
+
+.action {
+  flex: none;
+}
+
+@media (max-width: 767px) {
+  .anchors {
+    display: none;
+  }
+}

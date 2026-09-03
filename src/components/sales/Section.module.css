@@ -1,0 +1,20 @@
+.section {
+  /* unica fonte de ritmo vertical da pagina */
+  padding-block: var(--sr-section);
+  /* compensa a nav fixa quando a secao e alvo de ancora */
+  scroll-margin-top: calc(var(--sr-nav-h) + var(--sr-space-4));
+}
+
+.inner {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: var(--sr-gutter);
+}
+
+.prose {
+  max-width: calc(var(--sr-container) + var(--sr-gutter) * 2);
+}
+
+.wide {
+  max-width: calc(var(--sr-container-wide) + var(--sr-gutter) * 2);
+}
