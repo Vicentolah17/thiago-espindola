@@ -1,0 +1,49 @@
+.bloco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-4);
+  text-align: center;
+}
+
+/* fio de luz curto, o mesmo recurso do bloco de exclusividade,
+   pra fechar a pagina com o mesmo vocabulario */
+.risco {
+  width: 46px;
+  height: 2px;
+  margin-bottom: var(--sr-space-2);
+  border-radius: var(--sr-radius-pill);
+  background: linear-gradient(
+    90deg,
+    rgba(151, 92, 255, 0),
+    rgba(196, 158, 255, 0.9) 50%,
+    rgba(151, 92, 255, 0)
+  );
+}
+
+.titulo {
+  margin: 0;
+  max-width: 20ch;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.texto {
+  margin: 0;
+  max-width: 50ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}
+
+.cta {
+  width: 100%;
+  max-width: 420px;
+  margin-top: var(--sr-space-2);
+}

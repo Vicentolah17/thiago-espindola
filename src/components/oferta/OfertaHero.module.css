@@ -1,0 +1,76 @@
+.hero {
+  padding-block: clamp(56px, 14vw, 108px) clamp(40px, 9vw, 64px);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-5);
+  width: 100%;
+  max-width: calc(680px + var(--sr-gutter) * 2);
+  margin: 0 auto;
+  padding-inline: var(--sr-gutter);
+  text-align: center;
+}
+
+/* pilula do hub, mas sobre o preto ela fica mais discreta: menos
+   vidro, mais contorno */
+.selo {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-2);
+  padding: 7px 14px 7px 11px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid rgba(196, 158, 255, 0.28);
+  background: rgba(151, 92, 255, 0.07);
+}
+
+.seloDot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--sr-radius-pill);
+  background: var(--sr-magenta-dot);
+  box-shadow: 0 0 12px 3px rgba(244, 91, 208, 0.7);
+}
+
+.seloLabel {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge);
+  text-transform: uppercase;
+  color: #f6eeff;
+}
+
+/* o roxo entra aqui como joia: so na tipografia de destaque */
+.titulo {
+  margin: 0;
+  max-width: 16ch;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h1);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: var(--sr-ls-tighter);
+  background: var(--sr-grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-wrap: balance;
+}
+
+.subtitulo {
+  margin: 0;
+  max-width: 54ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}
+
+.cta {
+  width: 100%;
+  max-width: 420px;
+  margin-top: var(--sr-space-2);
+}

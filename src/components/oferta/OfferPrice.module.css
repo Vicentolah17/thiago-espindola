@@ -1,0 +1,184 @@
+.palco {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* O unico glow da pagina, e ele e estatico: nao pulsa, nao anima.
+   Fica atras do card de preco, que e o elemento-chave. E o que faz
+   o roxo parecer joia em cima do preto em vez de fundo colorido. */
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 128%;
+  height: 118%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(151, 92, 255, 0.34) 0%,
+    rgba(233, 74, 200, 0.14) 42%,
+    rgba(151, 92, 255, 0) 72%
+  );
+  filter: blur(46px);
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  border-radius: var(--sr-radius-xl);
+  padding: 1px;
+  background: var(--sr-grad-feature-border);
+  box-shadow: var(--sr-shadow-feature);
+}
+
+.cardInner {
+  border-radius: 29px;
+  padding: var(--sr-space-8) var(--sr-space-6) var(--sr-space-7);
+  background: var(--sr-grad-feature);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-5);
+  text-align: center;
+}
+
+.selo {
+  padding: 6px 13px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid rgba(196, 158, 255, 0.3);
+  background: rgba(151, 92, 255, 0.1);
+}
+
+.seloLabel {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge);
+  text-transform: uppercase;
+  color: var(--sr-violet-text);
+}
+
+.titulo {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.precoBloco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-1);
+}
+
+.ancora {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  letter-spacing: var(--sr-ls-wide);
+  color: var(--sr-text-4);
+}
+
+.riscado {
+  color: var(--sr-text-6);
+  text-decoration-color: rgba(244, 129, 214, 0.75);
+  text-decoration-thickness: 2px;
+}
+
+.preco {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-display);
+  font-weight: 800;
+  line-height: var(--sr-lh-display);
+  letter-spacing: var(--sr-ls-tighter);
+  background: var(--sr-grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.parcelamento {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  color: var(--sr-text-2);
+}
+
+.acao {
+  width: 100%;
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-2);
+  width: 100%;
+  margin: 0;
+  padding-top: var(--sr-space-5);
+  border-top: 1px solid var(--sr-line);
+  list-style: none;
+  text-align: left;
+}
+
+.listaItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-2);
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-1);
+  text-wrap: pretty;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--sr-radius-pill);
+  background: rgba(151, 92, 255, 0.2);
+  color: var(--sr-violet-text);
+}
+
+.garantia {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-2);
+  width: 100%;
+  margin: 0;
+  padding: var(--sr-space-4);
+  border-radius: var(--sr-radius-md);
+  border: 1px solid var(--sr-line);
+  background: rgba(255, 255, 255, 0.025);
+  font-size: var(--sr-fs-small);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-2);
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.garantiaIcone {
+  flex: none;
+  color: var(--sr-violet-text);
+}
+
+@media (min-width: 560px) {
+  .lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .cardInner {
+    padding: clamp(38px, 5vw, 52px) clamp(30px, 4vw, 46px);
+  }
+}

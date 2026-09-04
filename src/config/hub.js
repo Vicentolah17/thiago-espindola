@@ -31,7 +31,7 @@ export const hub = {
     eyebrow: "Comece aqui de graça",
     titleLines: ["Kit de", "Aplicação"],
     description:
-      "O guia prático para elevar todas as áreas da sua vida. Primeiro passo do Método S.U.R.F.E.",
+      "O guia prático para destravar seu carisma. Primeiro passo para criar sua identidade digital",
     cta: "Acessar o kit gratuito",
   },
 
@@ -55,7 +55,7 @@ export const hub = {
       number: "02",
       title: "Surfar Elite",
       badge: "por aplicação",
-      description: "Mentoria e acesso premium ao círculo interno.",
+      description: "Mentoria e acesso privilegiado aos melhores contatos e métodos que nossa equipe pode oferecer",
       variant: "magenta",
     },
   ],

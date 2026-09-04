@@ -1,0 +1,196 @@
+.caseBloco {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-6);
+  padding: var(--sr-space-7) var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  background: var(--sr-grad-card-violet);
+  box-shadow: var(--sr-inset);
+}
+
+.caseNumeroBloco {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: none;
+}
+
+/* o numero recebe o degrade de destaque: e a unica prova real da
+   pagina, entao e ele que ganha a joia roxa */
+.caseNumero {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-display);
+  font-weight: 800;
+  line-height: var(--sr-lh-display);
+  letter-spacing: var(--sr-ls-tighter);
+  background: var(--sr-grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.caseRotulo {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge);
+  text-transform: uppercase;
+  color: var(--sr-violet-text);
+}
+
+.caseTexto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-3);
+}
+
+.caseTitulo {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.caseParagrafo {
+  margin: 0;
+  max-width: 56ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}
+
+/* ---------- depoimentos ---------- */
+
+.depoimentos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-4);
+  margin-top: var(--sr-space-9);
+}
+
+.depoimentosTitulo {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-label);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-3);
+}
+
+.itemTitulo {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+}
+
+.frame {
+  border-radius: var(--sr-radius-lg);
+  padding: 1px;
+  background: var(--sr-grad-feature-border);
+}
+
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  border-radius: 23px;
+  background: #000000;
+  object-fit: cover;
+}
+
+.itemNome {
+  margin: 0;
+  font-size: var(--sr-fs-small);
+  color: var(--sr-text-4);
+}
+
+/* Placeholder ja nasce em tres colunas, inclusive no mobile.
+   Depoimento de verdade quer ocupar a tela toda; caixa vazia, nao.
+   Em coluna unica, tres caixas 9:16 empilhadas viram quase 2700px
+   de vazio tracejado no celular. */
+.gridPlaceholder {
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sr-space-2);
+}
+
+/* caixa de espaco reservado, marcada de proposito */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sr-space-1);
+  aspect-ratio: 9 / 16;
+  border-radius: var(--sr-radius-lg);
+  border: 1px dashed rgba(196, 158, 255, 0.28);
+  background: rgba(255, 255, 255, 0.014);
+}
+
+.placeholderLabel {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-micro);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge-sm);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+  text-align: center;
+}
+
+.placeholderDim {
+  display: none;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: var(--sr-fs-caption);
+  color: var(--sr-text-6);
+}
+
+@media (min-width: 640px) {
+  .placeholderLabel {
+    font-size: var(--sr-fs-label);
+    letter-spacing: var(--sr-ls-badge);
+  }
+
+  .placeholderDim {
+    display: block;
+  }
+}
+
+@media (min-width: 640px) {
+  .caseBloco {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--sr-space-9);
+    padding: var(--sr-space-8) var(--sr-space-7);
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

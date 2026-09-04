@@ -1,0 +1,58 @@
+/* ============================================================
+   VARIACAO PREMIUM: PRETO PURO
+   Os componentes desta pagina sao os mesmos do resto do projeto.
+   O que muda e o valor dos tokens, redefinidos aqui dentro. Como
+   custom property herda, tudo abaixo de .page passa a ler estes
+   valores sem precisar de uma linha de CSS nova em cada componente.
+   ============================================================ */
+
+.page {
+  /* preto de verdade, nao o preto arroxeado do hub (#08050e) */
+  --sr-bg: #000000;
+
+  /* Superficies quase pretas. O roxo sai do fundo e vira acento:
+     resta so um sopro dele nas laterais do card de destaque. */
+  --sr-grad-feature: linear-gradient(
+    158deg,
+    #0b0711 0%,
+    #060409 46%,
+    #020203 100%
+  );
+
+  /* cards comuns: um veu de violeta sobre o preto, mais discreto
+     que no hub porque aqui nao existe fundo roxo pra competir */
+  --sr-grad-card-violet: linear-gradient(
+    150deg,
+    rgba(151, 92, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.022) 55%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  --sr-grad-card-mute: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.018) 55%,
+    rgba(255, 255, 255, 0.008) 100%
+  );
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--sr-bg);
+  color: var(--sr-text);
+  font-family: var(--sr-font-body);
+}
+
+/* O body do projeto e #08050e, o preto arroxeado do hub. Aqui o preto
+   precisa ser puro ate fora da pagina: no overscroll do celular, quando
+   a tela "estica" no topo ou no fim, quem aparece e o fundo do body.
+   Sem isso, uma faixa roxa entrega que a pagina nao e preta de verdade.
+   Este CSS so carrega nesta rota. */
+:global(body) {
+  background: #000000;
+}
+
+/* Foco de teclado visivel, escopado nesta pagina. */
+.page :focus-visible {
+  outline: 2px solid var(--sr-violet-text);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

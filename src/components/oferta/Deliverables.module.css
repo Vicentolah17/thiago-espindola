@@ -1,0 +1,156 @@
+.blocos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-8);
+}
+
+.bloco {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-4);
+}
+
+.blocoNome {
+  margin: 0;
+  padding-bottom: var(--sr-space-3);
+  border-bottom: 1px solid var(--sr-line);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-label);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+}
+
+/* Lista em vez de card: sobre o preto, a grade de cards vira um
+   monte de retangulos cinzas. A lista deixa o preto respirar e o
+   roxo aparecer so no numero. */
+.modulos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modulo {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-3);
+}
+
+.numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--sr-radius-sm);
+  border: 1px solid rgba(196, 158, 255, 0.22);
+  background: rgba(151, 92, 255, 0.12);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-small);
+  font-weight: 700;
+  color: var(--sr-violet-text);
+}
+
+.moduloTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.moduloTitulo {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.moduloApoio {
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+/* ---------- bonus ---------- */
+
+.bonus {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-4);
+  margin-top: var(--sr-space-9);
+  padding-top: var(--sr-space-7);
+  border-top: 1px solid var(--sr-line);
+}
+
+.bonusTitulo {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-label);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+}
+
+.bonusLista {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bonusItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-3);
+}
+
+.bonusIcone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--sr-radius-pill);
+  background: rgba(151, 92, 255, 0.18);
+  color: var(--sr-violet-text);
+}
+
+.bonusNome {
+  display: block;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+}
+
+.bonusApoio {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+@media (min-width: 760px) {
+  .blocos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sr-space-7);
+  }
+
+  .bonusLista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
