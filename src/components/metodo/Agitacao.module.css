@@ -1,0 +1,169 @@
+.abertura {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-5);
+  max-width: 880px;
+  margin-bottom: var(--sr-space-9);
+}
+
+.titulo {
+  margin: 0;
+  max-width: 24ch;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.paragrafos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-3);
+}
+
+.paragrafo {
+  margin: 0;
+  max-width: 56ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}
+
+.rotuloRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-3);
+  padding: 0 4px;
+  margin-bottom: var(--sr-space-4);
+}
+
+.rotulo {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-label);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--sr-grad-rule);
+}
+
+/* pergunta que abre a lista dos quatro padroes */
+.tituloPadroes {
+  margin: 0 0 var(--sr-space-4);
+  padding: 0 4px;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+}
+
+.padroes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.padrao {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-4);
+  padding: var(--sr-space-5);
+  border-radius: var(--sr-radius-lg);
+  border: 1px solid var(--sr-line);
+  background: var(--sr-grad-card-mute);
+  box-shadow: var(--sr-inset);
+}
+
+/* quadrado numerado do hub, apagado nos tres primeiros */
+.numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--sr-radius-chip);
+  border: 1px solid var(--sr-line-mid);
+  background: rgba(255, 255, 255, 0.04);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body);
+  font-weight: 700;
+  color: var(--sr-text-4);
+}
+
+.corpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-1);
+}
+
+.padraoTitulo {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-1);
+  text-wrap: balance;
+}
+
+.padraoTexto {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+/* o quarto padrao e o mais forte: ganha o acento e a linha inteira */
+.destaque {
+  background: var(--sr-grad-card-violet);
+  border-color: var(--sr-violet-line);
+  box-shadow: var(--sr-inset-strong), var(--sr-shadow-card-violet);
+}
+
+.destaque .numero {
+  background: rgba(var(--sr-violet), 0.18);
+  border-color: rgba(196, 158, 255, 0.3);
+  color: var(--sr-violet-text);
+}
+
+.destaque .padraoTitulo {
+  font-size: var(--sr-fs-h3);
+  color: var(--sr-text-strong);
+}
+
+.destaque .padraoTexto {
+  color: var(--sr-text-1);
+}
+
+@media (min-width: 720px) {
+  .abertura {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--sr-space-9);
+    align-items: start;
+  }
+
+  .padroes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .destaque {
+    grid-column: 1 / -1;
+    padding: var(--sr-space-7) var(--sr-space-6);
+  }
+}

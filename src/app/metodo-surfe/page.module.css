@@ -1,0 +1,76 @@
+/* Os tokens de cor vem de theme.css, via data-theme no .page.
+   Este arquivo so cuida da casca: fundo, profundidade, foco. */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--sr-grad-page);
+  color: var(--sr-text);
+  font-family: var(--sr-font-body);
+}
+
+/* O body do projeto e #08050e, o preto arroxeado do hub. Aqui o
+   preto profundo precisa valer ate no overscroll do celular, senao
+   aparece uma faixa mais clara quando a tela estica. So carrega nesta
+   rota. */
+:global(body) {
+  background: #030208;
+}
+
+/* Profundidade por camada, nao por brilho: duas manchas de violeta
+   muito escuro, grandes e estaticas, uma alta a direita e uma baixa a
+   esquerda. Nao animam, nao pulsam. O overflow fica aqui dentro, e
+   nao no .page, pra nao quebrar a nav sticky. */
+.profundidade {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.profundidade::before,
+.profundidade::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.profundidade::before {
+  top: 8vh;
+  right: -22vw;
+  width: 80vw;
+  max-width: 820px;
+  height: 60vh;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(96, 40, 180, 0.22) 0%,
+    rgba(96, 40, 180, 0.06) 48%,
+    rgba(96, 40, 180, 0) 74%
+  );
+}
+
+.profundidade::after {
+  top: 140vh;
+  left: -26vw;
+  width: 84vw;
+  max-width: 860px;
+  height: 70vh;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(151, 92, 255, 0.14) 0%,
+    rgba(151, 92, 255, 0.04) 50%,
+    rgba(151, 92, 255, 0) 74%
+  );
+}
+
+.main {
+  position: relative;
+}
+
+/* Foco de teclado visivel, escopado nesta pagina. */
+.page :focus-visible {
+  outline: 2px solid var(--sr-violet-text);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

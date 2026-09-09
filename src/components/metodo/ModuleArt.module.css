@@ -1,0 +1,81 @@
+.art {
+  display: block;
+  aspect-ratio: 2 / 3;
+  height: auto;
+  border-radius: var(--sr-radius-md);
+  object-fit: cover;
+}
+
+.sm {
+  width: 100%;
+  max-width: 160px;
+}
+
+.md {
+  width: 100%;
+  max-width: 240px;
+}
+
+.lg {
+  width: 100%;
+  max-width: 360px;
+}
+
+/* imagem inteira, na proporcao dela: para arquivo horizontal ou com
+   transparencia, onde o recorte 2:3 decepararia o desenho */
+.contain {
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Placeholder no clima das artes reais: preto, borda violeta sutil,
+   um brilho violeta subindo de baixo. Sem inventar imagem. */
+.placeholder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 0 12px 18px;
+  overflow: hidden;
+  border: 1px solid rgba(196, 158, 255, 0.22);
+  background: linear-gradient(180deg, #06030c 0%, #0b0614 100%);
+  text-align: center;
+}
+
+.glow {
+  position: absolute;
+  bottom: -40%;
+  left: 50%;
+  width: 140%;
+  height: 80%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(151, 92, 255, 0.42) 0%,
+    rgba(151, 92, 255, 0.12) 45%,
+    rgba(151, 92, 255, 0) 72%
+  );
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.label {
+  position: relative;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-badge);
+  text-transform: uppercase;
+  color: var(--sr-violet-text);
+  text-wrap: balance;
+}
+
+.dim {
+  position: relative;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: var(--sr-fs-micro);
+  color: var(--sr-text-6);
+}

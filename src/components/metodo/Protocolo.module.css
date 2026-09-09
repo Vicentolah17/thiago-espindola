@@ -1,0 +1,253 @@
+/* ============================================================
+   ESPINHA: uma linha vertical, cinco nos, arte alternando de lado.
+   Mobile: espinha na borda esquerda, coluna unica.
+   Desktop: espinha no centro, arte e texto trocando de lado.
+   ============================================================ */
+
+.espinha {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-9);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* a linha que liga os nos */
+.espinha::before {
+  content: "";
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  left: 31px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(151, 92, 255, 0) 0%,
+    rgba(151, 92, 255, 0.55) 10%,
+    rgba(151, 92, 255, 0.55) 90%,
+    rgba(151, 92, 255, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.etapa {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  column-gap: var(--sr-space-4);
+  row-gap: var(--sr-space-4);
+  align-items: start;
+}
+
+/* ---------- o no com a letra ---------- */
+
+.no {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid rgba(196, 158, 255, 0.35);
+  background: var(--sr-surface-2);
+  /* o anel escuro cobre a linha atras do no */
+  box-shadow: 0 0 0 6px var(--sr-bg), 0 18px 40px -18px rgba(151, 92, 255, 0.8);
+}
+
+.letra {
+  display: block;
+  font-family: var(--sr-font-display);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: var(--sr-grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ---------- texto e arte ---------- */
+
+.texto {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-2);
+  padding-top: 6px;
+}
+
+.indice {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-label);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+}
+
+.nome {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+}
+
+.descricao {
+  margin: 0;
+  max-width: 44ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}
+
+.arte {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+}
+
+/* ---------- coda ---------- */
+
+.acronimo {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0;
+  margin: var(--sr-space-10) 0 0;
+  font-family: var(--sr-font-display);
+  font-size: clamp(30px, 8vw, 56px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  background: var(--sr-grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.acronimo span + span::before {
+  content: "·";
+  margin: 0 0.18em;
+  opacity: 0.45;
+}
+
+/* ============================================================
+   O UNICO MOMENTO ORQUESTRADO DA PAGINA
+   As letras acendem em sequencia quando a secao entra na tela.
+   fill-mode both: durante o atraso a letra fica no estado inicial
+   (apagada). Se o JS nunca ligar data-entrou, nao ha animacao e a
+   letra fica acesa desde o inicio.
+   ============================================================ */
+
+@keyframes acender {
+  from {
+    opacity: 0.22;
+    transform: scale(0.86);
+    filter: drop-shadow(0 0 0 rgba(178, 132, 255, 0));
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 16px rgba(178, 132, 255, 0.95));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 9px rgba(178, 132, 255, 0.55));
+  }
+}
+
+.espinha[data-entrou="true"] .letra {
+  animation: acender 0.7s var(--sr-ease) both;
+  animation-delay: calc(var(--i) * 170ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .espinha[data-entrou="true"] .letra {
+    animation: none;
+    filter: drop-shadow(0 0 9px rgba(178, 132, 255, 0.55));
+  }
+}
+
+/* ============================================================
+   DESKTOP: espinha no centro, onda alternando os lados
+   ============================================================ */
+
+@media (min-width: 900px) {
+  .espinha {
+    gap: var(--sr-space-10);
+  }
+
+  .espinha::before {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 56px;
+    bottom: 56px;
+  }
+
+  .etapa {
+    grid-template-columns: minmax(0, 1fr) 112px minmax(0, 1fr);
+    column-gap: var(--sr-space-8);
+    align-items: center;
+  }
+
+  .no {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width: 112px;
+    height: 112px;
+    box-shadow: 0 0 0 8px var(--sr-bg), 0 26px 60px -22px rgba(151, 92, 255, 0.85);
+  }
+
+  .letra {
+    font-size: 58px;
+  }
+
+  .texto {
+    padding-top: 0;
+    max-width: 380px;
+  }
+
+  .arte {
+    grid-row: 1;
+  }
+
+  /* etapa impar: arte a esquerda, texto a direita */
+  .esquerda .arte {
+    grid-column: 1;
+    justify-content: flex-end;
+  }
+
+  .esquerda .texto {
+    grid-column: 3;
+    justify-self: start;
+  }
+
+  /* etapa par: texto a esquerda (alinhado a direita), arte a direita */
+  .direita .texto {
+    grid-column: 1;
+    justify-self: end;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .direita .arte {
+    grid-column: 3;
+    justify-content: flex-start;
+  }
+}

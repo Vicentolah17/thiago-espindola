@@ -10,12 +10,24 @@ export default function Authority() {
   return (
     <Section width="wide">
       <div className={styles.grid}>
-        {/* Placeholder: trocar pela foto real, ver ASSETS.md */}
+        {/* Foto vem do config; sem `foto`, volta ao placeholder com a dimensao */}
         <figure className={styles.photo}>
-          <div className={styles.photoFrame}>
-            <span className={styles.photoLabel}>Foto do Thiago</span>
-            <span className={styles.photoDim}>640 x 800</span>
-          </div>
+          {autoridade.foto ? (
+            <img
+              className={styles.photoImg}
+              src={autoridade.foto}
+              alt="Thiago Espíndola, criador do SURFE DIGITAL"
+              width={1200}
+              height={1600}
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <div className={styles.photoFrame}>
+              <span className={styles.photoLabel}>Foto do Thiago</span>
+              <span className={styles.photoDim}>640 x 800</span>
+            </div>
+          )}
         </figure>
 
         <div className={styles.text}>

@@ -5,10 +5,10 @@
 
 /**
  * CHECKOUT_URL: link do checkout na Kiwify. Usado por TODOS os botoes
- * da pagina de vendas. Trocar pelo link real do produto.
+ * da pagina de vendas.
  * Formato da Kiwify: https://pay.kiwify.com.br/<codigo-do-produto>
  */
-export const CHECKOUT_URL = "https://pay.kiwify.com.br/SEU-CODIGO";
+export const CHECKOUT_URL = "https://pay.kiwify.com.br/iSMthCh";
 
 /** Preco cheio do SURFE DIGITAL. */
 export const PRECO_CHEIO = "R$197";
@@ -40,8 +40,7 @@ export const DATA_FECHAMENTO = null;
 export const GARANTIA_DIAS = 7;
 
 // ============================================================
-//  COPY
-//  Rascunho de trabalho, feito para ser revisado.
+//  COPY v1 (revisada pelo copywriter)
 // ============================================================
 
 export const nav = {
@@ -57,22 +56,21 @@ export const nav = {
 
 export const hero = {
   selo: "Formação completa",
-  titulo:
-    "Construa uma marca pessoal que trabalha por você, mesmo começando do zero hoje.",
+  titulo: "Você não nasceu travado. Te treinaram pra não aparecer.",
   subtitulo:
-    "Uma formação completa pra viver do digital, do primeiro post até a co-produção.",
+    "A formação completa pra viver do digital. Você monta sua marca, aprende a fazer conteúdo que prende e conhece a co-produção, o caminho de quem prefere ficar por trás.",
   chips: [
     "Marca pessoal do zero",
-    "Conteúdo que as pessoas param pra ver",
+    "Conteúdo que para o scroll",
     "Co-produção, pra quem não quer aparecer",
   ],
   cta: "Quero entrar no SURFE DIGITAL",
-  microcopia: "Acesso imediato após a compra · 7 dias de garantia",
+  microcopia: `Acesso imediato após a compra · ${GARANTIA_DIAS} dias de garantia`,
 };
 
 export const faixaTermos = [
   "marca pessoal",
-  "conteúdo que atrai",
+  "conteúdo que prende",
   "co-produção",
   "roteiros magnéticos",
   "perfil de criador",
@@ -80,44 +78,44 @@ export const faixaTermos = [
 ];
 
 export const problema = {
-  titulo: "Se você se reconhece em algum desses pontos, o problema não é você",
+  titulo: "Se você se reconhece aqui, o problema não é você",
   dores: [
+    {
+      titulo: "Você grava e apaga",
+      texto:
+        "Na sua cabeça você é claro e carismático. Aí você bota pra gravar e parece outra pessoa.",
+    },
     {
       titulo: "Você posta e ninguém vê",
       texto:
-        "Aí vem a explicação fácil: o algoritmo te odeia, não é a sua vez, faltou sorte.",
+        "Aí vem a desculpa fácil: o algoritmo não gosta de você, não é a sua vez, faltou sorte.",
     },
     {
-      titulo: "Você tem vivência, mas não sabe empacotar",
+      titulo: "Você manja do assunto, mas não desenrola",
       texto:
-        "O conteúdo está todo dentro de você. Só que ninguém consegue acessar do jeito que você conta hoje.",
+        "Você sabe do que está falando. Do jeito que você conta hoje, ninguém dá moral.",
     },
     {
-      titulo: "Você copia o que viralizou e não funciona",
+      titulo: "Você copia o que viraliza",
       texto:
-        "Você copiou o formato. O que fez aquilo funcionar era o mecanismo por trás, e ele não aparece na tela.",
+        "Você pega o corte, a música, a legenda. Mas o que faz o vídeo funcionar não está na tela.",
     },
     {
-      titulo: "Você quer viver do digital e não sabe o primeiro passo",
+      titulo: "Você simplesmente não quer aparecer",
       texto:
-        "A vontade existe há meses. O passo concreto de segunda de manhã, não.",
-    },
-    {
-      titulo: "Você não quer aparecer",
-      texto:
-        "Então você decidiu que essa porta não é pra você. Ela é. Só que a chave é outra.",
+        "Daí risca o mercado digital da lista. Tem outra porta, e ela não pede câmera.",
     },
   ],
   viradas: [
     {
-      titulo: "A audiência ainda está sendo distribuída",
+      titulo: "Você não é o defeito",
       texto:
-        "Todo dia entra gente nova consumindo conteúdo em português. Quem constrói presença agora pega essa onda inteira. Quem espera, pega o que sobrar dela.",
+        "Vinte anos te mandando não chamar atenção. Aí o mundo virou e passou a cobrar o contrário.",
     },
     {
-      titulo: "Não é talento, não é sorte, é método",
+      titulo: "O algoritmo tem regra",
       texto:
-        "O algoritmo não é um pêndulo te perseguindo. É um sistema com regra, e regra você aprende, aplica e repete.",
+        "Ele não sorteia quem vai bombar. Ele funciona por regra, e regra é aprendizado e repetição.",
     },
   ],
 };
@@ -128,46 +126,50 @@ export const escolha = {
     titulo: "Continuar postando no escuro",
     itens: [
       "Você publica e torce.",
-      "Cada post é um chute novo, sem leitura do que funcionou antes.",
+      "Cada post é um chute novo, sem olhar o que funcionou antes.",
       "Quando não engaja, sobra culpar o alcance.",
       "Seis meses depois, o perfil está igual.",
     ],
   },
   positivo: {
-    titulo: "Operar com um sistema que já funcionou",
+    titulo: "Operar com um método",
     itens: [
-      "Você sabe por que aquele conteúdo funcionou.",
-      "Você repete o mecanismo, não o formato.",
+      "Você sabe por que aquele post funcionou.",
+      "Você repete o que deu certo e adapta pro próximo tema.",
       "Cada post alimenta o próximo.",
-      "Seis meses depois, você tem um ativo.",
+      "Seis meses depois, você tem um perfil que trabalha por você.",
     ],
   },
-  fechamento:
-    "Postar no escuro é dar importância excessiva ao algoritmo e nenhuma ao processo. Qual dos dois você vai estar vivendo daqui a seis meses?",
+  // duas frases em paragrafo normal, e so a pergunta em destaque
+  fechamentoIntro:
+    "Todo dia entra gente nova consumindo conteúdo em português. Quem começa agora pega essa onda inteira, quem espera pega o que sobrar dela.",
+  fechamento: "Em qual dos dois lados você vai estar daqui a seis meses?",
 };
 
 export const autoridade = {
   titulo: "Eu não comecei com audiência, comecei com um método",
+  // Foto real, 1200x1600, em /public. null = volta ao placeholder.
+  foto: "/thiago_foto.webp",
   paragrafos: [
-    "Eu não tinha perfil grande, não tinha equipe e não tinha ninguém pra me indicar. Tinha um jeito de olhar pra realidade que eu vinha estudando e aplicando na minha própria vida.",
-    "Quando eu passei a tratar conteúdo como sistema, e não como sorte, a conta virou. Foram 40 mil seguidores em 2 meses, aplicando no meu perfil exatamente o que eu ensino aqui dentro.",
-    "O SURFE DIGITAL é esse processo escrito e colocado em ordem. Não é teoria que eu li em algum lugar. É o que eu faço toda semana.",
+    "Eu não tinha perfil grande, não tinha equipe e não tinha ninguém pra me indicar. O que eu tinha era um jeito de olhar pra realidade que eu vinha estudando e testando em mim mesmo.",
+    "Quando eu parei de tratar conteúdo como sorte e comecei a tratar como método, a conta virou. Foram 40 mil seguidores em 2 meses, aplicando no meu perfil exatamente o que está aqui dentro.",
+    "O SURFE DIGITAL é esse processo escrito e colocado em ordem. É o que eu faço toda semana, e agora você faz junto.",
   ],
   credenciais: [
     {
       titulo: "40 mil seguidores em 2 meses",
       texto:
-        "Crescimento real no Instagram, no período em que o método foi aplicado. Número verificável no perfil.",
+        "Crescimento no meu Instagram, no período em que apliquei o método. Você pode conferir no perfil.",
     },
     {
-      titulo: "Método aplicado, não teorizado",
+      titulo: "Aplicado antes de ensinado",
       texto:
-        "Tudo que está no curso passou primeiro pelo perfil dele, com erro, ajuste e repetição.",
+        "Tudo que está no curso passou primeiro pelo meu perfil, com erro, ajuste e repetição.",
     },
     {
       titulo: "Comunidade ativa",
       texto:
-        "Um grupo de pessoas construindo ao mesmo tempo, trocando o que está funcionando agora.",
+        "Um grupo construindo junto com você, trocando o que está funcionando agora.",
     },
   ],
 };
@@ -193,7 +195,7 @@ export const provaSocial = {
 export const resultados = {
   titulo: "O que você sai sabendo fazer",
   subtitulo:
-    "Cada item abaixo é uma habilidade prática, não um conceito pra guardar.",
+    "Tudo aqui embaixo é coisa pra sair fazendo, com o passo a passo dentro do curso.",
   itens: [
     {
       titulo: "Montar seu perfil de criador",
@@ -201,12 +203,18 @@ export const resultados = {
         "Bio, destaques e primeira impressão que fazem a pessoa querer ficar.",
     },
     {
+      titulo: "Falar sem travar na câmera",
+      texto:
+        "Com o roteiro pronto antes de gravar, sua cabeça não precisa inventar na hora.",
+    },
+    {
       titulo: "Escrever roteiro que segura atenção",
       texto: "Começo, meio e fim pensados pra pessoa não deslizar o dedo.",
     },
     {
       titulo: "Entender por que um conteúdo viraliza",
-      texto: "O mecanismo por trás do formato, pra você criar em vez de copiar.",
+      texto:
+        "O que faz o vídeo funcionar por baixo do formato, pra você criar em vez de copiar.",
     },
     {
       titulo: "Vender pelos stories sem parecer vendedor",
@@ -214,49 +222,47 @@ export const resultados = {
     },
     {
       titulo: "Atrair leads todos os dias",
-      texto: "O caminho pra transformar quem assiste em quem levanta a mão.",
-    },
-    {
-      titulo: "Montar seu modelo de negócio solo",
-      texto: "Como uma pessoa sozinha organiza oferta, entrega e rotina.",
-    },
-    {
-      titulo: "Trabalhar como co-produtor",
       texto:
-        "Entrar na estrutura de quem já tem audiência, sem construir a sua antes.",
+        "Como fazer quem assiste virar quem manda mensagem pedindo o próximo passo.",
+    },
+    {
+      titulo: "Montar seu negócio sozinho",
+      texto:
+        "Como uma pessoa só organiza o que vende, como entrega e a rotina da semana.",
     },
     {
       titulo: "Construir sem precisar aparecer",
       texto: "O caminho inteiro pra quem não quer o próprio rosto na câmera.",
     },
   ],
-  cta: "Quero entrar no SURFE DIGITAL",
+  cta: "Quero aprender a fazer isso",
 };
 
 export const comparativo = {
   titulo: "A diferença não está no esforço",
   colunaNegativa: "Quem posta no escuro",
-  colunaPositiva: "Quem tem um sistema",
+  colunaPositiva: "Quem tem um método",
+  legenda: "Comparação entre postar sem método e trabalhar com um método.",
   linhas: [
     {
       negativo: "Escolhe o tema no impulso do dia",
-      positivo: "Trabalha dentro de uma linha de conteúdo definida",
+      positivo: "Trabalha dentro de uma linha de conteúdo",
+    },
+    {
+      negativo: "Improvisa na frente da câmera",
+      positivo: "Já sabe a primeira frase antes de gravar",
     },
     {
       negativo: "Copia o formato que viu viralizar",
-      positivo: "Entende o mecanismo e adapta pro próprio tema",
+      positivo: "Entende por que funcionou e adapta pro próprio tema",
     },
     {
       negativo: "Publica e espera",
-      positivo: "Publica, lê o resultado e ajusta o próximo",
+      positivo: "Publica, olha o resultado e ajusta o próximo",
     },
     {
       negativo: "Fala pra todo mundo e não conecta com ninguém",
       positivo: "Fala pra uma pessoa específica",
-    },
-    {
-      negativo: "Trata story como sobra do feed",
-      positivo: "Usa story como o lugar onde a venda acontece",
     },
     {
       negativo: "Depende de aparecer pra existir no digital",
@@ -264,24 +270,24 @@ export const comparativo = {
     },
     {
       negativo: "Recomeça do zero toda segunda",
-      positivo: "Acumula, cada semana em cima da anterior",
+      positivo: "Cada semana constrói em cima da anterior",
     },
   ],
 };
 
 export const metodo = {
-  titulo: "SURFE DIGITAL é uma formação, não um cursinho de viralizar",
+  titulo: "O caminho inteiro, na ordem em que se faz",
   intro:
-    "São nove módulos em ordem. Você começa desenhando a base do seu negócio, passa pela criação de conteúdo e termina no caminho da co-produção. Cada módulo entrega uma coisa pra executar.",
+    "Nove módulos em três blocos. Você começa desenhando o negócio, passa pela criação de conteúdo e termina na co-produção. Cada módulo acaba com uma coisa pra você executar.",
   blocos: [
     {
       nome: "Base",
       modulos: [
         {
           numero: "01",
-          titulo: "Modelo de negócio solo",
+          titulo: "Como montar seu negócio sozinho",
           texto:
-            "Como uma pessoa sozinha organiza oferta, entrega e rotina. O desenho vem antes do post.",
+            "Como uma pessoa só organiza o que vende, como entrega e a rotina. Isso vem antes do primeiro post.",
         },
         {
           numero: "02",
@@ -298,25 +304,25 @@ export const metodo = {
           numero: "03",
           titulo: "Perfil de criador",
           texto:
-            "Bio, destaques e primeira impressão. O que faz alguém decidir ficar em três segundos.",
+            "Bio, destaques e a primeira impressão. O que faz alguém decidir ficar nos três primeiros segundos.",
         },
         {
           numero: "04",
           titulo: "Roteiros magnéticos",
           texto:
-            "A estrutura que segura atenção do primeiro ao último segundo, em qualquer formato.",
+            "A estrutura que segura a atenção do primeiro ao último segundo, em qualquer formato.",
         },
         {
           numero: "05",
           titulo: "Vender pelos stories",
           texto:
-            "A rotina que aquece, mostra e convida, sem o conteúdo virar anúncio.",
+            "A rotina que aquece, mostra e convida, sem o story virar anúncio.",
         },
         {
           numero: "06",
           titulo: "Atrair leads todos os dias",
           texto:
-            "Como transformar quem assiste em quem levanta a mão e pede o próximo passo.",
+            "O caminho de quem só assiste até a mensagem no direct pedindo o próximo passo.",
         },
       ],
     },
@@ -327,7 +333,7 @@ export const metodo = {
           numero: "07",
           titulo: "O que é co-produção",
           texto:
-            "O modelo por dentro: quem faz o quê, como se divide e por que ele funciona.",
+            "O modelo por dentro: quem faz o quê, como se divide o resultado e por que funciona pros dois lados.",
         },
         {
           numero: "08",
@@ -339,7 +345,7 @@ export const metodo = {
           numero: "09",
           titulo: "Seu perfil de co-produtor",
           texto:
-            "Como se apresentar, o que mostrar e onde encontrar os criadores certos.",
+            "Como se apresentar, o que mostrar e onde achar os criadores certos.",
         },
       ],
     },
@@ -347,8 +353,7 @@ export const metodo = {
   reforcos: [
     {
       titulo: "Aulas práticas, sem enrolação",
-      texto:
-        "Cada aula vai direto ao ponto. Você assiste e já sai com o que fazer depois.",
+      texto: "Você assiste e já sai sabendo o que fazer depois.",
     },
     {
       titulo: "Atualizações incluídas",
@@ -362,7 +367,7 @@ export const coproducao = {
   selo: "Quase ninguém ensina isso",
   titulo: "E se você não quer aparecer?",
   intro:
-    "Existe um caminho no digital onde você não é o rosto. Você é a estrutura por trás de quem já é o rosto. Isso chama co-produção, e são três dos nove módulos do curso.",
+    "Existe um caminho no digital em que você não é o rosto, você é a estrutura por trás de quem já é. Chama co-produção, e são três dos nove módulos aqui dentro.",
   cards: [
     {
       titulo: "O que faz um co-produtor",
@@ -372,7 +377,7 @@ export const coproducao = {
     {
       titulo: "Por que criadores precisam de você",
       texto:
-        "Quem tem audiência quase nunca tem tempo. Falta quem organize a oferta e faça o negócio rodar sem depender do humor da semana.",
+        "Quem tem audiência quase nunca tem tempo. Falta alguém pra organizar a oferta e fazer o negócio rodar sem depender do humor da semana.",
     },
     {
       titulo: "Você não precisa de audiência própria",
@@ -382,7 +387,7 @@ export const coproducao = {
     {
       titulo: "Por que agora",
       texto:
-        "Tem muito criador crescendo rápido e pouca gente sabendo operar por trás. A vaga existe e está aberta.",
+        "Tem muito criador crescendo rápido e pouca gente que sabe operar por trás. Essa vaga está aberta.",
     },
   ],
   cta: "Quero aprender co-produção",
@@ -390,12 +395,12 @@ export const coproducao = {
 
 export const bonus = {
   titulo: "Dois bônus entram junto",
-  subtitulo: "Sem soma de valor inventada. Os dois estão inclusos no preço.",
+  subtitulo: "Os dois já entram no preço, sem custo extra.",
   itens: [
     {
       nome: "Acesso à comunidade",
       texto:
-        "Um grupo de gente construindo ao mesmo tempo que você. A pergunta que te trava hoje, alguém ali já passou por ela.",
+        "Um grupo de gente construindo ao mesmo tempo que você. A dúvida que te trava hoje, alguém ali já passou por ela.",
       etiqueta: "Incluso",
     },
     {
@@ -414,7 +419,7 @@ export const oferta = {
   // usados quando PRECO_JANELA e null, ou seja, preco cheio
   seloSemJanela: "Acesso imediato",
   tituloSemJanela: "Entre no SURFE DIGITAL",
-  cta: "Quero entrar no SURFE DIGITAL",
+  cta: "Garantir meu acesso",
   inclusos: [
     "Os 9 módulos do SURFE DIGITAL",
     "O bloco completo de co-produção",
@@ -423,21 +428,25 @@ export const oferta = {
     "Encontro ao vivo de tira-dúvidas",
     "Atualizações do método",
     "Acesso imediato após a compra",
-    "7 dias de garantia",
+    `${GARANTIA_DIAS} dias de garantia`,
   ],
   escassez:
-    "O preço de lançamento vale enquanto a janela estiver aberta. Quando ela fecha, o SURFE DIGITAL volta para o preço cheio. Sem contador na tela e sem cronômetro que reinicia: é só o preço voltando ao normal.",
+    "O preço de lançamento vale enquanto a janela estiver aberta. Quando ela fecha, o SURFE DIGITAL volta pro preço cheio. Sem cronômetro que reinicia sozinho, é só o preço voltando ao normal.",
 };
 
 export const garantia = {
-  titulo: "7 dias pra decidir sem risco",
-  texto:
-    "Você entra, assiste e aplica. Se em 7 dias não fizer sentido pra você, pede o reembolso e recebe o valor de volta. Sem justificativa e sem ninguém tentando te convencer do contrário. Esse é o direito de arrependimento previsto no Código de Defesa do Consumidor, e aqui ele vale integral.",
+  titulo: `${GARANTIA_DIAS} dias pra decidir sem risco`,
+  texto: `Você entra, assiste e aplica. Se em ${GARANTIA_DIAS} dias não fizer sentido pra você, pede o reembolso e recebe o valor de volta. Sem justificar nada e sem ninguém tentando te convencer do contrário. É o direito de arrependimento previsto no Código de Defesa do Consumidor, e aqui ele vale integral.`,
 };
 
 export const faq = {
   titulo: "Perguntas que chegam sempre",
   itens: [
+    {
+      pergunta: "Eu travo na frente da câmera. Funciona pra mim?",
+      resposta:
+        "Funciona, e boa parte do curso existe por causa disso. Travar quase sempre vem de não saber a primeira frase e ter que inventar na hora. Com o roteiro pronto antes de gravar, seu corpo sabe pra onde ir. E se depois de tudo você ainda não quiser aparecer, o bloco de co-produção é o caminho de construir sem câmera nenhuma.",
+    },
     {
       pergunta: "Funciona pra quem está começando do zero?",
       resposta:
@@ -446,12 +455,17 @@ export const faq = {
     {
       pergunta: "Funciona pra quem não quer aparecer?",
       resposta:
-        "Sim. Três dos nove módulos são sobre co-produção, que é o caminho de trabalhar por trás de criadores que já aparecem. Você não precisa gravar o próprio rosto pra seguir por ali.",
+        "Sim. Três dos nove módulos são sobre co-produção, que é trabalhar por trás de criadores que já aparecem. Você não precisa gravar o próprio rosto pra seguir por ali.",
+    },
+    {
+      pergunta: "Preciso ter seguidor pra começar?",
+      resposta:
+        "Não. Pra criar conteúdo, o curso começa antes do primeiro post. Pra co-produção, quem precisa ter audiência é o criador com quem você vai trabalhar, não você.",
     },
     {
       pergunta: "Quanto tempo por dia eu preciso?",
       resposta:
-        "As aulas são curtas e dá pra fazer um módulo por semana. A execução é que pede constância, não volume. Uma hora por dia bem usada rende mais do que um fim de semana inteiro uma vez por mês.",
+        "As aulas são curtas e dá pra fazer um módulo por semana. O que pede constância é a execução. Uma hora por dia bem usada rende mais do que um fim de semana inteiro uma vez por mês.",
     },
     {
       pergunta: "E se eu não tenho o que ensinar?",
@@ -465,8 +479,7 @@ export const faq = {
     },
     {
       pergunta: "Como funciona a garantia?",
-      resposta:
-        "São 7 dias contados a partir da compra. Nesse período você pede o reembolso e recebe o valor de volta, sem precisar justificar. É o direito de arrependimento do Código de Defesa do Consumidor.",
+      resposta: `São ${GARANTIA_DIAS} dias contados a partir da compra. Nesse período você pede o reembolso e recebe o valor de volta, sem precisar justificar. É o direito de arrependimento do Código de Defesa do Consumidor.`,
     },
   ],
 };

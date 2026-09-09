@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import CtaButton from "./CtaButton";
-import { PRECO_CHEIO, PRECO_JANELA, ctaFixo } from "@/config/surfeDigital";
 import styles from "./MobileCta.module.css";
 
 /**
@@ -11,10 +10,21 @@ import styles from "./MobileCta.module.css";
  * entra, entao ele nunca cobre o rodape. Dois IntersectionObserver,
  * sem listener de scroll.
  *
- * @param {string} heroId    Elemento que define "ja passou do hero".
- * @param {string} footerId  Elemento que faz o botao sumir.
+ * @param {string} heroId       Elemento que define "ja passou do hero".
+ * @param {string} footerId     Elemento que faz o botao sumir.
+ * @param {string} preco        Valor exibido ao lado do botao.
+ * @param {string} nota         Linha pequena abaixo do preco.
+ * @param {string} acao         Texto do botao.
+ * @param {string} checkoutUrl  Destino do botao.
  */
-export default function MobileCta({ heroId, footerId }) {
+export default function MobileCta({
+  heroId,
+  footerId,
+  preco,
+  nota,
+  acao,
+  checkoutUrl,
+}) {
   const [visivel, setVisivel] = useState(false);
 
   useEffect(() => {
@@ -54,14 +64,12 @@ export default function MobileCta({ heroId, footerId }) {
   return (
     <div className={styles.bar} data-visible={visivel} aria-hidden={!visivel}>
       <div className={styles.price}>
-        <span className={styles.priceValue}>
-          {PRECO_JANELA ?? PRECO_CHEIO}
-        </span>
-        <span className={styles.priceNote}>
-          {PRECO_JANELA ? "na janela de lançamento" : "acesso imediato"}
-        </span>
+        <span className={styles.priceValue}>{preco}</span>
+        <span className={styles.priceNote}>{nota}</span>
       </div>
-      <CtaButton size="sm">{ctaFixo.acao}</CtaButton>
+      <CtaButton size="sm" href={checkoutUrl}>
+        {acao}
+      </CtaButton>
     </div>
   );
 }

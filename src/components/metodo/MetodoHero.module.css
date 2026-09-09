@@ -1,0 +1,106 @@
+.hero {
+  padding-block: clamp(44px, 10vw, 84px) clamp(40px, 9vw, 64px);
+  scroll-margin-top: var(--sr-nav-h);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-9);
+  width: 100%;
+  max-width: calc(var(--sr-container-wide) + var(--sr-gutter) * 2);
+  margin: 0 auto;
+  padding-inline: var(--sr-gutter);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sr-space-5);
+}
+
+/* assinatura da marca, mesma anatomia do "Surfe a" do hub */
+.eyebrow {
+  font-family: var(--sr-font-display);
+  font-weight: 500;
+  font-size: var(--sr-fs-small);
+  letter-spacing: var(--sr-ls-wordmark);
+  text-transform: uppercase;
+  color: rgba(215, 199, 255, 0.78);
+}
+
+/* headline longa: um degrau abaixo do h1 padrao, senao passa de 5 linhas */
+.title {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--sr-font-display);
+  font-size: clamp(27px, 6.4vw, 42px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: var(--sr-ls-tighter);
+  background: var(--sr-grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-wrap: balance;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 54ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}
+
+.cta {
+  width: 100%;
+  max-width: 420px;
+  margin-top: var(--sr-space-1);
+}
+
+.visual {
+  display: flex;
+  justify-content: center;
+}
+
+/* no celular a arte fica abaixo do texto: capada em 260px pra nao
+   empurrar a primeira secao pra fora de duas telas */
+.art {
+  max-width: 260px;
+  box-shadow: var(--sr-shadow-feature);
+}
+
+/* Arte com fundo transparente (hoje, a logo): box-shadow desenharia um
+   retangulo luminoso atras do vazio, entao o glow vira drop-shadow, que
+   acompanha o contorno do desenho. Mesma receita do topo do hub. Como a
+   logo tem muita margem transparente, ela ganha mais largura que uma
+   arte vertical teria. */
+.artContain {
+  max-width: 340px;
+  box-shadow: none;
+  filter: drop-shadow(0 16px 40px rgba(151, 92, 255, 0.55));
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+    gap: var(--sr-space-10);
+  }
+
+  .visual {
+    justify-content: flex-end;
+  }
+
+  .art {
+    max-width: 360px;
+  }
+
+  .artContain {
+    max-width: 460px;
+  }
+}

@@ -1,9 +1,15 @@
 import CtaButton from "./CtaButton";
-import { nav } from "@/config/surfeDigital";
 import styles from "./SiteNav.module.css";
 
-/** Barra fina fixa no topo. Abaixo de 768px as ancoras somem. */
-export default function SiteNav() {
+/**
+ * Barra fina fixa no topo. Abaixo de 768px as ancoras somem.
+ * Compartilhada entre as paginas de venda: cada uma passa o proprio
+ * conteudo e o proprio checkout.
+ *
+ * @param {{marca: string, ancoras: {label: string, href: string}[], cta: string}} nav
+ * @param {string} checkoutUrl  Destino do botao.
+ */
+export default function SiteNav({ nav, checkoutUrl }) {
   return (
     <header className={styles.nav}>
       <div className={styles.inner}>
@@ -21,7 +27,9 @@ export default function SiteNav() {
         </nav>
 
         <div className={styles.action}>
-          <CtaButton size="sm">{nav.cta}</CtaButton>
+          <CtaButton size="sm" href={checkoutUrl}>
+            {nav.cta}
+          </CtaButton>
         </div>
       </div>
     </header>

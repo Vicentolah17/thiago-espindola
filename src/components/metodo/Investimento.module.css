@@ -1,0 +1,214 @@
+.palco {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* glow unico atras do card, estatico */
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 128%;
+  height: 116%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(151, 92, 255, 0.32) 0%,
+    rgba(232, 182, 74, 0.08) 45%,
+    rgba(151, 92, 255, 0) 72%
+  );
+  filter: blur(46px);
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  border-radius: var(--sr-radius-xl);
+  padding: 1px;
+  background: var(--sr-grad-feature-border);
+  box-shadow: var(--sr-shadow-feature);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-5);
+  border-radius: 29px;
+  padding: var(--sr-space-8) var(--sr-space-6) var(--sr-space-7);
+  background: var(--sr-grad-feature);
+  text-align: center;
+}
+
+.selo {
+  padding: 6px 13px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid rgba(196, 158, 255, 0.3);
+  background: rgba(151, 92, 255, 0.1);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-label);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge);
+  text-transform: uppercase;
+  color: var(--sr-violet-text);
+}
+
+.titulo {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+/* ---------- ancora com composicao ---------- */
+
+.ancora {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-3);
+  width: 100%;
+  padding: var(--sr-space-4);
+  border-radius: var(--sr-radius-md);
+  border: 1px solid var(--sr-line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ancoraValor {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sr-space-2);
+}
+
+.ancoraRotulo {
+  font-size: var(--sr-fs-small);
+  letter-spacing: var(--sr-ls-wide);
+  color: var(--sr-text-4);
+}
+
+.riscado {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h3);
+  font-weight: 700;
+  color: var(--sr-text-4);
+  text-decoration-color: rgba(196, 158, 255, 0.75);
+  text-decoration-thickness: 2px;
+}
+
+.composicao {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sr-space-2) var(--sr-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.composicaoItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sr-space-2);
+  font-size: var(--sr-fs-small);
+  color: var(--sr-text-2);
+}
+
+.composicaoDot {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--sr-radius-pill);
+  background: rgba(var(--sr-violet), 0.8);
+}
+
+/* ---------- preco em dourado ---------- */
+
+.precoBloco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-1);
+}
+
+.preco {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-display);
+  font-weight: 800;
+  line-height: var(--sr-lh-display);
+  letter-spacing: var(--sr-ls-tighter);
+  background: var(--sr-grad-gold-text, var(--sr-grad-title));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 10px 30px rgba(232, 182, 74, 0.28));
+}
+
+.parcelas {
+  margin: 0;
+  font-size: var(--sr-fs-body-s);
+  color: var(--sr-text-2);
+}
+
+.parcelas strong {
+  font-weight: 600;
+  color: var(--sr-gold-text, var(--sr-text-strong));
+}
+
+.acao {
+  width: 100%;
+}
+
+/* ---------- inclusos ---------- */
+
+.inclusos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-2);
+  width: 100%;
+  margin: 0;
+  padding-top: var(--sr-space-5);
+  border-top: 1px solid var(--sr-line);
+  list-style: none;
+  text-align: left;
+}
+
+.incluso {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-2);
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-1);
+  text-wrap: pretty;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--sr-radius-pill);
+  background: rgba(var(--sr-violet), 0.2);
+  color: var(--sr-violet-text);
+}
+
+@media (min-width: 560px) {
+  .inclusos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding: clamp(38px, 5vw, 52px) clamp(30px, 4vw, 46px);
+  }
+}

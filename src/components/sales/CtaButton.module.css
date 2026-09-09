@@ -40,6 +40,23 @@
   width: 100%;
 }
 
+/* Acento dourado. Os tokens so existem no tema do Metodo S.U.R.F.E;
+   fora dele o fallback devolve o gradiente violeta normal, entao o
+   botao nunca fica sem cor. */
+.gold {
+  background: var(--sr-grad-cta-gold, var(--sr-grad-cta));
+  box-shadow: var(--sr-shadow-cta-gold, var(--sr-shadow-cta));
+}
+
+.gold .label,
+.gold .arrow {
+  color: var(--sr-gold-ink, #ffffff);
+}
+
+.gold .arrow {
+  background: var(--sr-gold-arrow-bg, rgba(255, 255, 255, 0.18));
+}
+
 .label {
   font-family: var(--sr-font-display);
   font-weight: 600;

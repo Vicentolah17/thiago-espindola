@@ -4,6 +4,9 @@ import FinalCta from "@/components/oferta/FinalCta";
 import OfertaHero from "@/components/oferta/OfertaHero";
 import OfferPrice from "@/components/oferta/OfferPrice";
 import Proof from "@/components/oferta/Proof";
+import Faq from "@/components/sales/Faq";
+import SalesFooter from "@/components/sales/SalesFooter";
+import { objecoes, rodape } from "@/config/ofertaSurfeDigital";
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -42,8 +45,16 @@ export default function OfertaSurfeDigitalPage() {
         {/* 3 */} <Deliverables />
         {/* 4 */} <Proof />
         {/* 5 */} <OfferPrice />
-        {/* 6 */} <FinalCta />
+        {/*
+          6. As tres perguntas. Mesmo accordion das outras paginas,
+          sem rotulo em cima: o titulo e a propria chamada.
+        */}
+        <Faq eyebrow="" titulo={objecoes.titulo} itens={objecoes.itens} />
+        {/* 7 */} <FinalCta />
       </main>
+
+      {/* 8. Rodape: links legais e o disclaimer de resultados. */}
+      <SalesFooter id="rodape" rodape={rodape} />
     </div>
   );
 }

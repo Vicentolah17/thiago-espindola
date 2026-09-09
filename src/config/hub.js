@@ -23,16 +23,17 @@ export const hub = {
   },
 
   kit: {
-    // PENDENTE: o Kit de Aplicacao ainda nao existe. Enquanto o href
-    // comecar com "#", o card fica visivel mas nao leva a lugar nenhum.
-    // Trocar pelo link real quando o kit estiver no ar.
-    href: "#kit",
+    // Produto gratuito, hospedado na Gumroad. Link definitivo.
+    href: "https://thiagoespindola.gumroad.com/l/saltoquantico",
+    // A etiqueta ja sai em caixa alta pelo layout, entao aqui fica
+    // escrita normal.
     badge: "Gratuito",
-    eyebrow: "Comece aqui de graça",
-    titleLines: ["Kit de", "Aplicação"],
+    eyebrow: "Comece por aqui",
+    // Uma linha so: em tela estreita ela quebra sozinha no espaco.
+    titleLines: ["Salto Quântico"],
     description:
-      "O guia prático para destravar seu carisma. Primeiro passo para criar sua identidade digital",
-    cta: "Acessar o kit gratuito",
+      "O desafio de reprogramação mental em 30 dias. Saia do piloto automático e comece a reescrever a sua realidade a partir de hoje.",
+    cta: "Acessar de graça",
   },
 
   levelsLabel: "Próximos níveis",
@@ -51,8 +52,19 @@ export const hub = {
       variant: "violet",
     },
     {
-      href: "https://www.thiagoespindola.com/surfarelite",
+      // Pagina de vendas do Metodo S.U.R.F.E, neste mesmo projeto.
+      href: "/metodo-surfe",
       number: "02",
+      title: "Método S.U.R.F.E",
+      description:
+        "O protocolo de reprogramação mental. Destrave as crenças que te seguram e reprograme sua realidade.",
+      // violeta e a cor dos niveis regulares do hub. O magenta fica
+      // reservado pro Elite, que e o topo da escada.
+      variant: "violet",
+    },
+    {
+      href: "https://www.thiagoespindola.com/surfarelite",
+      number: "03",
       title: "Surfar Elite",
       badge: "por aplicação",
       description: "Mentoria e acesso privilegiado aos melhores contatos e métodos que nossa equipe pode oferecer",

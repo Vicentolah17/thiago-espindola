@@ -40,6 +40,9 @@ export default function Choice() {
         </article>
       </div>
 
+      {escolha.fechamentoIntro && (
+        <p className={styles.closingIntro}>{escolha.fechamentoIntro}</p>
+      )}
       <p className={styles.closing}>{escolha.fechamento}</p>
     </Section>
   );

@@ -1,0 +1,89 @@
+/* ============================================================
+   TEMA "METODO S.U.R.F.E"
+   Sobreposicao de tokens. Nenhum componente muda: tudo abaixo de
+   [data-theme="metodo-surfe"] passa a ler estes valores no lugar dos
+   de tokens.css. O que nao esta aqui continua igual ao resto do site
+   (tipografia, espaco, raios, larguras, motion).
+
+   Identidade real do produto: preto profundo, violeta e magenta em
+   neon, textura de particula, dourado quente vindo do logo.
+   ============================================================ */
+
+[data-theme="metodo-surfe"] {
+  /* ---------- fundo: preto profundo com camadas de violeta ---------- */
+  --sr-bg: #030208;
+  --sr-bg-deep: #05030d;
+  --sr-bg-top: #100722;
+  --sr-grad-page: radial-gradient(
+    120% 80% at 50% -10%,
+    #100722 0%,
+    #06030f 45%,
+    #030208 100%
+  );
+
+  /* ---------- superficies: mais escuras e mais violeta que o hub ---------- */
+  --sr-surface-1: #09050f;
+  --sr-surface-2: #0e0818;
+  --sr-surface-3: #180d2c;
+  --sr-surface-flat: #0c0715;
+
+  --sr-grad-feature: linear-gradient(
+    158deg,
+    #180d2c 0%,
+    #0e0818 46%,
+    #09050f 100%
+  );
+  --sr-grad-feature-border: linear-gradient(
+    155deg,
+    rgba(178, 132, 255, 0.85),
+    rgba(151, 92, 255, 0.4) 42%,
+    rgba(255, 255, 255, 0.06) 78%
+  );
+
+  /* ---------- acao: violeta neon puro, sem virar magenta ---------- */
+  --sr-grad-cta: linear-gradient(100deg, #7b3fe4 0%, #975cff 52%, #b07cff 100%);
+  --sr-shadow-cta: 0 20px 44px -20px rgba(151, 92, 255, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+
+  /* ---------- magenta recua: o ponto luminoso fica violeta claro ---------- */
+  --sr-magenta-dot: #b07cff;
+  --sr-magenta-text: #d8c6ff;
+  --sr-magenta-line: rgba(196, 158, 255, 0.42);
+  --sr-grad-card-magenta: linear-gradient(
+    150deg,
+    rgba(151, 92, 255, 0.11) 0%,
+    rgba(255, 255, 255, 0.022) 55%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+
+  /* ---------- destaque tipografico ---------- */
+  --sr-grad-title: linear-gradient(168deg, #ffffff 0%, #e6d8ff 52%, #b07cff 100%);
+  --sr-shadow-feature: 0 44px 110px -44px rgba(151, 92, 255, 0.85),
+    0 8px 30px -18px rgba(151, 92, 255, 0.4);
+
+  /* ---------- cards: veu de violeta sobre o preto ---------- */
+  --sr-grad-card-violet: linear-gradient(
+    150deg,
+    rgba(151, 92, 255, 0.11) 0%,
+    rgba(255, 255, 255, 0.022) 55%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  --sr-grad-card-mute: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.018) 55%,
+    rgba(255, 255, 255, 0.008) 100%
+  );
+
+  /* ---------- dourado do logo: so preco e CTA final ---------- */
+  --sr-gold: 232, 182, 74;
+  --sr-gold-text: #f2c766;
+  --sr-gold-deep: #c9962e;
+  --sr-gold-ink: #1a1206;
+  --sr-gold-line: rgba(232, 182, 74, 0.42);
+  --sr-gold-arrow-bg: rgba(26, 18, 6, 0.16);
+  --sr-grad-cta-gold: linear-gradient(100deg, #c9962e 0%, #e8b64a 50%, #f2c766 100%);
+  --sr-shadow-cta-gold: 0 20px 44px -20px rgba(232, 182, 74, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  --sr-grad-gold-text: linear-gradient(168deg, #fff3d6 0%, #f2c766 52%, #c9962e 100%);
+}

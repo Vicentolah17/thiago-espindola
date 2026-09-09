@@ -1,0 +1,41 @@
+.bloco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-4);
+  text-align: center;
+}
+
+.risco {
+  width: 46px;
+  height: 2px;
+  margin-bottom: var(--sr-space-1);
+  border-radius: var(--sr-radius-pill);
+  background: linear-gradient(
+    90deg,
+    rgba(151, 92, 255, 0),
+    rgba(196, 158, 255, 0.9) 50%,
+    rgba(151, 92, 255, 0)
+  );
+}
+
+.titulo {
+  margin: 0;
+  max-width: 20ch;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h2);
+  font-weight: 800;
+  line-height: var(--sr-lh-tight);
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+  text-wrap: balance;
+}
+
+.texto {
+  margin: 0;
+  max-width: 58ch;
+  font-size: var(--sr-fs-body);
+  line-height: var(--sr-lh-body-l);
+  color: var(--sr-text-2);
+  text-wrap: pretty;
+}

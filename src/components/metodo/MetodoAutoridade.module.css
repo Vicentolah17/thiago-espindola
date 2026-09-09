@@ -5,8 +5,6 @@
   align-items: start;
 }
 
-/* ---------- foto ---------- */
-
 .photo {
   margin: 0;
   border-radius: var(--sr-radius-lg);
@@ -34,7 +32,6 @@
   gap: var(--sr-space-1);
   aspect-ratio: 4 / 5;
   border-radius: 23px;
-  /* mesma trama diagonal do avatar do hub */
   background: repeating-linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.07) 0 6px,
@@ -57,8 +54,6 @@
   font-size: var(--sr-fs-caption);
   color: var(--sr-text-6);
 }
-
-/* ---------- texto ---------- */
 
 .text {
   display: flex;
@@ -91,7 +86,7 @@
 
 .title {
   margin: 0 0 var(--sr-space-1);
-  max-width: 20ch;
+  max-width: 22ch;
   font-family: var(--sr-font-display);
   font-size: var(--sr-fs-h2);
   font-weight: 800;
@@ -99,6 +94,17 @@
   letter-spacing: var(--sr-ls-tight);
   color: var(--sr-text-strong);
   text-wrap: balance;
+}
+
+.subtitle {
+  margin: var(--sr-space-4) 0 0;
+  padding-top: var(--sr-space-4);
+  border-top: 1px solid var(--sr-line);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-h3);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
 }
 
 .paragraph {
@@ -110,66 +116,14 @@
   text-wrap: pretty;
 }
 
-/* ---------- credenciais ---------- */
-
-.credentials {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--sr-space-3);
-  margin: var(--sr-space-9) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.credential {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sr-space-2);
-  padding: var(--sr-space-5);
-  border-radius: var(--sr-radius-lg);
-  border: 1px solid var(--sr-line);
-  background: var(--sr-grad-card-violet);
-  box-shadow: var(--sr-inset);
-}
-
-.credentialIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  margin-bottom: var(--sr-space-1);
-  border-radius: var(--sr-radius-chip);
-  border: 1px solid var(--sr-line-mid);
-  background: rgba(var(--sr-violet), 0.16);
-  color: var(--sr-violet-text);
-}
-
-.credentialTitle {
-  margin: 0;
-  font-family: var(--sr-font-display);
-  font-size: var(--sr-fs-body-l);
-  font-weight: 700;
-  letter-spacing: var(--sr-ls-tight);
-  color: var(--sr-text-strong);
-}
-
-.credentialText {
-  margin: 0;
-  font-size: var(--sr-fs-body-s);
-  line-height: var(--sr-lh-body);
-  color: var(--sr-text-3);
-  text-wrap: pretty;
-}
-
-@media (min-width: 768px) {
+@media (min-width: 820px) {
   .grid {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: var(--sr-space-9);
-    align-items: center;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: var(--sr-space-10);
   }
 
-  .credentials {
-    grid-template-columns: repeat(3, 1fr);
+  .photo {
+    position: sticky;
+    top: calc(var(--sr-nav-h) + var(--sr-space-6));
   }
 }

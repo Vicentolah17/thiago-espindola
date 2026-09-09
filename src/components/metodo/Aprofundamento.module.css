@@ -1,0 +1,54 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sr-space-7);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-3);
+  text-align: center;
+}
+
+.nome {
+  margin: var(--sr-space-1) 0 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+}
+
+/* contagem de aulas: pilula pequena, o unico dado duro da secao */
+.aulas {
+  padding: 3px 10px;
+  border-radius: var(--sr-radius-pill);
+  border: 1px solid var(--sr-violet-line);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-micro);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge-sm);
+  text-transform: uppercase;
+  color: var(--sr-violet-text);
+}
+
+.texto {
+  margin: 0;
+  max-width: 30ch;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sr-space-6);
+  }
+}

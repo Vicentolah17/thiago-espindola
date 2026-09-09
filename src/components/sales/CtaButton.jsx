@@ -4,13 +4,21 @@ import styles from "./CtaButton.module.css";
 /**
  * Botao de compra. Reaproveita exatamente o botao do card do hub:
  * mesma altura, mesmo raio, mesmo gradiente, mesma sombra, mesmo
- * quadrado da seta. Todos apontam para CHECKOUT_URL.
+ * quadrado da seta.
+ *
+ * O gradiente e a sombra vem dos tokens --sr-grad-cta e --sr-shadow-cta,
+ * entao um tema que redefina esses tokens muda a cor do botao sem
+ * tocar neste arquivo.
  *
  * @param {string}  children  Texto do botao.
  * @param {"lg"|"sm"} size    lg = 62px (padrao do hub), sm = nav.
  * @param {boolean} block     Ocupa a largura toda.
  * @param {string?} note      Microcopia abaixo do botao.
- * @param {string?} href      So para casos que nao vao ao checkout.
+ * @param {string}  href      Destino. Padrao: checkout do SURFE DIGITAL.
+ *                            Toda outra pagina deve passar o proprio.
+ * @param {"violet"|"gold"} tone  gold usa --sr-grad-cta-gold, que so
+ *                            existe no tema do Metodo S.U.R.F.E. Fora
+ *                            dele cai no gradiente normal.
  */
 export default function CtaButton({
   children,
@@ -18,8 +26,14 @@ export default function CtaButton({
   block = false,
   note,
   href = CHECKOUT_URL,
+  tone = "violet",
 }) {
-  const classes = [styles.button, styles[size], block && styles.block]
+  const classes = [
+    styles.button,
+    styles[size],
+    block && styles.block,
+    tone === "gold" && styles.gold,
+  ]
     .filter(Boolean)
     .join(" ");
 

@@ -16,9 +16,7 @@ export default function Comparison() {
 
       <div className={styles.wrap}>
         <table className={styles.table}>
-          <caption className={styles.caption}>
-            Comparação entre postar sem método e trabalhar com um sistema.
-          </caption>
+          <caption className={styles.caption}>{comparativo.legenda}</caption>
           <thead>
             <tr>
               <th scope="col" className={styles.headNegative}>
