@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import CtaButton from "./CtaButton";
 import { hero } from "@/config/surfeDigital";
 import styles from "./Hero.module.css";
@@ -12,7 +13,15 @@ export default function Hero() {
           <span className={styles.badgeLabel}>{hero.selo}</span>
         </div>
 
-        <h1 className={styles.title}>{hero.titulo}</h1>
+        {/* cada "\n" no titulo do config vira uma quebra de linha */}
+        <h1 className={styles.title}>
+          {hero.titulo.split("\n").map((linha, i) => (
+            <Fragment key={i}>
+              {i > 0 && <br />}
+              {linha}
+            </Fragment>
+          ))}
+        </h1>
         <p className={styles.subtitle}>{hero.subtitulo}</p>
 
         <ul className={styles.chips}>

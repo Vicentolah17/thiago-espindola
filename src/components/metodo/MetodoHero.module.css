@@ -67,6 +67,12 @@
   justify-content: center;
 }
 
+/* o comparador pede mais area que uma arte: e a peca que a pessoa
+   manipula, precisa de largura pra linha andar */
+.comparador {
+  max-width: 340px;
+}
+
 /* no celular a arte fica abaixo do texto: capada em 260px pra nao
    empurrar a primeira secao pra fora de duas telas */
 .art {
@@ -102,5 +108,9 @@
 
   .artContain {
     max-width: 460px;
+  }
+
+  .comparador {
+    max-width: 440px;
   }
 }

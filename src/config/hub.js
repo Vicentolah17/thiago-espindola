@@ -1,6 +1,8 @@
 // ============================================================
 //  EDITE AQUI: links, textos e chaves de exibicao do hub.
 //  Nenhum outro arquivo precisa ser tocado para trocar um link.
+//
+//  Copy: v2 (teste).
 // ============================================================
 
 export const hub = {
@@ -8,7 +10,7 @@ export const hub = {
     eyebrow: "Surfe a",
     title: "Realidade",
     tagline:
-      "Reprograme a mente e surfe a sua própria realidade. Escolha por onde começar.",
+      "Você não nasceu travado, foi treinado. Dá pra reprogramar isso. Escolhe por onde começar.",
     // Logo da marca. Quando preenchida, entra no lugar do circulo de
     // retrato, sem recorte, com o mesmo glow roxo do hub.
     // Precisa ser PNG com FUNDO TRANSPARENTE: o hub e quase preto,
@@ -28,12 +30,12 @@ export const hub = {
     // A etiqueta ja sai em caixa alta pelo layout, entao aqui fica
     // escrita normal.
     badge: "Gratuito",
-    eyebrow: "Comece por aqui",
+    eyebrow: "Começa aqui, de graça",
     // Uma linha so: em tela estreita ela quebra sozinha no espaco.
     titleLines: ["Salto Quântico"],
     description:
-      "O desafio de reprogramação mental em 30 dias. Saia do piloto automático e comece a reescrever a sua realidade a partir de hoje.",
-    cta: "Acessar de graça",
+      "Viver o mesmo roteiro toda semana é horrível, e conteúdo motivacional não resolve. Eu tentei, a angústia sempre voltava. Salte para sua realidade ideal, enquanto há tempo.",
+    cta: "Acessar DE GRAÇA",
   },
 
   levelsLabel: "Próximos níveis",
@@ -48,7 +50,7 @@ export const hub = {
       title: "Surfe Digital",
       uppercaseTitle: true,
       description:
-        "Conteúdo, viralização e co-produção. O jogo digital destravado.",
+        "Como eu cheguei a 40K seguidores em 2 meses. Viralização, conteúdo e co-produção (sem aparecer), o jogo digital destravado.",
       variant: "violet",
     },
     {
@@ -57,7 +59,7 @@ export const hub = {
       number: "02",
       title: "Método S.U.R.F.E",
       description:
-        "O protocolo de reprogramação mental. Destrave as crenças que te seguram e reprograme sua realidade.",
+        "O protocolo completo de reprogramação mental, pra quem já entendeu que quebrar ciclos é o primeiro passo.",
       // violeta e a cor dos niveis regulares do hub. O magenta fica
       // reservado pro Elite, que e o topo da escada.
       variant: "violet",
@@ -67,7 +69,8 @@ export const hub = {
       number: "03",
       title: "Surfar Elite",
       badge: "por aplicação",
-      description: "Mentoria e acesso privilegiado aos melhores contatos e métodos que nossa equipe pode oferecer",
+      description:
+        "Fazer mais de 10K em 3 meses com sua própria marca digital. Esse é o poder do Surfar Elite. Acompanhamento direcionado e técnicas de aplicação.",
       variant: "magenta",
     },
   ],

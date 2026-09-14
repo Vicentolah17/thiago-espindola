@@ -83,9 +83,9 @@ a pessoa escolher um caminho, não convencer.
 
 `src/app/layout.jsx`
 
-**Título da aba:** Surfe a Realidade
+**Título da aba:** Surfe a Realidade · Thiago Espíndola
 
-**Descrição:** Reprograme a mente e surfe a sua própria realidade. Escolha por onde começar.
+**Descrição:** Você não nasceu travado, foi treinado. Comece pelo kit gratuito.
 
 > A descrição é o que aparece embaixo do link quando alguém cola no WhatsApp.
 
@@ -97,7 +97,7 @@ a pessoa escolher um caminho, não convencer.
 
 **Nome grande:** Realidade
 
-**Frase de apoio:** Reprograme a mente e surfe a sua própria realidade. Escolha por onde começar.
+**Frase de apoio:** Você não nasceu travado, foi treinado. Dá pra reprogramar isso. Escolhe por onde começar.
 
 ## 1.3 Card principal (Salto Quântico)
 
@@ -105,23 +105,15 @@ a pessoa escolher um caminho, não convencer.
 
 **Etiqueta:** Gratuito
 
-**Linha acima do título:** Comece por aqui
+**Linha acima do título:** Começa aqui, de graça
 
 **Título:** Salto Quântico
 
-**Texto:** O desafio de reprogramação mental em 30 dias. Saia do piloto automático e comece a reescrever a sua realidade a partir de hoje.
+**Texto:** Viver o mesmo roteiro toda semana é horrível, e conteúdo motivacional não resolve. Eu tentei, a angústia sempre voltava. Salte para sua realidade ideal, enquanto há tempo.
 
-**Botão:** Acessar de graça
+**Botão:** Acessar DE GRAÇA
 
 > A etiqueta sai em CAIXA ALTA na tela. Escreva normal, o layout converte.
-
-> O título é uma linha só. No celular ele quebra sozinho no espaço ("Salto" em
-> cima, "Quântico" embaixo) e no desktop cabe em uma linha. Se quiser forçar a
-> quebra em outro ponto, me diz onde.
-
-> Este texto tem 129 caracteres e rende 4 linhas no celular. É o card herói,
-> então aguenta mais que os cards de nível, mas se quiser 2 linhas de verdade o
-> alvo é ~70 caracteres.
 
 > Link definitivo, na Gumroad: `thiagoespindola.gumroad.com/l/saltoquantico`.
 > Abre em aba nova, como todos os links que saem do hub.
@@ -140,7 +132,7 @@ a pessoa escolher um caminho, não convencer.
 
 **Título:** Surfe Digital
 
-**Texto:** Conteúdo, viralização e co-produção. O jogo digital destravado.
+**Texto:** Como eu cheguei a 40K seguidores em 2 meses. Viralização, conteúdo e co-produção (sem aparecer), o jogo digital destravado.
 
 > Este título aparece em CAIXA ALTA na tela. Escreva normal, o layout converte.
 
@@ -152,18 +144,7 @@ a pessoa escolher um caminho, não convencer.
 
 **Título:** Método S.U.R.F.E
 
-**Texto:** O protocolo de reprogramação mental. Destrave as crenças que te seguram e reprograme sua realidade.
-
-> Placeholder, você troca. Dois pontos pra olhar na v1: tem 101 caracteres, o
-> que leva o card a 4 linhas no celular, e "reprogramação" e "reprograme"
-> aparecem na mesma frase.
-
-> O título fica em caixa normal, igual ao Surfar Elite. Em caixa alta viraria
-> "MÉTODO S.U.R.F.E", que grita perto do acrônimo que já é maiúsculo. Se
-> preferir assim, é um `uppercaseTitle: true` no config.
-
-> Link ainda pendente: `#metodo-surfe`. O card aparece mas não leva a lugar
-> nenhum, mesma situação do Kit de Aplicação hoje.
+**Texto:** O protocolo completo de reprogramação mental, pra quem já entendeu que quebrar ciclos é o primeiro passo.
 
 ## 1.7 Card 03 · Surfar Elite
 
@@ -175,10 +156,11 @@ a pessoa escolher um caminho, não convencer.
 
 **Etiqueta:** por aplicação
 
-**Texto:** Mentoria e acesso privilegiado aos melhores contatos e métodos que nossa equipe pode oferecer
+**Texto:** Fazer mais de 10K em 3 meses com sua própria marca digital. Esse é o poder do Surfar Elite. Acompanhamento direcionado e técnicas de aplicação.
 
-> Este está com 93 caracteres, acima dos ~90 que cabem em 2 linhas, e sem ponto
-> final (os outros cards têm). Vale um corte na v1.
+> Promessa de faturamento com valor e prazo. Aprovada pelo cliente, mas vai
+> contra a regra 2 deste documento. Revisar antes de apontar anúncio pro hub
+> ou pra página do Elite.
 
 ## 1.8 Redes e rodapé
 

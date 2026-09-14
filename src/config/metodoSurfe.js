@@ -85,9 +85,27 @@ export const hero = {
     `Um protocolo de ${MINUTOS_POR_DIA} minutos por dia pra reescrever o padrão que decide como você age. Instalaram esse padrão sem te perguntar.`,
   cta: "Quero reprogramar minha mente",
   microcopia: `${PRECO_VISTA} à vista ou ${PARCELAS} · acesso imediato · ${GARANTIA_DIAS} dias de garantia`,
-  // PROVISORIO: a logo do hub no lugar da arte de abertura, ate a arte
-  // real (960x1200) existir. Por ser horizontal e transparente, entra
-  // com "contain" e o mesmo glow do hub, em vez de recortada em 2:3.
+  // Comparador antes/depois no lugar da arte de abertura. As duas fotos
+  // estao em /public/metodo, convertidas pra mesma caixa 960x1200 a
+  // partir de thiago_antes.jpeg e thiago_e_camelo.jpg. Apague este
+  // bloco inteiro e o hero volta a usar `arte` abaixo.
+  comparacao: {
+    antes: {
+      src: "/metodo/thiago-antes.webp",
+      alt: "Thiago Espíndola antes, de camiseta vermelha na rua, segurando duas galinhas",
+    },
+    depois: {
+      src: "/metodo/thiago-depois.webp",
+      alt: "Thiago Espíndola hoje, de keffiyeh, numa selfie ao lado de um camelo",
+    },
+    rotuloAntes: "Antes",
+    rotuloDepois: "Hoje",
+    // Na selfie original o rosto fica a esquerda e ficaria escondido
+    // atras da foto de antes com a linha no meio. Espelhada, o rosto
+    // vai pra direita. false mostra a foto como foi tirada.
+    espelharDepois: true,
+  },
+  // Fallback, so usado se `comparacao` for removido.
   arte: "/logo_surfe.webp",
   arteAjuste: "contain",
 };

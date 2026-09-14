@@ -44,9 +44,12 @@
   color: #f6eeff;
 }
 
+/* 28ch: largo o bastante pra uma frase de ~28 letras ficar inteira numa
+   linha no desktop, quando o titulo usa "\n" pra quebrar em duas frases.
+   No celular quem limita e a largura da tela, nao este valor. */
 .title {
   margin: 0;
-  max-width: 17ch;
+  max-width: 28ch;
   font-family: var(--sr-font-display);
   font-size: var(--sr-fs-h1);
   font-weight: 800;

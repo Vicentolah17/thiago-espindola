@@ -2,9 +2,9 @@ import "./tokens.css";
 import "./globals.css";
 
 export const metadata = {
-  title: "Surfe a Realidade",
+  title: "Surfe a Realidade · Thiago Espíndola",
   description:
-    "Reprograme a mente e surfe a sua própria realidade. Escolha por onde começar.",
+    "Você não nasceu travado, foi treinado. Comece pelo kit gratuito.",
 };
 
 export const viewport = {

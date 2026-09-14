@@ -56,9 +56,11 @@ export const nav = {
 
 export const hero = {
   selo: "Formação completa",
-  titulo: "Você não nasceu travado. Te treinaram pra não aparecer.",
+  // "\n" quebra a linha na tela
+  titulo:
+    "Depois de muitas tentativas.\nDescobri a linha reta para destravar o digital.",
   subtitulo:
-    "A formação completa pra viver do digital. Você monta sua marca, aprende a fazer conteúdo que prende e conhece a co-produção, o caminho de quem prefere ficar por trás.",
+    "Sentir que ninguém liga pro seu conteúdo é estressante. Mais de 1200 pessoas aplicaram minhas estratégias e acabaram com esse sentimento. Já tentei usar todo tipo de cronograma e método pronto de internet. Nada me parecia certo. Até entender que o algoritmo honra identidade e rejeita método genérico.",
   chips: [
     "Marca pessoal do zero",
     "Conteúdo que para o scroll",
