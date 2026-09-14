@@ -80,9 +80,9 @@ export const nav = {
 
 export const hero = {
   eyebrow: "Protocolo S.U.R.F.E",
-  titulo: "Você não é preguiçoso. Te programaram assim.",
+  titulo: "Quer repetir outro ano? Sem acessar sua versão ideal",
   subtitulo:
-    `Um protocolo de ${MINUTOS_POR_DIA} minutos por dia pra reescrever o padrão que decide como você age. Instalaram esse padrão sem te perguntar.`,
+    `Um protocolo de ${MINUTOS_POR_DIA} minutos por dia pra tomar a caneta da própria realidade. Ninguém escolhe o próprio padrão. Mas qualquer um pode escolher sair.`,
   cta: "Quero reprogramar minha mente",
   microcopia: `${PRECO_VISTA} à vista ou ${PARCELAS} · acesso imediato · ${GARANTIA_DIAS} dias de garantia`,
   // Comparador antes/depois no lugar da arte de abertura. As duas fotos
@@ -111,10 +111,10 @@ export const hero = {
 };
 
 export const agitacao = {
-  titulo: "Por fora tudo certo. Por dentro um ruído.",
+  titulo: "Por fora tudo certo. Por dentro angústia.",
   paragrafos: [
-    "Trabalho, rotina, gente em volta. E aquela sensação de estar sintonizado no canal errado, sem conseguir apontar o que está fora do lugar.",
-    "Você sente que a frequência certa existe. E toda vez que tenta sintonizar, alguma coisa te puxa de volta pro mesmo lugar de sempre.",
+    "Trabalho, rotina, gente em volta. E aquela sensação de ser um ator da própria vida, sem saber exatamente o que está errado.",
+    "Você sente que a realidade certa existe. Mas sempre que tenta fazer acontecer, “sem querer” algo te puxa de volta pro mesmo lugar de sempre.",
   ],
   rotuloPadroes: "Os quatro padrões",
   tituloPadroes: "Reconhece algum?",
