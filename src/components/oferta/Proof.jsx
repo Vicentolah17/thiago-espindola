@@ -1,19 +1,22 @@
 import Section from "@/components/sales/Section";
+import PrintGallery from "./PrintGallery";
 import { prova } from "@/config/ofertaSurfeDigital";
 import styles from "./Proof.module.css";
 
 /**
  * Secao 4. Prova.
  *
- * O case dos 40k e real e sempre aparece. Os depoimentos sao espaco
- * reservado: enquanto `prova.depoimentos` estiver vazio, o que
- * aparece sao caixas de placeholder marcadas, nunca nome ou frase
- * inventada. Ver o comentario no config.
+ * O case dos 40k sempre aparece. Abaixo dele, em ordem de prioridade:
+ * 1. depoimentos em video, quando `prova.depoimentos` tiver itens
+ * 2. prints reais, quando `prova.prints` tiver itens (o que esta no ar)
+ * 3. caixas de placeholder, se `mostrarPlaceholders` estiver ligado
+ * Nunca nome, frase ou resultado inventado.
  */
 export default function Proof() {
-  const { depoimentos, mostrarPlaceholders } = prova;
+  const { depoimentos = [], prints = [], mostrarPlaceholders } = prova;
   const temDepoimento = depoimentos.length > 0;
-  const mostrarSlots = !temDepoimento && mostrarPlaceholders;
+  const temPrints = !temDepoimento && prints.length > 0;
+  const mostrarSlots = !temDepoimento && !temPrints && mostrarPlaceholders;
 
   return (
     <Section width="wide">
@@ -28,13 +31,13 @@ export default function Proof() {
         </div>
       </div>
 
-      {(temDepoimento || mostrarSlots) && (
+      {(temDepoimento || temPrints || mostrarSlots) && (
         <div className={styles.depoimentos}>
           <h3 className={styles.depoimentosTitulo}>
             {prova.depoimentosTitulo}
           </h3>
 
-          {temDepoimento ? (
+          {temDepoimento && (
             <ul className={styles.grid}>
               {depoimentos.map((item) => (
                 <li key={item.nome} className={styles.item}>
@@ -55,7 +58,11 @@ export default function Proof() {
                 </li>
               ))}
             </ul>
-          ) : (
+          )}
+
+          {temPrints && <PrintGallery prints={prints} />}
+
+          {mostrarSlots && (
             <ul className={`${styles.grid} ${styles.gridPlaceholder}`}>
               {[1, 2, 3].map((n) => (
                 <li key={n} className={styles.item}>

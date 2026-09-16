@@ -12,7 +12,7 @@ import styles from "./page.module.css";
 export const metadata = {
   title: "SURFE DIGITAL · condição exclusiva",
   description:
-    "Condição de quem baixou o Kit de Aplicação. Página não listada.",
+    "Condição de quem adquiriu o Salto Quântico. Página não listada.",
 
   // Fora do Google. Esta pagina existe so para quem recebeu o link
   // por e-mail: se ela indexar, o preco de R$147 vaza para quem

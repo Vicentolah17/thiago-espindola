@@ -1,0 +1,201 @@
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-8);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-4);
+}
+
+/* ---------- legenda ---------- */
+
+.legenda {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sr-space-3);
+}
+
+/* mesmo quadrado numerado da entrega */
+.numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--sr-radius-sm);
+  border: 1px solid rgba(196, 158, 255, 0.22);
+  background: rgba(151, 92, 255, 0.12);
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-small);
+  font-weight: 700;
+  color: var(--sr-violet-text);
+}
+
+.titulo {
+  margin: 0;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-body-l);
+  font-weight: 700;
+  letter-spacing: var(--sr-ls-tight);
+  color: var(--sr-text-strong);
+}
+
+.texto {
+  margin: 3px 0 0;
+  font-size: var(--sr-fs-body-s);
+  line-height: var(--sr-lh-body);
+  color: var(--sr-text-3);
+  text-wrap: pretty;
+}
+
+/* ---------- print ---------- */
+
+/* borda de 1px em degrade, igual ao card de preco */
+.moldura {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 1px;
+  border: 0;
+  border-radius: var(--sr-radius-md);
+  background: var(--sr-grad-feature-border);
+  box-shadow: 0 30px 70px -40px rgba(151, 92, 255, 0.7);
+  cursor: zoom-in;
+  transition: transform 0.3s var(--sr-ease), box-shadow 0.3s ease;
+}
+
+.moldura:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 36px 80px -38px rgba(151, 92, 255, 0.85);
+}
+
+.moldura:focus-visible {
+  outline: 2px solid var(--sr-violet-text);
+  outline-offset: 3px;
+}
+
+.imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 17px;
+  background: #0a0710;
+}
+
+/* dica discreta logo abaixo do print, alinhada a direita */
+.ampliar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-end;
+  margin-top: calc(var(--sr-space-2) * -1);
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-micro);
+  font-weight: 600;
+  letter-spacing: var(--sr-ls-badge-sm);
+  text-transform: uppercase;
+  color: var(--sr-text-4);
+  cursor: zoom-in;
+}
+
+.ampliar:hover {
+  color: var(--sr-violet-text);
+}
+
+/* ---------- dialog ---------- */
+
+.dialog {
+  width: min(960px, calc(100vw - 24px));
+  max-width: none;
+  max-height: calc(100vh - 24px);
+  padding: 0;
+  border: 1px solid rgba(196, 158, 255, 0.3);
+  border-radius: var(--sr-radius-md);
+  background: #07040d;
+  color: var(--sr-text);
+  overflow: hidden;
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(4px);
+}
+
+.dialogCaixa {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 26px);
+}
+
+.dialogTopo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sr-space-3);
+  padding: var(--sr-space-2) var(--sr-space-3) var(--sr-space-2) var(--sr-space-4);
+  border-bottom: 1px solid var(--sr-line);
+}
+
+.dialogTitulo {
+  font-family: var(--sr-font-display);
+  font-size: var(--sr-fs-small);
+  font-weight: 600;
+  color: var(--sr-text-1);
+}
+
+.fechar {
+  padding: 7px 14px;
+  border: 1px solid var(--sr-line-mid);
+  border-radius: var(--sr-radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  font: inherit;
+  font-size: var(--sr-fs-small);
+  font-weight: 600;
+  color: var(--sr-text-strong);
+  cursor: pointer;
+}
+
+.fechar:focus-visible {
+  outline: 2px solid var(--sr-violet-text);
+  outline-offset: 2px;
+}
+
+/* no tamanho original; se nao couber, rola pro lado */
+.dialogRolagem {
+  overflow: auto;
+  padding: var(--sr-space-3);
+}
+
+.dialogImagem {
+  display: block;
+  width: auto;
+  min-width: 100%;
+  max-width: none;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .dialogImagem {
+    min-width: 0;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moldura {
+    transition: none;
+  }
+}
