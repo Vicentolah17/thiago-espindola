@@ -15,9 +15,7 @@ export default function HubFooter({ socials = [], brand, copyright }) {
         {socials.map((social) => (
           <SmartLink key={social.href} className={styles.social} href={social.href}>
             <span
-              className={
-                social.icon === "youtube" ? styles.youtube : styles.instagram
-              }
+              className={styles[social.icon] ?? styles.instagram}
               aria-hidden="true"
             />
             {social.label}

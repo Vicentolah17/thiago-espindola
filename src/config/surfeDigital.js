@@ -39,6 +39,14 @@ export const DATA_FECHAMENTO = null;
 /** Prazo da garantia, em dias. */
 export const GARANTIA_DIAS = 7;
 
+/**
+ * MOSTRAR_VSL: liga e desliga o espaco do video no hero.
+ * false = o bloco do video some e a pagina segue direto pro botao.
+ * Quando a VSL existir, troque pra true e cole o embed em
+ * src/components/sales/Hero.jsx, no bloco marcado "VSL".
+ */
+export const MOSTRAR_VSL = false;
+
 // ============================================================
 //  COPY v1 (revisada pelo copywriter)
 // ============================================================

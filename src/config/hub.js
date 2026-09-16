@@ -86,6 +86,12 @@ export const hub = {
       label: "YouTube",
       icon: "youtube",
     },
+    {
+      // Com "@": sem ele o Substack joga pra pagina inicial generica.
+      href: "https://substack.com/@thiagoespindolaz",
+      label: "Substack",
+      icon: "substack",
+    },
   ],
 
   footer: {

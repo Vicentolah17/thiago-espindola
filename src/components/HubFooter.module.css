@@ -72,6 +72,39 @@
   background: currentColor;
 }
 
+/* Marca do Substack em CSS: duas faixas finas em cima e, embaixo, a
+   bandeirola com o corte em V. Mesmo idioma dos outros dois icones. */
+.substack {
+  position: relative;
+  display: block;
+  width: 12px;
+  height: 14px;
+}
+
+/* as duas faixas de cima */
+.substack::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 3.5px 0 currentColor;
+}
+
+/* a bandeirola com o corte em V na base */
+.substack::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 62%, 0 100%);
+}
+
 .youtube {
   display: block;
   width: 0;

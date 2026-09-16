@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import CtaButton from "./CtaButton";
-import { hero } from "@/config/surfeDigital";
+import { MOSTRAR_VSL, hero } from "@/config/surfeDigital";
 import styles from "./Hero.module.css";
 
 /** Secao 2. Unico h1 da pagina. */
@@ -32,14 +32,16 @@ export default function Hero() {
           ))}
         </ul>
 
-        {/* VSL: substituir pelo embed */}
-        <div className={styles.player}>
-          <div className={styles.playerFrame}>
-            <span className={styles.playerGlyph} aria-hidden="true" />
-            <span className={styles.playerLabel}>Área de embed do vídeo</span>
-            <span className={styles.playerDim}>16:9 · 1280x720</span>
+        {/* VSL: substituir pelo embed. So aparece com MOSTRAR_VSL = true no config. */}
+        {MOSTRAR_VSL && (
+          <div className={styles.player}>
+            <div className={styles.playerFrame}>
+              <span className={styles.playerGlyph} aria-hidden="true" />
+              <span className={styles.playerLabel}>Área de embed do vídeo</span>
+              <span className={styles.playerDim}>16:9 · 1280x720</span>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className={styles.cta}>
           <CtaButton block note={hero.microcopia}>
