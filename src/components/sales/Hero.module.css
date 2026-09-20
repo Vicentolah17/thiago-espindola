@@ -3,16 +3,43 @@
   scroll-margin-top: var(--sr-nav-h);
 }
 
+/* Coluna unica no celular, nas duas versoes do hero.
+   Areas nomeadas: o desktop com foto reorganiza so mudando o mapa. */
 .inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-areas:
+    "texto"
+    "visual"
+    "cta";
+  justify-items: center;
   gap: var(--sr-space-5);
   width: 100%;
   max-width: calc(760px + var(--sr-gutter) * 2);
   margin: 0 auto;
   padding-inline: var(--sr-gutter);
   text-align: center;
+}
+
+.text {
+  grid-area: texto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sr-space-5);
+}
+
+.visual {
+  grid-area: visual;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cta {
+  grid-area: cta;
+  width: 100%;
+  max-width: 420px;
+  margin-top: var(--sr-space-1);
 }
 
 /* pilula identica a "Gratuito" do hub */
@@ -93,6 +120,28 @@
   color: var(--sr-text-1);
 }
 
+/* ---------- retrato (enquanto nao existe VSL) ---------- */
+
+.fotoMoldura {
+  width: 100%;
+  max-width: 300px;
+  margin: 0;
+  border-radius: var(--sr-radius-lg);
+  padding: 1px;
+  background: var(--sr-grad-feature-border);
+  box-shadow: var(--sr-shadow-feature);
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  border-radius: 23px;
+  object-fit: cover;
+  object-position: center top;
+}
+
 /* ---------- player ---------- */
 
 .player {
@@ -140,8 +189,44 @@
   color: var(--sr-text-6);
 }
 
-.cta {
-  width: 100%;
-  max-width: 420px;
-  margin-top: var(--sr-space-1);
+/* ============================================================
+   DESKTOP, versao com retrato: texto e botao a esquerda, foto a
+   direita ocupando as duas linhas. Sem foto (VSL no ar), o hero
+   continua centralizado como antes.
+   ============================================================ */
+
+@media (min-width: 900px) {
+  .duasColunas {
+    grid-template-areas:
+      "texto visual"
+      "cta   visual";
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+    justify-items: start;
+    gap: var(--sr-space-6) var(--sr-space-10);
+    max-width: calc(var(--sr-container-wide) + var(--sr-gutter) * 2);
+    text-align: left;
+  }
+
+  .duasColunas .text {
+    align-items: flex-start;
+  }
+
+  .duasColunas .chips {
+    justify-content: flex-start;
+  }
+
+  .duasColunas .visual {
+    align-self: center;
+    justify-content: flex-end;
+  }
+
+  .duasColunas .fotoMoldura {
+    max-width: 400px;
+  }
+
+  .duasColunas .cta {
+    margin-top: 0;
+  }
 }

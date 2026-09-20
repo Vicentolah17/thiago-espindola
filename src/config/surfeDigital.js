@@ -76,6 +76,10 @@ export const hero = {
   ],
   cta: "Quero entrar no SURFE DIGITAL",
   microcopia: `Acesso imediato após a compra · ${GARANTIA_DIAS} dias de garantia`,
+  // Retrato que ocupa o lugar do video enquanto MOSTRAR_VSL for false.
+  // Com a VSL no ar, o hero volta a ser uma coluna so e a foto sai.
+  foto: "/thiago_foto.webp",
+  fotoAlt: "Thiago Espíndola, criador do SURFE DIGITAL",
 };
 
 export const faixaTermos = [
@@ -158,8 +162,12 @@ export const escolha = {
 
 export const autoridade = {
   titulo: "Eu não comecei com audiência, comecei com um método",
-  // Foto real, 1200x1600, em /public. null = volta ao placeholder.
-  foto: "/thiago_foto.webp",
+  // Mesmo arquivo usado no comparador do Metodo S.U.R.F.E: a selfie
+  // com o camelo, ja recortada em 4:5. Aqui ela entra sem espelhar.
+  // null = volta ao placeholder com a dimensao escrita.
+  foto: "/metodo/thiago-depois.webp",
+  fotoAlt:
+    "Thiago Espíndola hoje, de keffiyeh, numa selfie ao lado de um camelo",
   paragrafos: [
     "Eu não tinha perfil grande, não tinha equipe e não tinha ninguém pra me indicar. O que eu tinha era um jeito de olhar pra realidade que eu vinha estudando e testando em mim mesmo.",
     "Quando eu parei de tratar conteúdo como sorte e comecei a tratar como método, a conta virou. Foram 40 mil seguidores em 2 meses, aplicando no meu perfil exatamente o que está aqui dentro.",

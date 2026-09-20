@@ -16,9 +16,9 @@ export default function Authority() {
             <img
               className={styles.photoImg}
               src={autoridade.foto}
-              alt="Thiago Espíndola, criador do SURFE DIGITAL"
-              width={1200}
-              height={1600}
+              alt={autoridade.fotoAlt}
+              width={960}
+              height={1200}
               loading="lazy"
               decoding="async"
             />
