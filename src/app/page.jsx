@@ -37,11 +37,15 @@ export default function Home() {
 
         <div className={styles.levels}>
           <SectionHeading label={levelsLabel} />
-          {levels.map((level) => (
+          {/* card com `oculto` sai da tela; a numeracao conta so os
+              visiveis, entao nunca sobra buraco na sequencia */}
+          {levels
+            .filter((level) => !level.oculto)
+            .map((level, indice) => (
             <LevelCard
               key={level.href}
               href={level.href}
-              number={level.number}
+              number={String(indice + 1).padStart(2, "0")}
               title={level.title}
               description={level.description}
               badge={level.badge}
@@ -49,7 +53,7 @@ export default function Home() {
               uppercaseTitle={level.uppercaseTitle}
               numbered={display.numbered}
             />
-          ))}
+            ))}
         </div>
 
         <HubFooter

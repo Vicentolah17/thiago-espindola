@@ -5,6 +5,19 @@
 //  Copy: v2 (teste).
 // ============================================================
 
+// ============================================================
+//  OCULTO ATÉ O LANÇAMENTO DA BLACK FRIDAY
+//
+//  O card do SURFE DIGITAL sai da tela do hub enquanto esta chave
+//  estiver `false`. O codigo do bloco continua inteiro logo abaixo,
+//  em `levels`, e a pagina /surfe-digital continua no ar e acessivel
+//  por link direto: o que some e so o card do hub.
+//
+//  Para trazer de volta no lancamento: troque para `true`.
+//  A numeracao dos cards se reorganiza sozinha, nao precisa mexer.
+// ============================================================
+export const MOSTRAR_SURFE_DIGITAL = false;
+
 export const hub = {
   header: {
     eyebrow: "Surfe a",
@@ -40,13 +53,19 @@ export const hub = {
 
   levelsLabel: "Próximos níveis",
 
+  // Os numeros dos cards (01, 02, 03) sao gerados pela ordem em que
+  // aparecem aqui, contando so os visiveis. Card oculto nao deixa
+  // buraco na sequencia.
   levels: [
     {
-      // Card 01 vai para a pagina de vendas do SURFE DIGITAL, que
-      // mora neste mesmo projeto. Comeca com "/", entao a navegacao e
-      // interna e nao recarrega a pagina inteira.
+      // OCULTO ATÉ O LANÇAMENTO DA BLACK FRIDAY: ver a chave
+      // MOSTRAR_SURFE_DIGITAL no topo deste arquivo.
+      oculto: !MOSTRAR_SURFE_DIGITAL,
+
+      // Vai para a pagina de vendas do SURFE DIGITAL, que mora neste
+      // mesmo projeto. Comeca com "/", entao a navegacao e interna e
+      // nao recarrega a pagina inteira.
       href: "/surfe-digital",
-      number: "01",
       title: "Surfe Digital",
       uppercaseTitle: true,
       description:
@@ -56,7 +75,6 @@ export const hub = {
     {
       // Pagina de vendas do Metodo S.U.R.F.E, neste mesmo projeto.
       href: "/metodo-surfe",
-      number: "02",
       title: "Método S.U.R.F.E",
       description:
         "O protocolo completo de reprogramação mental, pra quem já entendeu que quebrar ciclos é o primeiro passo.",
@@ -66,7 +84,6 @@ export const hub = {
     },
     {
       href: "https://www.thiagoespindola.com/surfarelite",
-      number: "03",
       title: "Surfar Elite",
       badge: "por aplicação",
       description:
