@@ -319,7 +319,7 @@ export const investimento = {
   seloAncora: "Valor total",
   rotuloVista: "à vista",
   rotuloParcelas: "ou",
-  cta: "Quero começar hoje",
+  cta: "QUERO COMEÇAR HOJE",
   inclusos: [
     "Os 5 módulos do protocolo S.U.R.F.E",
     "Os 3 módulos de aprofundamento",

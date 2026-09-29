@@ -19,6 +19,10 @@ import styles from "./CtaButton.module.css";
  * @param {"violet"|"gold"} tone  gold usa --sr-grad-cta-gold, que so
  *                            existe no tema do Metodo S.U.R.F.E. Fora
  *                            dele cai no gradiente normal.
+ * @param {boolean} centro    Centraliza o texto no botao, com a seta
+ *                            encostada na direita. Para secoes de
+ *                            conteudo centralizado, onde o texto
+ *                            alinhado a esquerda destoa do resto.
  */
 export default function CtaButton({
   children,
@@ -27,12 +31,14 @@ export default function CtaButton({
   note,
   href = CHECKOUT_URL,
   tone = "violet",
+  centro = false,
 }) {
   const classes = [
     styles.button,
     styles[size],
     block && styles.block,
     tone === "gold" && styles.gold,
+    centro && styles.centro,
   ]
     .filter(Boolean)
     .join(" ");

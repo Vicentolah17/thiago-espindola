@@ -62,7 +62,13 @@ export default function Investimento() {
             </div>
 
             <div className={styles.acao}>
-              <CtaButton block tone="gold" href={CHECKOUT_URL} note={investimento.nota}>
+              <CtaButton
+                block
+                centro
+                tone="gold"
+                href={CHECKOUT_URL}
+                note={investimento.nota}
+              >
                 {investimento.cta}
               </CtaButton>
             </div>

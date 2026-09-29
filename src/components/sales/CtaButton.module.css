@@ -40,6 +40,28 @@
   width: 100%;
 }
 
+/* Texto centralizado no botao, seta presa na direita.
+   O recuo igual dos dois lados (58px = 42 da seta + 16 de folga) faz o
+   texto ficar centrado em relacao ao botao inteiro, e nao ao espaco
+   que sobra ao lado da seta. */
+.centro {
+  position: relative;
+  justify-content: center;
+  padding-left: 58px;
+  padding-right: 58px;
+}
+
+.centro .label {
+  text-align: center;
+}
+
+.centro .arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
 /* Acento dourado. Os tokens so existem no tema do Metodo S.U.R.F.E;
    fora dele o fallback devolve o gradiente violeta normal, entao o
    botao nunca fica sem cor. */

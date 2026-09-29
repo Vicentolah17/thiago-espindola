@@ -12,7 +12,13 @@ export default function Decisao() {
         <h2 className={styles.titulo}>{decisao.titulo}</h2>
         <p className={styles.texto}>{decisao.texto}</p>
         <div className={styles.cta}>
-          <CtaButton block tone="gold" href={CHECKOUT_URL} note={decisao.microcopia}>
+          <CtaButton
+            block
+            centro
+            tone="gold"
+            href={CHECKOUT_URL}
+            note={decisao.microcopia}
+          >
             {decisao.cta}
           </CtaButton>
         </div>
