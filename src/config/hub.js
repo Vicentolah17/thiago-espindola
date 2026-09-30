@@ -83,7 +83,7 @@ export const hub = {
       variant: "violet",
     },
     {
-      href: "https://www.thiagoespindola.com/surfarelite",
+      href: "https://app.thiagoespindola.com/surfarelite",
       title: "Surfar Elite",
       badge: "por aplicação",
       description:
