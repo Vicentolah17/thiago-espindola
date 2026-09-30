@@ -11,6 +11,17 @@ const nextConfig = {
         destination: "https://app.thiagoespindola.com/surfarelite",
         permanent: false,
       },
+      {
+        // Tambem temporarios: estas duas paginas ainda vao mudar.
+        source: "/parabens",
+        destination: "https://app.thiagoespindola.com/parabens",
+        permanent: false,
+      },
+      {
+        source: "/comunidade",
+        destination: "https://app.thiagoespindola.com/comunidade",
+        permanent: false,
+      },
     ];
   },
 };
