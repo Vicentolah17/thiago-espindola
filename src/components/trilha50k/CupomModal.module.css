@@ -1,0 +1,203 @@
+.dialog {
+  width: min(440px, calc(100vw - 32px));
+  max-width: none;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  background: #0c0b12;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 40px 120px -30px rgba(124, 92, 255, 0.55);
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.dialog[open] {
+  animation: entrar 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.caixa {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 28px 28px;
+}
+
+.fechar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+}
+
+.fechar:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.titulo {
+  margin: 0;
+  padding-inline: 24px;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.texto {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.codigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.codigoLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.codigoLinha {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.codigoCampo {
+  flex: 1;
+  min-width: 0;
+  height: 56px;
+  padding: 0 16px;
+  border: 1.5px dashed rgba(139, 108, 255, 0.55);
+  border-radius: 14px;
+  background: rgba(139, 108, 255, 0.1);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-align: center;
+}
+
+.copiar {
+  flex: none;
+  height: 56px;
+  padding: 0 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: #ffffff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0c0b12;
+  cursor: pointer;
+}
+
+.copiar:hover {
+  background: #e9e4ff;
+}
+
+/* relogio em destaque, num bloco proprio */
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.timer strong {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: #b6a4ff;
+}
+
+.botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 58px;
+  padding: 0 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6a5cff 0%, #975cff 100%);
+  box-shadow: 0 18px 44px -18px rgba(124, 92, 255, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* .dialog na frente: a pagina neutraliza a cor de todo link, e o
+   botao precisa vencer essa regra nos dois estados */
+.dialog .botao,
+.dialog .botao:hover {
+  color: #ffffff;
+}
+
+.dialog .botao:hover {
+  filter: brightness(1.08);
+}
+
+.fechar:focus-visible,
+.copiar:focus-visible,
+.botao:focus-visible,
+.codigoCampo:focus-visible {
+  outline: 2px solid #b6a4ff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open] {
+    animation: none;
+  }
+}
