@@ -11,6 +11,6 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-export default function Trilha50kLayout({ children }) {
+export default function Metodo50kLayout({ children }) {
   return <div className={jakarta.variable}>{children}</div>;
 }

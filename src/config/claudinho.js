@@ -148,7 +148,7 @@ export const autoridade = {
   fotoAlt: "Thiago Espíndola à noite, com o Burj Khalifa ao fundo",
   // COPY PROVISORIA
   paragrafos: [
-    "Thiago Espíndola é o criador do Surfe a Realidade e da Trilha 50K.",
+    "Thiago Espíndola é o criador do Surfe a Realidade e do Método 50K.",
     "O Claudinho é a forma como ele tirou o operacional das próprias mãos: o que dá pra pedir por comando, ele pede, e guarda o tempo para gravar e decidir.",
   ],
   // Dado informado como real. Nao adicionar outro numero sem fonte.

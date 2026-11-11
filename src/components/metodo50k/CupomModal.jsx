@@ -8,11 +8,11 @@ import {
   CUPOM_MINUTOS,
   CUPOM_PERCENTUAL,
   PRECO,
-} from "@/config/trilha50k";
+} from "@/config/metodo50k";
 import styles from "./CupomModal.module.css";
 
-const CHAVE_VENCE = "trilha50k.cupom.venceEm";
-const CHAVE_FECHADO = "trilha50k.cupom.fechado";
+const CHAVE_VENCE = "metodo50k.cupom.venceEm";
+const CHAVE_FECHADO = "metodo50k.cupom.fechado";
 
 /** Grava que o usuario fechou o popup nesta sessao. */
 const marcarFechado = () => {
@@ -135,7 +135,7 @@ export default function CupomModal() {
               O cupom expirou
             </h2>
             <p className={styles.texto}>
-              A Trilha 50K continua disponível por {PRECO}, com acesso imediato.
+              O Método 50K continua disponível por {PRECO}, com acesso imediato.
             </p>
             <a className={styles.botao} href={CHECKOUT_URL}>
               IR PARA O CHECKOUT
