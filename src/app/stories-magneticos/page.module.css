@@ -1,0 +1,665 @@
+/* ============================================================
+   STORIES MAGNÉTICOS
+   Preto e branco de proposito, fora da identidade roxa da marca.
+   Papel #F4F4F1, tinta #0D0D0D, textura de pontos (halftone).
+   A peca ousada e a tipografia condensada gigante; o resto e quieto.
+   ============================================================ */
+
+.page {
+  --tinta: #0d0d0d;
+  --papel: #f4f4f1;
+  --card: #dcdcd8;
+  --trilho: #cfcfcb;
+  --texto-2: #2a2a2a;
+  --texto-3: #5e5e5a;
+  --papel-2: rgba(244, 244, 241, 0.72);
+  --papel-3: rgba(244, 244, 241, 0.55);
+  --linha-escura: rgba(244, 244, 241, 0.16);
+  --linha-clara: rgba(13, 13, 13, 0.12);
+  --margem: clamp(20px, 3.2vw, 48px);
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--sm-corpo), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+:global(body) {
+  background: #f4f4f1;
+}
+
+/* o globals.css pinta todo <a> de lilas; aqui os links herdam a cor */
+.page a,
+.page a:hover {
+  color: inherit;
+}
+
+.page :focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.caixa {
+  width: 100%;
+  max-width: calc(1120px + 2 * var(--margem));
+  margin: 0 auto;
+  padding-inline: var(--margem);
+}
+
+/* ritmo vertical: so esta regra cria espaco nas secoes */
+.secao {
+  position: relative;
+  padding-block: clamp(80px, 12vw, 152px);
+  overflow: hidden;
+}
+
+.escura {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+/* ---------- titulos ---------- */
+
+.titulo {
+  margin: 0 0 clamp(36px, 5vw, 56px);
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: clamp(56px, 8.4vw, 120px);
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* ---------- 1 · barra do topo ---------- */
+
+.topo {
+  margin: 0;
+  padding: 9px 16px;
+  background: var(--tinta);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-align: center;
+  color: var(--papel);
+}
+
+/* ---------- botoes ---------- */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 16px 28px;
+  border-radius: 999px;
+  background: var(--tinta);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.page .cta,
+.page .cta:hover {
+  color: var(--papel);
+}
+
+.cta:hover {
+  opacity: 0.8;
+}
+
+.ctaSeta {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* versao clara, sobre as secoes pretas */
+.ctaClaro {
+  background: var(--papel);
+  box-shadow: none;
+}
+
+.page .ctaClaro,
+.page .ctaClaro:hover {
+  color: var(--tinta);
+}
+
+.micro {
+  margin: 0;
+  font-size: 14px;
+  color: var(--texto-3);
+}
+
+/* ---------- 2 · hero ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 6vh, 72px);
+  min-height: calc(100vh - 60px);
+  padding: 8px var(--margem) 56px;
+  overflow: hidden;
+}
+
+/* pontos concentrados no canto inferior direito, dissolvendo */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--tinta) 1px, transparent 1.3px);
+  background-size: 5px 5px;
+  opacity: 0.35;
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 100% 100%, #000 10%, transparent 70%);
+  mask-image: radial-gradient(ellipse 60% 70% at 100% 100%, #000 10%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
+}
+
+.perfil {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.perfilConta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  border: 2px solid var(--tinta);
+  border-radius: 50%;
+  background-image: radial-gradient(var(--tinta) 1px, transparent 1.3px);
+  background-size: 4px 4px;
+  background-clip: content-box;
+}
+
+.usuario {
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 70%;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.quando {
+  font-size: 14px;
+  color: var(--texto-3);
+}
+
+.pill {
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: var(--tinta);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.page .pill,
+.page .pill:hover {
+  color: var(--papel);
+}
+
+.pill:hover {
+  opacity: 0.8;
+}
+
+.heroConteudo {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(48px, 6vw, 96px);
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.heroTexto {
+  flex: 1 1 520px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.heroTitulo {
+  margin: 0;
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: clamp(84px, 12.5vw, 196px);
+  line-height: 0.84;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.heroSub {
+  margin: 0;
+  max-width: 500px;
+  font-size: clamp(18px, 1.4vw, 21px);
+  line-height: 1.45;
+  color: var(--texto-2);
+  text-wrap: pretty;
+}
+
+.heroAcoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+}
+
+.assinatura {
+  font-family: var(--sm-mono), monospace;
+  font-size: 12px;
+  color: var(--texto-3);
+}
+
+/* ---------- 3 · pacote ---------- */
+
+/* pontos claros dissolvendo no canto superior esquerdo */
+.escura::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--papel) 1px, transparent 1.3px);
+  background-size: 5px 5px;
+  opacity: 0.22;
+  -webkit-mask-image: radial-gradient(ellipse 55% 60% at 0% 0%, #000 10%, transparent 70%);
+  mask-image: radial-gradient(ellipse 55% 60% at 0% 0%, #000 10%, transparent 70%);
+  pointer-events: none;
+}
+
+.escura > * {
+  position: relative;
+}
+
+/* o card e uma folha de papel sobre o preto */
+.recibo {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 24px;
+  background: var(--papel);
+  color: var(--tinta);
+  overflow: hidden;
+}
+
+.itens {
+  margin: 0;
+  padding: 8px clamp(20px, 3vw, 40px);
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 18px;
+  padding: 22px 0;
+}
+
+.item + .item {
+  border-top: 1px solid var(--linha-clara);
+}
+
+/* anel de Story nao visto: a marca de cada entrega */
+.anel {
+  width: 40px;
+  height: 40px;
+  margin-top: 2px;
+  padding: 3px;
+  border: 2px solid var(--tinta);
+  border-radius: 50%;
+  background-image: radial-gradient(var(--tinta) 1px, transparent 1.3px);
+  background-size: 4px 4px;
+  background-clip: content-box;
+}
+
+.itemNome {
+  margin: 0 0 4px;
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 68%;
+  font-weight: 800;
+  font-size: clamp(24px, 2.6vw, 30px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.itemDesc {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--texto-2);
+}
+
+.precoBloco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 24px;
+  border-top: 1px solid var(--linha-clara);
+  background: var(--card);
+  text-align: center;
+  /* o preco escala com a largura do painel, nao da tela */
+  container-type: inline-size;
+}
+
+.precoRotulo {
+  margin: 0 0 -12px;
+  font-size: 16px;
+  color: var(--texto-2);
+}
+
+.preco {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 62%;
+  font-weight: 900;
+  line-height: 0.86;
+}
+
+.precoMoeda {
+  margin-top: 0.3em;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.precoValor {
+  font-size: clamp(72px, 25cqi, 168px);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- 4 · prova social ---------- */
+
+/* cada depoimento e um Story em pe; no celular, uma fileira que
+   desliza para o lado, como a bandeja de Stories */
+.depoimentos {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 72%);
+  gap: 14px;
+  margin: 0 calc(var(--margem) * -1);
+  padding: 0 var(--margem) 8px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--margem);
+}
+
+.depoimento {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  aspect-ratio: 9 / 16;
+  max-height: 520px;
+  padding: 24px;
+  border: 1.5px dashed var(--tinta);
+  border-radius: 20px;
+  background-color: var(--card);
+  background-image: radial-gradient(rgba(13, 13, 13, 0.18) 1px, transparent 1.3px);
+  background-size: 5px 5px;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.depoimentoBarras {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.depoimentoBarras span {
+  height: 2px;
+  background: rgba(13, 13, 13, 0.25);
+}
+
+.depoimentoTexto {
+  margin: 0;
+  padding: 4px 8px;
+  background: var(--papel);
+  font-family: var(--sm-mono), monospace;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.depoimentoAutor {
+  margin: 0;
+  font-size: 14px;
+  color: var(--texto-2);
+}
+
+.disclaimer {
+  margin: 24px 0 0;
+  max-width: 64ch;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--texto-3);
+}
+
+/* ---------- 5 · reforco ---------- */
+
+.reforco .caixa {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.reforcoTitulo {
+  margin: 0;
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: clamp(64px, 11vw, 172px);
+  line-height: 0.84;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.reforcoTexto {
+  margin: 0;
+  max-width: 44ch;
+  font-size: clamp(18px, 1.4vw, 21px);
+  color: var(--papel-2);
+}
+
+/* ---------- 6 · autoridade ---------- */
+
+.autoridade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  background: var(--card);
+  object-fit: cover;
+}
+
+.autoridadeTexto .titulo {
+  margin-bottom: 16px;
+}
+
+.autoridadeNome {
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.autoridadeArroba {
+  margin-left: 6px;
+  font-family: var(--sm-mono), monospace;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--texto-3);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.paragrafo {
+  margin: 0 0 14px;
+  max-width: 52ch;
+  color: var(--texto-2);
+  text-wrap: pretty;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 28px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--linha-clara);
+}
+
+.statValor {
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: clamp(64px, 8vw, 96px);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.statRotulo {
+  font-size: 16px;
+  color: var(--texto-2);
+}
+
+/* ---------- 7 · rodape ---------- */
+
+.rodape {
+  padding-block: 48px 56px;
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+.rodapeTopo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 24px;
+  margin-bottom: 20px;
+}
+
+.rodapeMarca {
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 70%;
+  font-weight: 800;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.rodapeLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+  color: var(--papel-2);
+}
+
+.rodapeTexto {
+  margin: 0 0 6px;
+  max-width: 80ch;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--papel-3);
+}
+
+/* ============================================================
+   TELAS MAIORES
+   ============================================================ */
+
+@media (min-width: 760px) {
+  .depoimentos {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-columns: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .autoridade {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .recibo {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+
+  .precoBloco {
+    border-top: 0;
+    border-left: 1px solid var(--linha-clara);
+  }
+}
+
+@media (max-width: 420px) {
+  /* conta e botao cabem na mesma linha */
+  .quando {
+    display: none;
+  }
+
+  .pill {
+    padding: 9px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroAcoes {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
+}

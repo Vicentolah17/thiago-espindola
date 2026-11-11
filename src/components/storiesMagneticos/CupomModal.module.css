@@ -1,0 +1,208 @@
+.dialog {
+  width: min(420px, calc(100vw - 32px));
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: #f4f4f1;
+  color: #0d0d0d;
+  font-family: var(--sm-corpo), sans-serif;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+/* fundo pontilhado atras do popup, a mesma textura da pagina */
+.dialog::backdrop {
+  background-color: rgba(13, 13, 13, 0.7);
+  background-image: radial-gradient(rgba(244, 244, 241, 0.18) 1px, transparent 1.3px);
+  background-size: 5px 5px;
+}
+
+.dialog[open] {
+  animation: entrar 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.caixa {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 24px 24px;
+}
+
+.fechar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid #0d0d0d;
+  border-radius: 999px;
+  background: transparent;
+  color: #0d0d0d;
+  cursor: pointer;
+}
+
+.fechar:hover {
+  background: #0d0d0d;
+  color: #f4f4f1;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-family: var(--sm-corpo), sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.tituloGrande {
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: 76px;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+
+.texto {
+  margin: 0;
+  max-width: 32ch;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #2a2a2a;
+}
+
+.codigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.codigoLabel {
+  font-family: var(--sm-mono), monospace;
+  font-size: 12px;
+  color: #5e5e5a;
+}
+
+.codigoLinha {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.codigoCampo {
+  flex: 1;
+  min-width: 0;
+  height: 54px;
+  padding: 0 14px;
+  border: 1.5px dashed #0d0d0d;
+  border-radius: 14px;
+  background: #ffffff;
+  font-family: var(--sm-mono), monospace;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #0d0d0d;
+  text-align: center;
+}
+
+.copiar {
+  flex: none;
+  height: 54px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 14px;
+  background: #0d0d0d;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #f4f4f1;
+  cursor: pointer;
+}
+
+.copiar:hover {
+  opacity: 0.85;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #0d0d0d;
+  font-size: 14px;
+  color: rgba(244, 244, 241, 0.7);
+}
+
+.timer strong {
+  font-family: var(--sm-mono), monospace;
+  font-size: 26px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: #f4f4f1;
+}
+
+.botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: #0d0d0d;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+/* .dialog na frente: precisa vencer a regra dos links da pagina */
+.dialog .botao,
+.dialog .botao:hover {
+  color: #f4f4f1;
+}
+
+.dialog .botao:hover {
+  opacity: 0.85;
+}
+
+.fechar:focus-visible,
+.copiar:focus-visible,
+.botao:focus-visible,
+.codigoCampo:focus-visible {
+  outline: 2px solid #0d0d0d;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open] {
+    animation: none;
+  }
+}
