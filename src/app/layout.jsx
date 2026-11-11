@@ -5,6 +5,10 @@ export const metadata = {
   title: "Surfe a Realidade · Thiago Espíndola",
   description:
     "Você não nasceu travado, foi treinado. Comece pelo kit gratuito.",
+
+  icons: {
+    icon: '/logo_surfe.webp',
+  },
 };
 
 export const viewport = {
