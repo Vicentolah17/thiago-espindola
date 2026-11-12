@@ -1,8 +1,10 @@
 /* ============================================================
    STORIES MAGNÉTICOS
    Preto e branco de proposito, fora da identidade roxa da marca.
-   Papel #F4F4F1, tinta #0D0D0D, textura de pontos (halftone).
-   A peca ousada e a tipografia condensada gigante; o resto e quieto.
+   Papel #F4F4F1, tinta #0D0D0D, textura de pontos (halftone) e o ima
+   como marca. A peca ousada e a tipografia condensada gigante.
+   Bastante movimento; com "reduzir movimento" tudo fica parado e
+   completo (fim do arquivo).
    ============================================================ */
 
 .page {
@@ -17,6 +19,7 @@
   --linha-escura: rgba(244, 244, 241, 0.16);
   --linha-clara: rgba(13, 13, 13, 0.12);
   --margem: clamp(20px, 3.2vw, 48px);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   position: relative;
   min-height: 100vh;
@@ -74,17 +77,50 @@
   text-transform: uppercase;
 }
 
-/* ---------- 1 · barra do topo ---------- */
+/* cada linha de titulo e uma "janela": o texto sobe de dentro dela */
+.linha {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.05em;
+  margin-block: -0.05em;
+}
+
+.linha > span {
+  display: block;
+}
+
+/* ---------- 1 · barra do topo: corre sem parar ---------- */
 
 .topo {
-  margin: 0;
-  padding: 9px 16px;
+  overflow: hidden;
   background: var(--tinta);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
-  text-align: center;
   color: var(--papel);
+}
+
+.topoFaixa {
+  display: flex;
+  width: max-content;
+  animation: correr 30s linear infinite;
+}
+
+.topoGrupo {
+  display: flex;
+}
+
+.topoItem {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 9px 11px;
+  white-space: nowrap;
+}
+
+.topoEstrela {
+  font-size: 10px;
+  opacity: 0.7;
 }
 
 /* ---------- botoes ---------- */
@@ -98,13 +134,14 @@
   padding: 16px 28px;
   border-radius: 999px;
   background: var(--tinta);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-align: center;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: transform 0.2s ease;
+  /* anel que pulsa em volta, como Story novo */
+  animation: pulsoTinta 2.6s ease-in-out infinite;
 }
 
 .page .cta,
@@ -113,18 +150,21 @@
 }
 
 .cta:hover {
-  opacity: 0.8;
+  transform: translateY(-2px);
 }
 
+/* a seta "puxa" para fora de tempos em tempos */
 .ctaSeta {
+  display: inline-block;
   font-size: 18px;
   line-height: 1;
+  animation: seta 2.6s ease-in-out infinite;
 }
 
 /* versao clara, sobre as secoes pretas */
 .ctaClaro {
   background: var(--papel);
-  box-shadow: none;
+  animation-name: pulsoPapel;
 }
 
 .page .ctaClaro,
@@ -150,7 +190,8 @@
   overflow: hidden;
 }
 
-/* pontos concentrados no canto inferior direito, dissolvendo */
+/* pontos concentrados no canto inferior direito, dissolvendo e
+   respirando devagar */
 .hero::before {
   content: "";
   position: absolute;
@@ -160,6 +201,7 @@
   opacity: 0.35;
   -webkit-mask-image: radial-gradient(ellipse 60% 70% at 100% 100%, #000 10%, transparent 70%);
   mask-image: radial-gradient(ellipse 60% 70% at 100% 100%, #000 10%, transparent 70%);
+  animation: respirar 6s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -173,6 +215,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  animation: descer 0.7s var(--ease) both;
 }
 
 .perfilConta {
@@ -181,15 +224,40 @@
   gap: 10px;
 }
 
+/* anel de Story nao visto, girando, com o ima no miolo */
 .avatar {
-  width: 36px;
-  height: 36px;
-  padding: 2px;
-  border: 2px solid var(--tinta);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-image: radial-gradient(var(--tinta) 1px, transparent 1.3px);
-  background-size: 4px 4px;
-  background-clip: content-box;
+}
+
+.avatar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--tinta), #9a9a95, var(--tinta) 60%, #9a9a95, var(--tinta));
+  animation: girar 4s linear infinite;
+}
+
+.avatarMiolo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background: var(--papel);
+}
+
+.imaAvatar {
+  color: var(--tinta);
+  animation: atrair 3s ease-in-out infinite;
 }
 
 .usuario {
@@ -211,6 +279,7 @@
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
 .page .pill,
@@ -219,7 +288,7 @@
 }
 
 .pill:hover {
-  opacity: 0.8;
+  transform: translateY(-1px);
 }
 
 .heroConteudo {
@@ -239,7 +308,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
 }
 
 .heroTitulo {
@@ -253,13 +322,39 @@
   text-transform: uppercase;
 }
 
+/* ao carregar, "TODO" e "SANTO DIA." sobem de dentro da linha */
+.heroTituloEntra .linha > span {
+  animation: linhaSobe 1s var(--ease) both;
+}
+
+.heroTituloEntra .linha:nth-child(1) > span {
+  animation-delay: 0.15s;
+}
+
+.heroTituloEntra .linha:nth-child(2) > span {
+  animation-delay: 0.3s;
+}
+
+.heroLead {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.05;
+  text-wrap: balance;
+  animation: subir 0.8s var(--ease) 0.55s both;
+}
+
 .heroSub {
   margin: 0;
-  max-width: 500px;
+  max-width: 480px;
   font-size: clamp(18px, 1.4vw, 21px);
   line-height: 1.45;
   color: var(--texto-2);
   text-wrap: pretty;
+  animation: subir 0.8s var(--ease) 0.7s both;
 }
 
 .heroAcoes {
@@ -267,12 +362,21 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 14px 20px;
+  margin-top: 4px;
+  animation: subir 0.8s var(--ease) 0.85s both;
 }
 
 .assinatura {
   font-family: var(--sm-mono), monospace;
   font-size: 12px;
   color: var(--texto-3);
+}
+
+/* o Story do hero sobe girando de leve */
+.heroStory {
+  flex: 0 0 auto;
+  margin: 0 auto;
+  animation: storySobe 1.1s var(--ease) 0.45s both;
 }
 
 /* ---------- 3 · pacote ---------- */
@@ -287,6 +391,7 @@
   opacity: 0.22;
   -webkit-mask-image: radial-gradient(ellipse 55% 60% at 0% 0%, #000 10%, transparent 70%);
   mask-image: radial-gradient(ellipse 55% 60% at 0% 0%, #000 10%, transparent 70%);
+  animation: respirar 7s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -322,21 +427,37 @@
   border-top: 1px solid var(--linha-clara);
 }
 
-/* anel de Story nao visto: a marca de cada entrega */
+/* anel de Story com o ima: a marca de cada entrega */
 .anel {
-  width: 40px;
-  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   margin-top: 2px;
-  padding: 3px;
   border: 2px solid var(--tinta);
   border-radius: 50%;
-  background-image: radial-gradient(var(--tinta) 1px, transparent 1.3px);
-  background-size: 4px 4px;
-  background-clip: content-box;
+  background: var(--papel);
+}
+
+/* um "campo" que se expande uma vez quando o item entra */
+.anel::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 2px solid var(--tinta);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.imaItem {
+  color: var(--tinta);
 }
 
 .itemNome {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   font-family: var(--sm-display), sans-serif;
   font-stretch: 68%;
   font-weight: 800;
@@ -347,7 +468,7 @@
 
 .itemDesc {
   margin: 0;
-  max-width: 52ch;
+  max-width: 56ch;
   font-size: 16px;
   line-height: 1.5;
   color: var(--texto-2);
@@ -368,9 +489,11 @@
 }
 
 .precoRotulo {
-  margin: 0 0 -12px;
+  margin: 0 0 -8px;
+  max-width: 30ch;
   font-size: 16px;
   color: var(--texto-2);
+  text-wrap: balance;
 }
 
 .preco {
@@ -393,107 +516,221 @@
 .precoValor {
   font-size: clamp(72px, 25cqi, 168px);
   letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
 }
 
-/* ---------- 4 · prova social ---------- */
+/* ---------- 4 · 3 Stories com a frase ---------- */
 
-/* cada depoimento e um Story em pe; no celular, uma fileira que
-   desliza para o lado, como a bandeja de Stories */
-.depoimentos {
+/* no celular: fileira que desliza para o lado, como a bandeja de
+   Stories; no desktop: os tres lado a lado, em leque */
+.stories {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(220px, 72%);
+  grid-auto-columns: minmax(230px, 74%);
   gap: 14px;
   margin: 0 calc(var(--margem) * -1);
-  padding: 0 var(--margem) 8px;
+  padding: 8px var(--margem) 16px;
   list-style: none;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--margem);
 }
 
-.depoimento {
+.story {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   aspect-ratio: 9 / 16;
-  max-height: 520px;
-  padding: 24px;
-  border: 1.5px dashed var(--tinta);
-  border-radius: 20px;
-  background-color: var(--card);
-  background-image: radial-gradient(rgba(13, 13, 13, 0.18) 1px, transparent 1.3px);
-  background-size: 5px 5px;
-  text-align: center;
+  max-height: 560px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
   scroll-snap-align: start;
 }
 
-.depoimentoBarras {
+.storyFoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.story:hover .storyFoto {
+  transform: scale(1.05);
+}
+
+.storySombra {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0) 22%,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  pointer-events: none;
+}
+
+.storyBarras {
   position: absolute;
   top: 12px;
   left: 12px;
   right: 12px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
   gap: 4px;
 }
 
-.depoimentoBarras span {
+.storyBarra {
+  position: relative;
   height: 2px;
-  background: rgba(13, 13, 13, 0.25);
+  overflow: hidden;
+  background: rgba(244, 244, 241, 0.35);
 }
 
-.depoimentoTexto {
-  margin: 0;
-  padding: 4px 8px;
+.storyBarra::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: var(--papel);
-  font-family: var(--sm-mono), monospace;
-  font-size: 13px;
-  font-weight: 500;
+  transform: scaleX(0);
+  transform-origin: left center;
 }
 
-.depoimentoAutor {
+.storyBarraCheia::after {
+  transform: none;
+}
+
+/* a barra deste card enche e recomeca, como um Story rodando */
+.storyBarraAtual::after {
+  animation: encher 4s linear infinite;
+  animation-delay: calc(var(--i) * 0.4s);
+}
+
+.storyConta {
+  position: absolute;
+  top: 24px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 70%;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--papel);
+}
+
+.storyAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--papel);
+  border-radius: 50%;
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+/* a frase em cima da foto, com fundo de papel em cada linha, como o
+   texto com fundo do Story */
+.storyFrase {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 50%;
   margin: 0;
-  font-size: 14px;
-  color: var(--texto-2);
+  transform: translateY(-50%);
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.08;
+  text-align: center;
+  text-wrap: balance;
 }
 
-.disclaimer {
-  margin: 24px 0 0;
-  max-width: 64ch;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--texto-3);
+.storyFrase span {
+  padding: 0.04em 0.18em;
+  background: linear-gradient(var(--papel), var(--papel)) no-repeat left / 100% 100%;
+  color: var(--tinta);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* ---------- 5 · reforco ---------- */
+
+/* faixa gigante vazada, correndo de lado */
+.faixa {
+  margin-bottom: clamp(48px, 7vw, 88px);
+  overflow: hidden;
+}
+
+.faixaTrilho {
+  display: flex;
+  width: max-content;
+  animation: correr 26s linear infinite;
+}
+
+.faixaGrupo {
+  display: flex;
+}
+
+.faixaItem {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 36px);
+  padding-right: clamp(18px, 3vw, 36px);
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: clamp(56px, 9vw, 128px);
+  line-height: 1;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--papel);
+  white-space: nowrap;
+}
+
+.imaFaixa {
+  flex: none;
+  color: var(--papel);
+  animation: atrair 3s ease-in-out infinite;
+}
 
 .reforco .caixa {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 28px;
+  gap: 24px;
 }
 
 .reforcoTitulo {
-  margin: 0;
+  margin: 0 0 8px;
   font-family: var(--sm-display), sans-serif;
   font-stretch: 62%;
   font-weight: 900;
-  font-size: clamp(64px, 11vw, 172px);
-  line-height: 0.84;
+  font-size: clamp(56px, 9.6vw, 156px);
+  line-height: 0.86;
   letter-spacing: -0.01em;
   text-transform: uppercase;
 }
 
 .reforcoTexto {
   margin: 0;
-  max-width: 44ch;
+  max-width: 52ch;
   font-size: clamp(18px, 1.4vw, 21px);
+  line-height: 1.5;
   color: var(--papel-2);
+}
+
+.reforcoResumo {
+  font-weight: 600;
+  color: var(--papel);
 }
 
 /* ---------- 6 · autoridade ---------- */
@@ -527,9 +764,8 @@
 }
 
 .autoridadeArroba {
-  margin-left: 6px;
   font-family: var(--sm-mono), monospace;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--texto-3);
   text-decoration: underline;
@@ -538,19 +774,28 @@
 
 .paragrafo {
   margin: 0 0 14px;
-  max-width: 52ch;
+  max-width: 54ch;
   color: var(--texto-2);
   text-wrap: pretty;
 }
 
+.paragrafoAbre {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
 .stat {
+  margin: 28px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--linha-clara);
+}
+
+.statLinha {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
   gap: 4px 14px;
-  margin: 28px 0 0;
-  padding-top: 24px;
-  border-top: 1px solid var(--linha-clara);
+  margin: 0 0 10px;
 }
 
 .statValor {
@@ -560,10 +805,20 @@
   font-size: clamp(64px, 8vw, 96px);
   line-height: 0.9;
   text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
 }
 
 .statRotulo {
-  font-size: 16px;
+  font-family: var(--sm-display), sans-serif;
+  font-stretch: 70%;
+  font-weight: 800;
+  font-size: clamp(22px, 2.4vw, 28px);
+  text-transform: uppercase;
+}
+
+.statFechamento {
+  margin: 0;
+  max-width: 48ch;
   color: var(--texto-2);
 }
 
@@ -613,13 +868,29 @@
    ============================================================ */
 
 @media (min-width: 760px) {
-  .depoimentos {
+  .stories {
     grid-auto-flow: row;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-columns: auto;
+    gap: clamp(14px, 2vw, 24px);
     margin: 0;
-    padding: 0;
+    padding: 8px 0 16px;
     overflow: visible;
+  }
+
+  /* leque leve: o do meio reto, os das pontas inclinados */
+  .story {
+    transform: rotate(calc((var(--i) - 1) * 2deg)) translateY(calc(var(--i) * (2 - var(--i)) * -10px));
+    transition: transform 0.5s var(--ease), box-shadow 0.5s ease;
+  }
+
+  .story:hover {
+    transform: rotate(0deg) translateY(-14px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.26);
+  }
+
+  .storyFrase {
+    font-size: clamp(32px, 3.6vw, 52px);
   }
 
   .autoridade {
@@ -658,8 +929,264 @@
   }
 }
 
+/* ============================================================
+   ENTRADA NO SCROLL
+   Revelar.jsx marca a pagina com data-anim e cada alvo com data-visto
+   quando aparece. Sem data-anim (sem JS ou sem movimento), nada some.
+   ============================================================ */
+
+.page[data-anim] [data-revelar]:not(.mascara) {
+  transition: opacity 0.8s var(--ease) var(--atraso, 0ms),
+    transform 0.8s var(--ease) var(--atraso, 0ms),
+    filter 0.8s ease var(--atraso, 0ms);
+}
+
+.page[data-anim] [data-revelar]:not(.mascara):not([data-visto]) {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(6px);
+}
+
+/* titulos com mascara: as linhas sobem uma depois da outra */
+.page[data-anim] .mascara .linha > span {
+  transition: transform 0.95s var(--ease);
+}
+
+.page[data-anim] .mascara .linha:nth-child(2) > span {
+  transition-delay: 0.12s;
+}
+
+.page[data-anim] .mascara:not([data-visto]) .linha > span {
+  transform: translateY(110%);
+}
+
+/* entregas entram deslizando de lado */
+.page[data-anim] .item[data-revelar]:not([data-visto]) {
+  transform: translateX(-28px);
+}
+
+/* o ima "gruda" quando o item entra, e o campo se expande */
+.page[data-anim] .item[data-visto] .imaItem {
+  animation: grudar 0.8s cubic-bezier(0.3, 1.6, 0.5, 1) calc(var(--atraso, 0ms) + 0.25s) both;
+}
+
+.page[data-anim] .item[data-visto] .anel::after {
+  animation: campo 1.2s ease-out calc(var(--atraso, 0ms) + 0.45s) both;
+}
+
+/* os Stories entram em leque, vindo de baixo */
+.page[data-anim] .story[data-revelar]:not([data-visto]) {
+  transform: translateY(70px) rotate(calc((var(--i) - 1) * 8deg));
+}
+
+/* a frase aparece com o fundo de papel varrendo da esquerda */
+.page[data-anim] .story[data-revelar] .storyFrase span {
+  transition: background-size 0.7s var(--ease) calc(var(--atraso, 0ms) + 0.5s),
+    color 0.3s ease calc(var(--atraso, 0ms) + 0.9s);
+}
+
+.page[data-anim] .story[data-revelar]:not([data-visto]) .storyFrase span {
+  background-size: 0% 100%;
+  color: transparent;
+}
+
+/* a foto da autoridade entra com um leve zoom */
+.page[data-anim] .foto[data-revelar]:not([data-visto]) {
+  transform: scale(0.94);
+}
+
+/* ============================================================
+   ANIMACOES
+   ============================================================ */
+
+@keyframes correr {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes respirar {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.18;
+  }
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes atrair {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-12deg);
+  }
+  75% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes pulsoTinta {
+  0%,
+  100% {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(13, 13, 13, 0.35);
+  }
+  50% {
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2), 0 0 0 10px rgba(13, 13, 13, 0);
+  }
+}
+
+@keyframes pulsoPapel {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 244, 241, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(244, 244, 241, 0);
+  }
+}
+
+@keyframes seta {
+  0%,
+  60%,
+  100% {
+    transform: none;
+  }
+  75% {
+    transform: translate(3px, -3px);
+  }
+}
+
+@keyframes descer {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes linhaSobe {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes storySobe {
+  from {
+    opacity: 0;
+    transform: translateY(60px) rotate(5deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes encher {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes grudar {
+  from {
+    opacity: 0;
+    transform: rotate(-50deg) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes campo {
+  from {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+/* quem desliga animacao ve a pagina parada e completa */
 @media (prefers-reduced-motion: reduce) {
-  .cta {
+  .topoFaixa,
+  .cta,
+  .ctaSeta,
+  .hero::before,
+  .escura::before,
+  .perfil,
+  .avatar::before,
+  .imaAvatar,
+  .heroTituloEntra .linha > span,
+  .heroLead,
+  .heroSub,
+  .heroAcoes,
+  .heroStory,
+  .storyBarraAtual::after,
+  .faixaTrilho,
+  .imaFaixa {
+    animation: none;
+  }
+
+  .cta,
+  .pill,
+  .story,
+  .storyFoto {
     transition: none;
+  }
+
+  /* sem a faixa correndo, o aviso fica parado e centralizado */
+  .topoFaixa {
+    width: auto;
+    justify-content: center;
+  }
+
+  .topoGrupo + .topoGrupo,
+  .topoItem + .topoItem,
+  .topoEstrela {
+    display: none;
+  }
+
+  /* a barra do Story atual fica cheia */
+  .storyBarraAtual::after {
+    transform: none;
+  }
+
+  /* a faixa do reforco so faz sentido correndo: parada, sai */
+  .faixa {
+    display: none;
   }
 }

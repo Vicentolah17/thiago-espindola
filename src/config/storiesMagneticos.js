@@ -12,6 +12,12 @@
 export const PRECO_VALOR = "47,90";
 export const PRECO = `R$${PRECO_VALOR}`;
 
+/**
+ * De onde o preco "cai" na animacao do bloco de preco (decrescente,
+ * padrao das landings). So visual; o valor real e PRECO_VALOR.
+ */
+export const PRECO_ANIMACAO_DE = "97,00";
+
 /** PLACEHOLDER: link do checkout na Kiwify. Usado por TODOS os botoes. */
 export const CHECKOUT_URL = "https://pay.kiwify.com.br/PLACEHOLDER-STORIES-MAGNETICOS";
 
@@ -44,8 +50,8 @@ export const topo = "CONDIÇÃO POR TEMPO LIMITADO";
  */
 export const secoes = [
   { id: "inicio", rotulo: "Início" },
-  { id: "pacote", rotulo: "O que está dentro" },
-  { id: "resultados", rotulo: "Resultados" },
+  { id: "pacote", rotulo: "As 7 entregas" },
+  { id: "stories", rotulo: "Entre agora" },
   { id: "oferta", rotulo: "Oferta" },
   { id: "expert", rotulo: "Quem ensina" },
 ];
@@ -58,8 +64,10 @@ export const perfil = {
 
 export const hero = {
   titulo: ["Todo", "santo dia."],
+  // a primeira frase abre em destaque
+  lead: "Alguém vende pros seus seguidores. Melhor que seja você.",
   subtitulo:
-    "Mais gente assistindo seus Stories, mais vendas saindo deles. O passo a passo direto ao ponto.",
+    "Engajar, interagir e vender nos Stories, é ridicularmente simples. O passo a passo tá aqui:",
   cta: "QUERO ACESSAR",
   assinatura: "Por Thiago Espíndola",
 };
@@ -67,7 +75,6 @@ export const hero = {
 /**
  * Os 3 slides do Story do hero: a triade diaria do conteudo, cada um
  * com uma foto real (recortes 9:16 em public/stories-magneticos/).
- * COPY PROVISORIA dos titulos.
  */
 export const slides = [
   {
@@ -90,62 +97,73 @@ export const slides = [
 /**
  * As entregas. O titulo da secao conta quantas existem, entao
  * adicionar ou tirar um item aqui ja corrige o numero.
- * Conteudo REAL do treinamento; os nomes curtos saem do proprio texto.
  */
 export const entregas = [
   {
     nome: "A tríade diária",
-    descricao: "Engajar, interagir e vender, todo dia, nos seus Stories.",
+    descricao:
+      "As três etapas que seu Story precisa passar todo dia, na ordem certa: engajar de manhã, interagir durante o dia, vender no fechamento.",
   },
   {
     nome: "O ritual matinal",
-    descricao: "O ritual que cria familiaridade e vira hábito na sua audiência.",
+    descricao:
+      "O primeiro Story do dia, sempre o mesmo. É ele que faz seu seguidor abrir o Instagram e ir direto na sua bolinha pra ver o de hoje.",
   },
   {
     nome: "Postagem em blocos",
-    descricao: "Um bloco a cada 2h, pra sempre voltar ao topo da fila do Instagram.",
+    descricao:
+      "De 2 a 4 Stories logo cedo e um bloco novo a cada 2 horas. Seu perfil volta pro começo da fila de todos os seus seguidores, enquanto as outras contas vão ficando pra trás.",
   },
   {
     nome: "O pitch nativo",
-    descricao: "Como vender todos os dias sem parecer que está vendendo.",
+    descricao:
+      "Como pegar uma coisa que aconteceu no seu dia e ligar ao seu produto, com print de resultado do lado. Sem arte de designer e sem roteiro GPTizado.",
   },
   {
-    nome: "Gatilho de palavra-chave",
-    descricao: "Automação na DM no lugar do link que derruba o alcance.",
+    nome: "A palavra-chave no lugar do link",
+    descricao:
+      "A grande maioria dos experts já fazem isso, tirar o link dos stories, e a automação que entrega o link na DM de quem responde. Por quê? Como?",
   },
   {
     nome: "A regra do fim de semana",
-    descricao: "A regra pro sábado e o domingo que constrói autoridade.",
+    descricao:
+      "O que sai dos seus Stories no sábado e no domingo, e por que isso faz sua audiência confiar mais em você na segunda.",
   },
   {
     nome: "O áudio na DM",
-    descricao: "A mensagem de voz que acelera a venda.",
+    descricao:
+      "Quando alguém responde, você manda áudio com o nome da pessoa no lugar do texto. É o detalhe que mantém a conversa quente até a compra.",
   },
 ];
 
 export const pacote = {
-  rotuloPreco: "O pacote completo por",
+  titulo: [`${entregas.length} entregas.`, `${PRECO}.`],
+  rotuloPreco: `As ${entregas.length} entregas, explicadas e detalhadas, num pagamento só`,
   cta: "QUERO ACESSAR",
-  microcopia: "Pagamento único, acesso imediato, checkout seguro pela Kiwify.",
+  microcopia: "Pagamento único. Acesso imediato. Checkout seguro pela Kiwify.",
 };
 
-export const provaSocial = {
-  titulo: "Quem já aplicou",
-  // PLACEHOLDER: cada item vira um depoimento real, de pessoa real, com
-  // autorizacao. Nao inventar nome, print nem resultado.
-  depoimentos: [
-    { texto: "[DEPOIMENTO REAL AQUI]", autor: "[nome e @ do aluno]" },
-    { texto: "[DEPOIMENTO REAL AQUI]", autor: "[nome e @ do aluno]" },
-    { texto: "[DEPOIMENTO REAL AQUI]", autor: "[nome e @ do aluno]" },
+/**
+ * Sem depoimentos por enquanto: 3 Stories com as fotos do hero e uma
+ * frase em cada, que lidas em sequencia formam uma so:
+ * "vender nos stories / NÃO É / colocar LINKzinho na tela".
+ */
+export const storiesFrase = {
+  titulo: ["Entre agora,", "ou fique por fora"],
+  cards: [
+    { frase: "vender nos stories", foto: "/stories-magneticos/story-1-camelo.webp" },
+    { frase: "NÃO É", foto: "/stories-magneticos/story-2-paris.webp" },
+    { frase: "colocar LINKzinho na tela", foto: "/stories-magneticos/story-3-torre.webp" },
   ],
-  disclaimer:
-    "Os resultados variam conforme o perfil, o nicho e a execução de cada pessoa. Nenhum depoimento é promessa de resultado.",
 };
 
 export const reforco = {
-  titulo: ["Seus Stories,", "todo santo dia."],
-  texto: `As ${entregas.length} entregas, num pagamento só, com acesso na hora. Por ${PRECO}.`,
-  cta: "QUERO ACESSAR",
+  titulo: ["Stories que atraem,", "leads quentes"],
+  paragrafos: [
+    "Dá pra repetir o que você vem fazendo todo dia. Ou dá pra abrir o insta amanhã já sabendo qual é o primeiro Story do dia, qual engaja, qual interage e qual vende.",
+    `As ${entregas.length} entregas, pagamento único, acesso na hora. ${PRECO}.`,
+  ],
+  cta: "QUERO A ROTINA",
 };
 
 export const autoridade = {
@@ -154,13 +172,15 @@ export const autoridade = {
   instagram: { rotulo: "@thiagoespindola.z", href: "https://www.instagram.com/thiagoespindola.z/" },
   foto: "/thiago_foto.webp",
   fotoAlt: "Thiago Espíndola à noite, com o Burj Khalifa ao fundo",
-  // COPY PROVISORIA
   paragrafos: [
-    "Thiago Espíndola é o criador do Surfe a Realidade e do Método 50K.",
-    "No Stories Magnéticos ele mostra a rotina de Stories que usa no próprio perfil, do jeito que faz, sem teoria sobrando.",
+    // a copy dizia "Trilha 50K": o produto foi renomeado para Método 50K
+    "Criador do Surfe a Realidade e do Método 50K.",
+    "O que está nas aulas é o que ele faz no próprio perfil: a foto do livro que sobe toda manhã, a caixinha que abre na segunda, a ida à loja que vira enquete e o pitch que sai disso. Depois de assistir, abre os Stories dele e você vai reconhecer cada peça. Resta saber se você quer fazer parte.",
   ],
   // Dado informado como real. Nao adicionar outro numero sem fonte.
-  stat: { valor: "50 mil", rotulo: "seguidores em cerca de 3 meses" },
+  // O 50 conta de 0 ate o valor quando aparece na tela.
+  stat: { ate: 50, sufixo: "mil", rotulo: "seguidores em 3 meses." },
+  fechamento: "No Stories Magnéticos ele mostra o que faz com ela, todo dia.",
 };
 
 export const rodape = {
