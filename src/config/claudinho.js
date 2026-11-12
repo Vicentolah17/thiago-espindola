@@ -11,6 +11,13 @@
 export const PRECO_VALOR = "47,90";
 export const PRECO = `R$${PRECO_VALOR}`;
 
+/**
+ * De onde o preco "cai" na animacao do bloco de preco. Aqui e o valor
+ * que a propria copy cita (o que um editor cobra por um video), nao um
+ * "preco antigo" do treinamento.
+ */
+export const PRECO_ANIMACAO_DE = "1000,00";
+
 /** PLACEHOLDER: link do checkout na Kiwify. Usado por TODOS os botoes. */
 export const CHECKOUT_URL = "https://pay.kiwify.com.br/PLACEHOLDER-CLAUDINHO";
 
@@ -37,16 +44,22 @@ export const CHECKOUT_CUPOM_URL = CHECKOUT_URL;
 
 export const topo = "CONDIÇÃO POR TEMPO LIMITADO";
 
+/** CTA igual em todos os botoes de compra */
+const CTA = "QUERO O MEU CLAUDINHO";
+
 export const nav = { marca: "claudinho", cta: "Garantir acesso" };
 
 export const hero = {
   rotulo: "BRAÇO DIREITO",
-  // o destaque sai em laranja
-  titulo: { inicio: "Você grava.", destaque: "O Claudinho", fim: "faz o resto." },
-  subtitulo:
-    "Passe alguns comandos e receba vídeo editado, roteiro, copy e site. A IA assume o trabalho repetitivo.",
-  cta: "QUERO O CLAUDINHO",
-  microcopia: "R$100/mês de ferramenta no lugar de R$20-30 mil de equipe",
+  // a primeira parte fica numa linha; o destaque sai em laranja
+  titulo: { inicio: "Você grava.", destaque: "O Claudinho", fim: "assume a bronca." },
+  // um paragrafo so, corrido
+  paragrafos: [
+    "A IA evolui cada vez mais todos os dias, justamente para nos ajudar em trabalhos repetitivos. Passe alguns comandos e receba vídeo editado, roteiro profissional, copywriting e até site.",
+  ],
+  chamada: "Acabou a era das desculpas. Fique por dentro agora:",
+  cta: CTA,
+  microcopia: `${PRECO} · Treinamento COMPLETO · Pagamento seguro via Kiwify`,
 };
 
 /** O chat animado do hero (texto do handoff do design). */
@@ -63,81 +76,92 @@ export const chat = {
 };
 
 /**
- * As entregas (conteudo REAL do treinamento). O titulo da secao conta
- * quantas existem. "comando" e um exemplo de pedido, so ilustrativo:
- * COPY PROVISORIA.
+ * As entregas. O titulo da secao conta quantas existem.
+ * descricao e opcional (algumas so tem o comando de exemplo).
+ * comando: exemplo de pedido, digitado quando o card aparece.
  * icone: nome de um icone de src/components/sales/Icon.jsx
  */
 export const entregas = [
   {
+    icone: "script",
+    nome: "O prompt de roteiros do Thiago, pronto pra colar",
+    descricao:
+      "Você cola no seu Claude e ele já começa a trabalhar como o chat que o Thiago usa. Manda um Reels que viralizou e recebe roteiros parecidos, no seu nicho, com cara de conversa entre amigos e sem aquele cheiro de texto de IA.",
+    comando: "analisa esse vídeo e me dá 5 roteiros nesse estilo",
+  },
+  {
+    icone: "pulse",
+    nome: "Ideia pra quando você trava",
+    descricao:
+      "Peça estilos novos de vídeo (história, lista rápida, raio X de um viral), escolha um e o roteiro sai em cima dele.",
+    comando: "me dá estilos diferentes de vídeo pra eu escolher",
+  },
+  {
     icone: "play",
     nome: "Edição de vídeo por comando",
-    descricao: "Você passa a instrução, recebe o vídeo pronto.",
+    descricao:
+      "Você descreve o que quer, o Claude executa. A edição que levaria de 3 a 5 dias na mão fica pronta em menos de 24 horas.",
     comando: "corta as pausas e coloca legenda",
   },
   {
-    icone: "script",
-    nome: "Roteiros e ideias",
-    descricao: "Criação de roteiros e geração de ideias de conteúdo.",
-    comando: "10 ideias de Reels pra semana",
+    icone: "magnet",
+    nome: "Copy de legenda, anúncio e página",
+    comando: "escreve a legenda desse post",
   },
   {
     icone: "blocks",
     nome: "Sites e páginas de venda",
-    descricao: "Criação de sites e páginas de venda.",
     comando: "monta a página de venda do meu curso",
   },
   {
-    icone: "magnet",
-    nome: "Copy persuasiva",
-    descricao: "Copy persuasiva escrita pra você.",
-    comando: "escreve a legenda desse post",
-  },
-  {
     icone: "users",
-    nome: "Contratos e burocracia",
-    descricao: "Contratos e burocracia pra contratar e gerir equipe.",
+    nome: "Contrato pra montar equipe",
+    descricao:
+      "Quando chegar a hora de contratar editor ou social media, o contrato você pede pro Claude.",
     comando: "faz o contrato do meu editor",
   },
 ];
 
-/** A ultima entrega: a logica 80/20, com o grafico animado. */
+export const pacote = {
+  titulo: `${entregas.length} coisas que saem da sua mão`,
+};
+
+/** A conta do 80/20, com o grafico animado. */
 export const regra8020 = {
-  nome: "A lógica 80/20",
+  nome: "A conta do 80/20",
   descricao:
-    "Automatizar os 80% operacionais pra você focar nos 20% que só você faz.",
+    "Uns 80% do resultado no digital vêm de trabalho operacional e repetitivo. Os outros 20% são gravar, aparecer e saber o que está em alta, e isso a IA não faz por você. Hoje seu tempo vai quase todo pros 80%.",
   partes: [
     { valor: 80, rotulo: "operacional", quem: "o Claudinho faz" },
     { valor: 20, rotulo: "gravar e decidir", quem: "só você faz" },
   ],
 };
 
-export const totalEntregas = entregas.length + 1;
-
-export const pacote = {
-  rotuloPreco: "Tudo isso por",
-  cta: "QUERO O CLAUDINHO",
-  // PLACEHOLDER: confirmar se e pagamento unico ou recorrente
+export const preco = {
+  comparacao: "Um editor cobra perto de R$1.000 por um vídeo.",
+  rotulo: "O treinamento inteiro sai por",
+  cta: CTA,
   microcopia: "Acesso imediato, checkout seguro pela Kiwify.",
+  aviso:
+    "Pra usar, você precisa de uma assinatura do Claude (cerca de R$100/mês). É a única ferramenta.",
 };
 
 export const provaSocial = {
-  titulo: "Quem já colocou o Claudinho pra trabalhar",
-  // PLACEHOLDER: cada item vira um depoimento real, de pessoa real, com
-  // autorizacao. Nao inventar nome, print nem resultado.
-  depoimentos: [
-    { texto: "[DEPOIMENTO REAL AQUI]", autor: "[nome e @ do aluno]" },
-    { texto: "[DEPOIMENTO REAL AQUI]", autor: "[nome e @ do aluno]" },
-    { texto: "[DEPOIMENTO REAL AQUI]", autor: "[nome e @ do aluno]" },
+  titulo: "Empresas que já usam o Claude para automatizar seus trabalhos repetitivos",
+  prints: [
+    { src: "/lovable.png", largura: 319, altura: 191, alt: "Lovable: plataforma de desenvolvimento baseada em IA" },
+    { src: "/cursor.png", largura: 329, altura: 171, alt: "Cursor: editor de código baseado em IA" },
+    { src: "/hostinger.png", largura: 321, altura: 204, alt: "Hostinger: provedora de hospedagem web, com o Hostinger Horizons baseado em IA" },
   ],
-  disclaimer:
-    "Os resultados variam conforme o negócio, o conteúdo e a execução de cada pessoa. Nenhum depoimento é promessa de resultado.",
+  nota: "As empresas aparecem como exemplos de uso do Claude e não têm relação com este treinamento.",
 };
 
 export const reforco = {
-  titulo: "Você grava. O resto já está em andamento.",
-  texto: `As ${totalEntregas} entregas, com acesso na hora. Por ${PRECO}.`,
-  cta: "QUERO O CLAUDINHO",
+  // log de tarefas que corre de lado, como na copy
+  log: ["prompt de roteiros", "ideias", "edição", "copy", "site", "contrato"],
+  titulo: "Amanhã você grava. O resto já tem quem faça.",
+  texto: `As ${entregas.length} entregas, acesso IMEDIATO, por ${PRECO}.`,
+  cta: CTA,
 };
 
 export const autoridade = {
@@ -146,13 +170,11 @@ export const autoridade = {
   instagram: { rotulo: "@thiagoespindola.z", href: "https://www.instagram.com/thiagoespindola.z/" },
   foto: "/thiago_foto.webp",
   fotoAlt: "Thiago Espíndola à noite, com o Burj Khalifa ao fundo",
-  // COPY PROVISORIA
   paragrafos: [
-    "Thiago Espíndola é o criador do Surfe a Realidade e do Método 50K.",
-    "O Claudinho é a forma como ele tirou o operacional das próprias mãos: o que dá pra pedir por comando, ele pede, e guarda o tempo para gravar e decidir.",
+    // a copy dizia "Trilha 50K": o produto foi renomeado para Método 50K
+    "Criador do Surfe a Realidade e do Método 50K. Bateu 50 mil seguidores em menos de 3 meses com vídeos simples de gravar, sem edição avançada.",
+    "Quando o volume de vídeos por dia passou do que dava pra fazer na mão, ele fez a conta: pra dar conta com gente, seriam R$20 a 30 mil por mês de editor, copywriter, designer e jurídico. Com o Claude, uns R$100. O que ele continua fazendo sozinho é gravar e ler tendência.",
   ],
-  // Dado informado como real. Nao adicionar outro numero sem fonte.
-  stat: { valor: "50 mil", rotulo: "seguidores em cerca de 3 meses" },
   // Experiencia DELE, nao promessa para o comprador.
   custo: {
     titulo: "Na operação dele",
@@ -160,8 +182,16 @@ export const autoridade = {
     para: 100,
     rotuloDe: "R$20-30 mil por mês de equipe",
     rotuloPara: "por mês de ferramenta",
-    nota: "Essa é a experiência do Thiago na operação dele, não uma promessa de economia. O custo de cada negócio é diferente.",
+    nota: "Essa é a conta do Thiago na operação dele, não uma promessa de economia. O custo de cada negócio é diferente.",
   },
+};
+
+export const fecho = {
+  texto:
+    "O próximo vídeo que você postar pode sair do prompt do Thiago, editado por comando, com legenda escrita pelo Claude. Ou pode sair às 2 da manhã, editado na mão.",
+  titulo: "Você já leu o suficiente.",
+  resumo: `${PRECO}, acesso imediato. Treinamento direto ao ponto.`,
+  cta: CTA,
 };
 
 export const rodape = {

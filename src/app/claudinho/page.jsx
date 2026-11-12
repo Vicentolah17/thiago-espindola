@@ -1,31 +1,34 @@
 import Icon from "@/components/sales/Icon";
 import ChatHero from "@/components/claudinho/ChatHero";
 import Contador from "@/components/claudinho/Contador";
+import ContaPreco from "@/components/claudinho/ContaPreco";
 import CupomModal from "@/components/claudinho/CupomModal";
 import Revelar from "@/components/claudinho/Revelar";
 import {
   CHECKOUT_URL,
   PRECO,
+  PRECO_ANIMACAO_DE,
   PRECO_VALOR,
   autoridade,
   chat,
   entregas,
+  fecho,
   hero,
   nav,
   pacote,
+  preco,
   provaSocial,
   reforco,
   regra8020,
   rodape,
   topo,
-  totalEntregas,
 } from "@/config/claudinho";
 import styles from "./page.module.css";
 
 export const metadata = {
   title: "Claudinho · Thiago Espíndola",
   description:
-    "Passe alguns comandos e receba vídeo editado, roteiro, copy e site. A IA assume o trabalho repetitivo.",
+    "Você grava. O Claudinho assume a bronca. Passe alguns comandos e receba vídeo editado, roteiro profissional, copywriting e até site.",
   // Provisoria e com placeholders: fora do Google ate a versao final.
   robots: { index: false, follow: false },
 };
@@ -49,8 +52,6 @@ const atraso = (i) => ({ "--atraso": `${i * 90}ms` });
  */
 export default function ClaudinhoPage() {
   const ano = new Date().getFullYear();
-  // lista que roda no reforco, como um log de tarefas concluidas
-  const log = ["vídeo editado", "roteiro", "copy", "site", "contrato", "ideias da semana"];
 
   return (
     <div className={styles.page} id="claudinho">
@@ -86,9 +87,14 @@ export default function ClaudinhoPage() {
               {hero.titulo.inicio}
               <br />
               <span className={styles.laranja}>{hero.titulo.destaque}</span>{" "}
-              {hero.titulo.fim}
+              <span className={styles.heroFim}>{hero.titulo.fim}</span>
             </h1>
-            <p className={styles.heroSub}>{hero.subtitulo}</p>
+            <div className={styles.heroSub}>
+              {hero.paragrafos.map((p) => (
+                <p key={p.slice(0, 20)}>{p}</p>
+              ))}
+            </div>
+            <p className={styles.heroChamada}>{hero.chamada}</p>
             <div className={styles.heroAcoes}>
               <Cta grande>{hero.cta}</Cta>
               <span className={styles.heroMicro}>{hero.microcopia}</span>
@@ -102,8 +108,7 @@ export default function ClaudinhoPage() {
         <section id="pacote" className={styles.secao}>
           <div className={styles.caixa}>
             <h2 className={styles.titulo} data-revelar="">
-              {totalEntregas} entregas por{" "}
-              <span className={styles.laranja}>{PRECO}</span>
+              {pacote.titulo}
             </h2>
 
             <ul className={styles.capacidades}>
@@ -118,112 +123,121 @@ export default function ClaudinhoPage() {
                     <Icon name={e.icone} size={22} />
                   </span>
                   <h3 className={styles.capNome}>{e.nome}</h3>
-                  <p className={styles.capDesc}>{e.descricao}</p>
+                  {e.descricao && <p className={styles.capDesc}>{e.descricao}</p>}
                   {/* exemplo de pedido, digitado quando o card aparece */}
                   <p className={styles.comando} aria-label={`Exemplo de comando: ${e.comando}`}>
                     <span className={styles.comandoSeta} aria-hidden="true">
                       ›
                     </span>
-                    <span
-                      className={styles.comandoTexto}
-                      style={{ "--n": e.comando.length }}
-                      aria-hidden="true"
-                    >
-                      {e.comando}
+                    {/* letra por letra, para "digitar" e ainda quebrar linha */}
+                    <span className={styles.comandoTexto} aria-hidden="true">
+                      {[...e.comando].map((letra, k) => (
+                        <span key={k} style={{ "--k": k }}>
+                          {letra}
+                        </span>
+                      ))}
                     </span>
                   </p>
                 </li>
               ))}
-
-              {/* a 6a entrega: a logica 80/20, com o grafico */}
-              <li
-                className={`${styles.capacidade} ${styles.regra}`}
-                data-revelar=""
-                style={atraso(2)}
-              >
-                <div className={styles.regraTexto}>
-                  <span className={styles.capIcone} aria-hidden="true">
-                    <Icon name="pulse" size={22} />
-                  </span>
-                  <h3 className={styles.capNome}>{regra8020.nome}</h3>
-                  <p className={styles.capDesc}>{regra8020.descricao}</p>
-                </div>
-                <div className={styles.grafico}>
-                  <div
-                    className={styles.barra}
-                    role="img"
-                    aria-label="80% do trabalho é operacional e fica com o Claudinho; 20% é gravar e decidir, e fica com você."
-                  >
-                    {regra8020.partes.map((p, i) => (
-                      <span
-                        key={p.rotulo}
-                        className={`${styles.barraParte} ${i === 0 ? styles.barraMaquina : styles.barraVoce}`}
-                        style={{ "--parte": `${p.valor}%` }}
-                      />
-                    ))}
-                  </div>
-                  <div className={styles.legenda} aria-hidden="true">
-                    {regra8020.partes.map((p, i) => (
-                      <span
-                        key={p.rotulo}
-                        className={`${styles.legendaItem} ${i === 0 ? styles.legendaMaquina : ""}`}
-                        style={{ "--parte": `${p.valor}%` }}
-                      >
-                        <strong>{p.valor}%</strong>
-                        <span>{p.rotulo}</span>
-                        <em>{p.quem}</em>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </li>
             </ul>
 
-            <div className={styles.precoCard} data-revelar="">
-              <p className={styles.precoRotulo}>{pacote.rotuloPreco}</p>
-              <p className={styles.preco} aria-label={PRECO}>
-                <span className={styles.precoMoeda} aria-hidden="true">
-                  R$
-                </span>
-                <span className={styles.precoValor} aria-hidden="true">
-                  {PRECO_VALOR}
-                </span>
-              </p>
-              <Cta grande>{pacote.cta}</Cta>
-              <p className={styles.micro}>{pacote.microcopia}</p>
+            {/* a conta do 80/20, com o grafico */}
+            <div className={`${styles.capacidade} ${styles.regra}`} data-revelar="">
+              <div className={styles.regraTexto}>
+                <h3 className={styles.capNome}>{regra8020.nome}</h3>
+                <p className={styles.capDesc}>{regra8020.descricao}</p>
+              </div>
+              <div className={styles.grafico}>
+                <div
+                  className={styles.barra}
+                  role="img"
+                  aria-label="80% do trabalho é operacional e fica com o Claudinho; 20% é gravar e decidir, e fica com você."
+                >
+                  {regra8020.partes.map((p, i) => (
+                    <span
+                      key={p.rotulo}
+                      className={`${styles.barraParte} ${i === 0 ? styles.barraMaquina : styles.barraVoce}`}
+                      style={{ "--parte": `${p.valor}%` }}
+                    />
+                  ))}
+                </div>
+                <div className={styles.legenda} aria-hidden="true">
+                  {regra8020.partes.map((p, i) => (
+                    <span
+                      key={p.rotulo}
+                      className={`${styles.legendaItem} ${i === 0 ? styles.legendaMaquina : ""}`}
+                      style={{ "--parte": `${p.valor}%` }}
+                    >
+                      <strong>{p.valor}%</strong>
+                      <span>{p.rotulo}</span>
+                      <em>→ {p.quem}</em>
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 4 · prova social (PLACEHOLDER) */}
-        <section id="resultados" className={styles.secao}>
+        {/* 4 · preco */}
+        <section id="oferta" className={styles.secaoPreco}>
           <div className={styles.caixa}>
-            <h2 className={styles.titulo} data-revelar="">
-              {provaSocial.titulo}
-            </h2>
-            <ul className={styles.depoimentos}>
-              {provaSocial.depoimentos.map((d, i) => (
-                <li key={i} className={styles.depoimento} data-revelar="" style={atraso(i)}>
-                  <span className={styles.depoimentoAvatar} aria-hidden="true" />
-                  <div className={styles.depoimentoCorpo}>
-                    <p className={styles.depoimentoTexto}>{d.texto}</p>
-                    <p className={styles.depoimentoAutor}>{d.autor}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <p className={styles.disclaimer}>{provaSocial.disclaimer}</p>
+            <div className={styles.precoCard} data-revelar="">
+              <p className={styles.precoComparacao}>{preco.comparacao}</p>
+              <p className={styles.precoRotulo}>{preco.rotulo}</p>
+              {/* o preco cai do valor do editor ate o do treinamento */}
+              <p className={styles.preco} aria-label={PRECO}>
+                <span className={styles.precoMoeda} aria-hidden="true">
+                  R$
+                </span>
+                <span aria-hidden="true">
+                  <ContaPreco
+                    className={styles.precoValor}
+                    de={PRECO_ANIMACAO_DE}
+                    ate={PRECO_VALOR}
+                  />
+                </span>
+              </p>
+              <Cta grande>{preco.cta}</Cta>
+              <p className={styles.micro}>{preco.microcopia}</p>
+              <p className={styles.precoAviso}>{preco.aviso}</p>
+            </div>
           </div>
         </section>
 
-        {/* 5 · reforco */}
-        <section id="oferta" className={`${styles.secao} ${styles.reforco}`}>
+        {/* 5 · empresas que usam o Claude */}
+        <section id="empresas" className={styles.secao}>
+          <div className={styles.caixa}>
+            <h2 className={`${styles.titulo} ${styles.tituloMenor}`} data-revelar="">
+              {provaSocial.titulo}
+            </h2>
+            <ul className={styles.empresas}>
+              {provaSocial.prints.map((p, i) => (
+                <li key={p.src} className={styles.empresa} data-revelar="" style={atraso(i)}>
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    width={p.largura}
+                    height={p.altura}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </li>
+              ))}
+            </ul>
+            <p className={styles.disclaimer}>{provaSocial.nota}</p>
+          </div>
+        </section>
+
+        {/* 6 · reforco */}
+        <section className={`${styles.secao} ${styles.reforco}`}>
           <div className={styles.log} aria-hidden="true">
             <div className={styles.logFaixa}>
-              {[...log, ...log].map((item, i) => (
+              {[...reforco.log, ...reforco.log].map((item, i) => (
                 <span
                   key={i}
-                  className={`${styles.logItem} ${i >= log.length ? styles.logCopia : ""}`}
+                  className={`${styles.logItem} ${i >= reforco.log.length ? styles.logCopia : ""}`}
                 >
                   <span className={styles.laranja}>✓</span> {item}
                 </span>
@@ -237,7 +251,7 @@ export default function ClaudinhoPage() {
           </div>
         </section>
 
-        {/* 6 · autoridade */}
+        {/* 7 · autoridade */}
         <section id="expert" className={styles.secao}>
           <div className={`${styles.caixa} ${styles.autoridade}`}>
             <img
@@ -264,33 +278,44 @@ export default function ClaudinhoPage() {
                 </p>
               ))}
 
-              <div className={styles.numeros}>
-                <p className={styles.stat}>
-                  <span className={styles.statValor}>{autoridade.stat.valor}</span>
-                  <span className={styles.statRotulo}>{autoridade.stat.rotulo}</span>
+              {/* experiencia dele, nao promessa */}
+              <div className={styles.custo}>
+                <p className={styles.custoTitulo}>{autoridade.custo.titulo}</p>
+                <p className={styles.custoDe}>{autoridade.custo.rotuloDe}</p>
+                <p className={styles.custoPara}>
+                  <Contador
+                    className={styles.custoValor}
+                    de={autoridade.custo.de}
+                    para={autoridade.custo.para}
+                  />
+                  <span className={styles.custoRotulo}>{autoridade.custo.rotuloPara}</span>
                 </p>
-
-                {/* experiencia dele, nao promessa */}
-                <div className={styles.custo}>
-                  <p className={styles.custoTitulo}>{autoridade.custo.titulo}</p>
-                  <p className={styles.custoDe}>{autoridade.custo.rotuloDe}</p>
-                  <p className={styles.custoPara}>
-                    <Contador
-                      className={styles.custoValor}
-                      de={autoridade.custo.de}
-                      para={autoridade.custo.para}
-                    />
-                    <span className={styles.custoRotulo}>{autoridade.custo.rotuloPara}</span>
-                  </p>
-                  <p className={styles.custoNota}>{autoridade.custo.nota}</p>
-                </div>
+                <p className={styles.custoNota}>{autoridade.custo.nota}</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 8 · fecho */}
+        <section className={`${styles.secao} ${styles.fecho}`}>
+          <div className={`${styles.caixa} ${styles.fechoCaixa}`}>
+            <p className={styles.fechoTexto} data-revelar="">
+              {fecho.texto}
+            </p>
+            <h2 className={styles.fechoTitulo} data-revelar="" style={atraso(1)}>
+              {fecho.titulo}
+            </h2>
+            <p className={styles.fechoResumo} data-revelar="" style={atraso(2)}>
+              {fecho.resumo}
+            </p>
+            <div data-revelar="" style={atraso(3)}>
+              <Cta grande>{fecho.cta}</Cta>
             </div>
           </div>
         </section>
       </main>
 
-      {/* 7 · rodape */}
+      {/* 9 · rodape */}
       <footer className={styles.rodape}>
         <div className={styles.caixa}>
           <div className={styles.rodapeTopo}>

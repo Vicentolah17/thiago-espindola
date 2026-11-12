@@ -275,6 +275,10 @@
   animation-delay: 0.28s;
 }
 
+.heroTexto > :nth-child(5) {
+  animation-delay: 0.38s;
+}
+
 .heroRotulo {
   margin: 0;
   padding-left: 0.32em;
@@ -294,22 +298,44 @@
   text-wrap: balance;
 }
 
+/* no desktop "assume a bronca." fica junto, sem deixar "bronca." sozinha */
+@media (min-width: 760px) {
+  .heroFim {
+    white-space: nowrap;
+  }
+}
+
 .heroSub {
-  margin: 0;
-  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 640px;
   font-size: clamp(17px, 1.6vw, 20px);
   line-height: 1.55;
   color: var(--texto-3);
   text-wrap: pretty;
 }
 
+.heroSub p {
+  margin: 0;
+}
+
+/* "Acabou a era das desculpas." puxa para o botao */
+.heroChamada {
+  margin: 0;
+  font-family: var(--cd-display), sans-serif;
+  font-size: clamp(19px, 1.9vw, 24px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--texto);
+}
+
 .heroAcoes {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 14px 22px;
-  margin-top: 8px;
+  gap: 14px;
+  margin-top: 2px;
 }
 
 .heroMicro {
@@ -401,7 +427,7 @@
 /* exemplo de pedido, como uma linha de prompt */
 .comando {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   margin: auto 0 0;
   padding: 10px 12px;
@@ -410,38 +436,45 @@
   background: var(--campo);
   font-family: var(--cd-mono), monospace;
   font-size: 12.5px;
+  line-height: 1.5;
   color: var(--texto-2);
-  overflow: hidden;
 }
 
 .comandoSeta {
   color: var(--laranja);
 }
 
+/* quebra linha normalmente: comandos longos ocupam duas linhas */
 .comandoTexto {
+  min-width: 0;
+}
+
+/* cursor de terminal piscando no fim do comando */
+.comandoTexto::after {
+  content: "";
   display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
+  width: 7px;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--laranja);
+  animation: piscar 1.05s steps(1) infinite;
 }
 
-/* o comando se digita quando o card aparece; depois fica um cursor */
-.page[data-anim] [data-revelar] .comandoTexto {
-  width: 0;
-  border-right: 2px solid transparent;
+/* o comando se digita letra por letra quando o card aparece */
+.page[data-anim] [data-revelar] .comandoTexto span {
+  opacity: 0;
 }
 
-.page[data-anim] [data-visto] .comandoTexto {
-  width: calc(var(--n) * 1ch + 2px);
-  transition: width calc(var(--n) * 38ms) steps(var(--n))
-    calc(var(--atraso, 0ms) + 0.5s);
-  border-right-color: var(--laranja);
-  animation: cursorBorda 1.05s steps(1) infinite;
+.page[data-anim] [data-visto] .comandoTexto span {
+  opacity: 1;
+  transition: opacity 0s linear calc(var(--atraso, 0ms) + 0.5s + var(--k) * 36ms);
 }
 
-/* a 6a entrega ocupa a largura toda e traz o grafico */
+/* a conta do 80/20: bloco largo abaixo da grade, com o grafico */
 .regra {
   gap: 24px;
+  margin-top: 14px;
 }
 
 .regraTexto {
@@ -532,14 +565,19 @@
   color: var(--apagado);
 }
 
-/* card do preco */
+/* ---------- 4 · preco ---------- */
+
+/* colado no pacote: so o espaco de baixo */
+.secaoPreco {
+  padding-bottom: clamp(88px, 12vw, 144px);
+}
+
 .precoCard {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  margin-top: 14px;
   padding: clamp(40px, 6vw, 64px) 24px;
   border: 1px solid var(--borda-quente);
   border-radius: 24px;
@@ -554,9 +592,33 @@
   container-type: inline-size;
 }
 
+/* a ancora: o que um editor cobra. O preco cai dela ate o do curso */
+.precoComparacao {
+  margin: 0 0 4px;
+  max-width: 30ch;
+  font-family: var(--cd-display), sans-serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
 .precoRotulo {
   margin: 0 0 -10px;
   font-size: 17px;
+  color: var(--texto-3);
+}
+
+.precoAviso {
+  margin: 4px 0 0;
+  max-width: 46ch;
+  padding: 12px 16px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: var(--campo);
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--texto-3);
 }
 
@@ -579,13 +641,22 @@
   color: var(--laranja);
 }
 
+/* o tamanho acompanha a quantidade de digitos (--digitos vem do
+   ContaPreco): "1.000,00" cabe no card, e o numero cresce conforme cai */
 .precoValor {
-  font-size: clamp(72px, 17cqi, 160px);
+  font-size: clamp(56px, calc(92cqi / (var(--digitos, 5) * 0.58)), 160px);
+  font-variant-numeric: tabular-nums;
 }
 
-/* ---------- 4 · prova social ---------- */
+/* ---------- 5 · empresas que usam o Claude ---------- */
 
-.depoimentos {
+.tituloMenor {
+  max-width: 22ch;
+  font-size: clamp(30px, 4.2vw, 52px);
+  line-height: 1.05;
+}
+
+.empresas {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
@@ -594,47 +665,28 @@
   list-style: none;
 }
 
-/* cada placeholder e uma mensagem de chat ainda vazia */
-.depoimento {
+/* o print fica no tamanho real, sobre a mesma cor de fundo dele */
+.empresa {
   display: flex;
-  gap: 14px;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 22px;
-  border: 1.5px dashed var(--borda-2);
+  border: 1px solid var(--borda);
   border-radius: 20px;
-  background: var(--superficie);
+  background: #131311;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
-.depoimentoAvatar {
-  flex: none;
-  width: 40px;
-  height: 40px;
-  border: 1.5px dashed var(--apagado);
-  border-radius: 50%;
+.empresa:hover {
+  border-color: var(--borda-quente);
+  transform: translateY(-3px);
 }
 
-.depoimentoCorpo {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-}
-
-.depoimentoTexto {
-  margin: 0;
-  padding: 14px 16px;
-  border-radius: 4px 14px 14px 14px;
-  background: var(--superficie-2);
-  font-family: var(--cd-mono), monospace;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--laranja);
-}
-
-.depoimentoAutor {
-  margin: 0;
-  font-size: 14px;
-  color: var(--apagado);
+.empresa img {
+  display: block;
+  width: 100%;
+  max-width: 330px;
+  height: auto;
 }
 
 .disclaimer {
@@ -750,41 +802,12 @@
   text-wrap: pretty;
 }
 
-.numeros {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 28px;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin: 0;
-  padding: 22px;
-  border: 1px solid var(--borda);
-  border-radius: 18px;
-  background: var(--superficie);
-}
-
-.statValor {
-  font-family: var(--cd-display), sans-serif;
-  font-size: clamp(44px, 5vw, 60px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.statRotulo {
-  font-size: 15px;
-  color: var(--texto-3);
-}
-
 .custo {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  max-width: 460px;
+  margin-top: 28px;
   padding: 22px;
   border: 1px solid var(--borda-quente);
   border-radius: 18px;
@@ -836,7 +859,69 @@
   color: var(--apagado);
 }
 
-/* ---------- 7 · rodape ---------- */
+/* ---------- 8 · fecho ---------- */
+
+.fecho {
+  overflow: hidden;
+  border-top: 1px solid var(--borda);
+}
+
+/* brilho laranja subindo do fundo, respirando */
+.fecho::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -30%;
+  width: min(1200px, 150vw);
+  height: 80%;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 122, 26, 0.24),
+    rgba(255, 122, 26, 0.06) 55%,
+    rgba(255, 122, 26, 0)
+  );
+  transform: translateX(-50%);
+  animation: respirar 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.fechoCaixa {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.fechoTexto {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.55;
+  color: var(--texto-3);
+  text-wrap: pretty;
+}
+
+.fechoTitulo {
+  margin: 8px 0 0;
+  font-family: var(--cd-display), sans-serif;
+  font-size: clamp(40px, 6.4vw, 88px);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.fechoResumo {
+  margin: 0 0 6px;
+  font-size: clamp(17px, 1.6vw, 20px);
+  font-weight: 600;
+  color: var(--laranja);
+}
+
+/* ---------- 9 · rodape ---------- */
 
 .rodape {
   padding-block: 48px 56px;
@@ -877,26 +962,10 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* a edicao de video e a entrega principal: card largo, e a grade
-     fecha sem buraco tanto em 2 quanto em 3 colunas */
-  .capacidade:first-child {
-    grid-column: span 2;
-  }
+  /* 6 entregas: a grade fecha sem buraco em 2 e em 3 colunas */
 
-  .regra {
-    grid-column: 1 / -1;
-  }
-
-  .depoimentos {
+  .empresas {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .depoimento {
-    flex-direction: column;
-  }
-
-  .numeros {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1013,8 +1082,14 @@
   .heroTexto > *,
   .hero > :last-child,
   .barraMaquina,
-  .logFaixa {
+  .logFaixa,
+  .fecho::before,
+  .comandoTexto::after {
     animation: none;
+  }
+
+  .empresa {
+    transition: none;
   }
 
   .cta {
