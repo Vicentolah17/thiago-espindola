@@ -53,10 +53,11 @@ export default function HubHeader({
         ))}
 
       <div className={styles.titleGroup}>
-        <div className={styles.wordmark}>
+        {/* h1 da pagina: o nome da marca */}
+        <h1 className={styles.wordmark}>
           <span className={styles.eyebrow}>{eyebrow}</span>
           <span className={styles.title}>{title}</span>
-        </div>
+        </h1>
         <p className={styles.tagline}>{tagline}</p>
       </div>
     </header>

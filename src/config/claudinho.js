@@ -18,8 +18,8 @@ export const PRECO = `R$${PRECO_VALOR}`;
  */
 export const PRECO_ANIMACAO_DE = "1000,00";
 
-/** PLACEHOLDER: link do checkout na Kiwify. Usado por TODOS os botoes. */
-export const CHECKOUT_URL = "https://pay.kiwify.com.br/PLACEHOLDER-CLAUDINHO";
+/** Link do checkout na Kiwify. Usado por TODOS os botoes (e pelo popup). */
+export const CHECKOUT_URL = "https://pay.kiwify.com.br/0YTgJ71";
 
 // ---------------- popup de cupom ----------------
 

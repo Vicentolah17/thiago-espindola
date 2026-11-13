@@ -2,7 +2,6 @@ import Grain from "@/components/Grain";
 import Halos from "@/components/Halos";
 import HubFooter from "@/components/HubFooter";
 import HubHeader from "@/components/HubHeader";
-import KitCard from "@/components/KitCard";
 import LevelCard from "@/components/LevelCard";
 import SectionHeading from "@/components/SectionHeading";
 import { hub } from "@/config/hub";
@@ -26,14 +25,20 @@ export default function Home() {
           avatarSrc={header.avatarSrc}
         />
 
-        <KitCard
-          href={kit.href}
-          badge={kit.badge}
-          eyebrow={kit.eyebrow}
-          titleLines={kit.titleLines}
-          description={kit.description}
-          cta={kit.cta}
-        />
+        {/* Salto Quantico (gratuito) em tamanho normal, como os outros
+            cards. O KitCard grande continua em src/components, sem uso,
+            caso ele volte a ser destaque. */}
+        <div className={styles.levels}>
+          <SectionHeading label={kit.eyebrow} />
+          <LevelCard
+            href={kit.href}
+            title={kit.titleLines.join(" ")}
+            description={kit.description}
+            badge={kit.badge}
+            variant={kit.variant}
+            numbered={false}
+          />
+        </div>
 
         <div className={styles.levels}>
           <SectionHeading label={levelsLabel} />

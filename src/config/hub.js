@@ -49,6 +49,9 @@ export const hub = {
     description:
       "Viver o mesmo roteiro toda semana é horrível, e conteúdo motivacional não resolve. Eu tentei, a angústia sempre voltava. Salte para sua realidade ideal, enquanto há tempo.",
     cta: "Acessar DE GRAÇA",
+    // Card em tamanho normal, com o rosa-violeta do antigo card grande.
+    // O eyebrow vira o titulo da secao acima dele.
+    variant: "gratuito",
   },
 
   levelsLabel: "Próximos níveis",
@@ -57,6 +60,31 @@ export const hub = {
   // aparecem aqui, contando so os visiveis. Card oculto nao deixa
   // buraco na sequencia.
   levels: [
+    // ---------- as landings novas, cada uma com a cor da pagina ----------
+    {
+      href: "/metodo50k",
+      title: "Método 50K",
+      // COPY DO HUB: frase tirada da propria landing
+      description:
+        "O passo a passo pra gravar sem travar, editar sem perder tempo e nunca mais abrir o Instagram sem ideia.",
+      variant: "metodo50k",
+    },
+    {
+      href: "/stories-magneticos",
+      title: "Stories Magnéticos",
+      // COPY DO HUB: frase tirada da propria landing
+      description:
+        "Alguém vende pros seus seguidores. Melhor que seja você. Engajar, interagir e vender nos Stories.",
+      variant: "stories",
+    },
+    {
+      href: "/claudinho",
+      title: "Claudinho",
+      // COPY DO HUB: frase tirada da propria landing
+      description:
+        "Você grava. O Claudinho assume a bronca: vídeo editado, roteiro, copy e site com IA.",
+      variant: "claudinho",
+    },
     {
       // OCULTO ATÉ O LANÇAMENTO DA BLACK FRIDAY: ver a chave
       // MOSTRAR_SURFE_DIGITAL no topo deste arquivo.

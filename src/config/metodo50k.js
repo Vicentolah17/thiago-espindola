@@ -8,8 +8,8 @@
 
 export const PRECO = "R$147";
 
-/** PLACEHOLDER: link do checkout na Kiwify. Usado por TODOS os botoes. */
-export const CHECKOUT_URL = "https://pay.kiwify.com.br/PLACEHOLDER-METODO50K";
+/** Link do checkout na Kiwify. Usado por TODOS os botoes (e pelo popup). */
+export const CHECKOUT_URL = "https://pay.kiwify.com.br/ijlKVeI";
 
 // ---------------- popup de cupom ----------------
 

@@ -67,6 +67,106 @@
   color: rgba(255, 198, 236, 0.55);
 }
 
+/* ---------- variante gratuito (Salto Quantico) ----------
+   o mesmo rosa-violeta do antigo card grande, em tamanho normal */
+
+.gratuito {
+  border-color: rgba(244, 129, 214, 0.32);
+  background: linear-gradient(
+    150deg,
+    rgba(233, 74, 200, 0.16) 0%,
+    rgba(151, 92, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.gratuito:hover {
+  border-color: rgba(244, 129, 214, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 26px 60px -30px rgba(233, 74, 200, 0.75);
+}
+
+.gratuito .arrow {
+  color: rgba(255, 198, 236, 0.7);
+}
+
+/* ---------- variantes das landings novas ----------
+   cada card leva a cara da propria pagina de venda */
+
+/* Metodo 50K: preto profundo com o roxo-azulado da landing */
+.metodo50k {
+  border-color: rgba(139, 108, 255, 0.32);
+  background: linear-gradient(150deg, rgba(139, 108, 255, 0.22) 0%, #050508 62%);
+}
+
+.metodo50k:hover {
+  border-color: rgba(182, 164, 255, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 26px 60px -28px rgba(124, 92, 255, 0.9);
+}
+
+.metodo50k .number {
+  border-color: rgba(139, 108, 255, 0.4);
+  background: linear-gradient(135deg, #6a5cff, #975cff);
+  color: #ffffff;
+}
+
+.metodo50k .arrow {
+  color: #b6a4ff;
+}
+
+/* Stories Magneticos: papel e tinta, preto e branco */
+.stories {
+  border-color: #0d0d0d;
+  background: #f4f4f1;
+  box-shadow: none;
+}
+
+.stories:hover {
+  border-color: #0d0d0d;
+  box-shadow: 0 26px 60px -30px rgba(244, 244, 241, 0.45);
+}
+
+.stories .number {
+  border-color: #0d0d0d;
+  background: #0d0d0d;
+  color: #f4f4f1;
+}
+
+.stories .title {
+  color: #0d0d0d;
+}
+
+.stories .description {
+  color: #2a2a2a;
+}
+
+.stories .arrow {
+  color: #0d0d0d;
+}
+
+/* Claudinho: preto e laranja */
+.claudinho {
+  border-color: rgba(255, 122, 26, 0.32);
+  background: linear-gradient(150deg, rgba(255, 122, 26, 0.2) 0%, #0b0a09 62%);
+}
+
+.claudinho:hover {
+  border-color: rgba(255, 122, 26, 0.65);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 26px 60px -28px rgba(255, 122, 26, 0.75);
+}
+
+.claudinho .number {
+  border-color: rgba(255, 122, 26, 0.5);
+  background: #ff7a1a;
+  color: #0b0a09;
+}
+
+.claudinho .arrow {
+  color: #ff7a1a;
+}
+
 /* ---------- partes ---------- */
 
 .number {

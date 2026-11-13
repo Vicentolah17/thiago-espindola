@@ -9,7 +9,8 @@ import styles from "./LevelCard.module.css";
  * @param {string}  title           Nome do nivel.
  * @param {string}  description     Linha de apoio.
  * @param {string?} badge           Pilula opcional ao lado do titulo.
- * @param {"violet"|"magenta"} variant  Paleta do card.
+ * @param {"violet"|"magenta"|"gratuito"|"metodo50k"|"stories"|"claudinho"} variant
+ *   Paleta do card. As tres ultimas repetem as cores das landings.
  * @param {boolean} numbered        Mostra ou nao o quadrado com o numero.
  * @param {boolean} uppercaseTitle  Titulo em caixa alta (como no layout original).
  */

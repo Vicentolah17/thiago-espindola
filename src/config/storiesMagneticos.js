@@ -18,8 +18,8 @@ export const PRECO = `R$${PRECO_VALOR}`;
  */
 export const PRECO_ANIMACAO_DE = "97,00";
 
-/** PLACEHOLDER: link do checkout na Kiwify. Usado por TODOS os botoes. */
-export const CHECKOUT_URL = "https://pay.kiwify.com.br/PLACEHOLDER-STORIES-MAGNETICOS";
+/** Link do checkout na Kiwify. Usado por TODOS os botoes (e pelo popup). */
+export const CHECKOUT_URL = "https://pay.kiwify.com.br/6yEAxcY";
 
 // ---------------- popup de cupom ----------------
 
