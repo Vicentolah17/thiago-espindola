@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#050505"/>
+  <!-- arcos dourados -->
+  <path d="M12 54V40a20 20 0 0 1 40 0v14" fill="none" stroke="#f2b54a" stroke-opacity="0.55" stroke-width="2"/>
+  <path d="M20 54V41a12 12 0 0 1 24 0v13" fill="none" stroke="#f2b54a" stroke-opacity="0.4" stroke-width="2"/>
+  <!-- play rosa -->
+  <path d="M28 40.5v11l9-5.5z" fill="#ff2e88"/>
+  <!-- linha neon -->
+  <rect x="12" y="14" width="40" height="3" rx="1.5" fill="#ff2e88"/>
+</svg>

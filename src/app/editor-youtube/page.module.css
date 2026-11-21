@@ -1,0 +1,900 @@
+/* ============================================================
+   PÁGINA B · YOUTUBE R$97 · "premium preto solido"
+   Porte fiel do Cloud Design (Pagina B - YouTube R$97.dc.html).
+   ============================================================ */
+
+.page {
+  --fundo: #050505;
+  --texto: #f4efe9;
+  --texto-2: #cfc8c0;
+  --apagado: #8d867e;
+  --dourado: #f2b54a;
+  --rosa: #ff2e88;
+  --linha: rgba(255, 255, 255, 0.12);
+
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--gta-corpo), sans-serif;
+}
+
+:global(body) {
+  background: #050505;
+}
+
+.page a,
+.page a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page :focus-visible {
+  outline: 2px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+.rosa {
+  color: var(--rosa);
+}
+
+.apagado {
+  color: var(--apagado);
+}
+
+.rotulo,
+.rotuloDourado {
+  font-family: var(--gta-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--apagado);
+}
+
+.rotuloDourado {
+  color: var(--dourado);
+}
+
+/* grade de 3 colunas do Cloud Design (vira 1 coluna no celular) */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 28px 64px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* ---------- botao ---------- */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 28px;
+  border-radius: 3px;
+  background: var(--rosa);
+  box-shadow: 5px 5px 0 var(--dourado);
+  font-family: var(--gta-display), sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* reflexo dourado que atravessa o botao, devagar */
+.cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 35%;
+  background: linear-gradient(100deg, transparent, rgba(255, 236, 200, 0.4), transparent);
+  transform: translateX(-130%) skewX(-18deg);
+  animation: reflexo 4.6s ease-in-out infinite 1.8s;
+  pointer-events: none;
+}
+
+.ctaTexto {
+  position: relative;
+}
+
+.page .cta,
+.page .cta:hover {
+  color: #ffffff;
+}
+
+.cta:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--dourado);
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+/* brilho rosa e dourado no canto, flutuando devagar */
+.brilho {
+  position: absolute;
+  z-index: 0;
+  top: -20vmax;
+  right: -20vmax;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 46, 136, 0.16),
+    rgba(242, 181, 74, 0.05) 40%,
+    transparent 65%
+  );
+  animation: glowDrift 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* tres arcos dourados finos no canto de baixo */
+.arcos {
+  position: absolute;
+  z-index: 1;
+  right: clamp(-120px, -6vw, -40px);
+  bottom: 0;
+  width: min(78vw, 560px);
+  aspect-ratio: 1 / 1.15;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.arco1,
+.arco2,
+.arco3 {
+  position: absolute;
+  border: 1px solid;
+  border-bottom: none;
+  border-radius: 999px 999px 0 0;
+}
+
+.arco1 {
+  inset: 0;
+  border-color: rgba(242, 181, 74, 0.35);
+}
+
+.arco2 {
+  inset: 14% 14% 0;
+  border-color: rgba(242, 181, 74, 0.28);
+}
+
+.arco3 {
+  inset: 28% 28% 0;
+  border-color: rgba(242, 181, 74, 0.22);
+}
+
+.barra {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 24px 0;
+}
+
+.marca {
+  font-family: var(--gta-display), sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.assinatura {
+  font-family: var(--gta-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dourado);
+}
+
+.heroTexto {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(72px, 16vh, 180px) 24px clamp(64px, 10vh, 120px);
+}
+
+.heroTitulo {
+  margin: 0;
+  max-width: 14ch;
+  font-family: var(--gta-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(50px, 9vw, 116px);
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* linha neon rosa que pulsa */
+.linhaNeon {
+  width: min(220px, 40vw);
+  height: 2px;
+  border-radius: 2px;
+  background: var(--rosa);
+  box-shadow: 0 0 12px var(--rosa), 0 0 36px rgba(255, 46, 136, 0.5);
+  animation: neonPulse 4s ease-in-out infinite;
+}
+
+.heroSub {
+  margin: 0;
+  max-width: 38ch;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.5;
+  color: var(--texto-2);
+  text-wrap: pretty;
+}
+
+.heroAcao {
+  display: flex;
+  padding-top: 6px;
+}
+
+.heroAcao .cta {
+  max-width: 420px;
+}
+
+/* ---------- dor ---------- */
+
+.dor {
+  padding: clamp(96px, 14vw, 180px) 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dorTexto {
+  margin: 0;
+  grid-column: span 2;
+  max-width: 22ch;
+  font-family: var(--gta-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* ---------- o que voce vai saber ---------- */
+
+.saber {
+  padding: 0 24px clamp(96px, 14vw, 180px);
+}
+
+.saberCabeca {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.saberTitulo {
+  margin: 0;
+  font-family: var(--gta-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(36px, 4.5vw, 52px);
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--linha);
+}
+
+.listaItem {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.listaNumero {
+  font-family: var(--gta-mono), monospace;
+  font-size: 13px;
+  color: var(--dourado);
+}
+
+.listaTexto {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* "span 2" com uma coluna so (abaixo de 632px a grade de 260px nao
+   cabe duas) criaria uma coluna fantasma e scroll lateral */
+@media (max-width: 631px) {
+  .dorTexto,
+  .lista {
+    grid-column: auto;
+  }
+}
+
+/* ---------- pra quem e ---------- */
+
+.praQuem {
+  padding: clamp(96px, 14vw, 180px) 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.praQuemCaixa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.praQuemTraco {
+  width: 44px;
+  height: 2px;
+  background: var(--dourado);
+  box-shadow: 0 0 14px rgba(242, 181, 74, 0.7);
+}
+
+.praQuemTexto {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--gta-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(38px, 6vw, 76px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* ---------- autoridade ---------- */
+
+.autoridade {
+  padding: clamp(96px, 14vw, 180px) 24px;
+}
+
+.autoridadeGrade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 40px 72px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.fotoMoldura {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.fotoLinha {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--rosa);
+  box-shadow: 0 0 16px var(--rosa);
+  pointer-events: none;
+}
+
+.autoridadeTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.autoridadeNome {
+  margin: 0;
+  font-family: var(--gta-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.autoridadeDescricao {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--texto-2);
+}
+
+/* print do perfil do Thiago, com fio dourado */
+.perfil {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  border: 1px solid rgba(242, 181, 74, 0.4);
+}
+
+/* a foto do camelo e vertical: o recorte 16:10 fica no rosto */
+.fotoMoldura img {
+  object-position: 50% 24%;
+}
+
+/* ---------- oferta ---------- */
+
+.oferta {
+  padding: 0 24px clamp(96px, 14vw, 180px);
+}
+
+.ofertaCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 64px) clamp(26px, 5vw, 52px);
+  border: 1px solid rgba(242, 181, 74, 0.45);
+  text-align: center;
+}
+
+/* cantoneiras douradas */
+.canto {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 0 solid var(--dourado);
+}
+
+.cantoSE {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.cantoSD {
+  top: -1px;
+  right: -1px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.cantoIE {
+  bottom: -1px;
+  left: -1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.cantoID {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.ofertaTexto {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--texto-2);
+}
+
+.preco {
+  font-family: var(--gta-display), sans-serif;
+  font-weight: 800;
+  font-size: clamp(96px, 17vw, 150px);
+  line-height: 0.8;
+  color: var(--texto);
+}
+
+.garantia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.garantiaLosango {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--dourado);
+  transform: rotate(45deg);
+}
+
+.garantiaTexto {
+  font-size: 15px;
+  color: var(--texto-2);
+}
+
+/* ---------- rodape ---------- */
+
+.rodape {
+  padding: 28px 24px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rodapeLinha {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1120px;
+  margin: 0 auto;
+  font-family: var(--gta-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--apagado);
+}
+
+/* ============================================================
+   MOVIMENTO · ritmo de abertura de filme: lento, preciso
+   ============================================================ */
+
+/* ---------- hero: entra em sequencia ao carregar ---------- */
+
+.barra {
+  animation: descer 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* os arcos dourados se desenham de fora pra dentro */
+.arco1,
+.arco2,
+.arco3 {
+  animation: arcoSobe 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.arco1 {
+  animation-delay: 0.2s;
+}
+
+.arco2 {
+  animation-delay: 0.45s;
+}
+
+.arco3 {
+  animation-delay: 0.7s;
+}
+
+.heroRotulo {
+  animation: subir 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
+}
+
+/* o titulo sobe palavra por palavra, saindo do desfoque */
+.palavraHero {
+  display: inline-block;
+  animation: palavraSobe 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(0.3s + var(--i) * 60ms);
+}
+
+/* a linha neon se estica da esquerda e depois pulsa (Cloud Design) */
+.linhaNeon {
+  transform-origin: left center;
+  animation: esticar 1s cubic-bezier(0.2, 0.7, 0.2, 1) 1.2s both,
+    neonPulse 4s ease-in-out 2.2s infinite;
+}
+
+.heroSub {
+  animation: subir 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 1.35s both;
+}
+
+.heroAcao {
+  animation: subir 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 1.5s both;
+}
+
+/* ---------- entrada no scroll ----------
+   Revelar.jsx marca a pagina com data-anim e cada alvo com data-visto.
+   Sem data-anim (sem JS ou sem movimento), nada some. */
+
+.page[data-anim] [data-revelar]:not(.porPalavra) {
+  transition: opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--atraso, 0ms),
+    transform 1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--atraso, 0ms),
+    filter 1s ease var(--atraso, 0ms), clip-path 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) var(--atraso, 0ms);
+}
+
+.page[data-anim] [data-revelar]:not(.porPalavra):not([data-visto]) {
+  opacity: 0;
+  transform: translateY(26px);
+  filter: blur(6px);
+}
+
+/* textos grandes entram palavra por palavra */
+.palavra {
+  display: inline-block;
+}
+
+.page[data-anim] .porPalavra .palavra {
+  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.7s ease;
+  transition-delay: calc(var(--i) * 50ms);
+}
+
+.page[data-anim] .porPalavra:not([data-visto]) .palavra {
+  opacity: 0;
+  transform: translateY(0.5em);
+  filter: blur(8px);
+}
+
+/* cada item da lista entra e o fio de baixo se desenha em dourado */
+.listaItem {
+  position: relative;
+}
+
+.listaItem::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--dourado), rgba(242, 181, 74, 0));
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0.8;
+}
+
+.page[data-anim] .listaItem[data-visto]::after {
+  animation: tracar 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--atraso, 0ms) + 0.2s) both;
+}
+
+/* o traco dourado do "pra quem e" se abre do centro */
+.page[data-anim] .praQuemTraco[data-revelar]:not([data-visto]) {
+  transform: scaleX(0);
+  filter: none;
+}
+
+/* a foto abre como cortina, de baixo pra cima; a linha rosa se estica */
+.page[data-anim] .fotoMoldura[data-revelar]:not([data-visto]) {
+  clip-path: inset(100% 0 0 0);
+  transform: none;
+  filter: none;
+}
+
+.page[data-anim] .fotoMoldura[data-revelar] {
+  clip-path: inset(-20px -20px -20px -20px);
+}
+
+.page[data-anim] .fotoMoldura[data-visto] .fotoLinha {
+  animation: esticar 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s both;
+}
+
+.fotoLinha {
+  transform-origin: left center;
+}
+
+/* as cantoneiras vem de fora e fecham no card */
+.page[data-anim] .ofertaCard[data-visto] .cantoSE {
+  animation: cantoSE 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s both;
+}
+
+.page[data-anim] .ofertaCard[data-visto] .cantoSD {
+  animation: cantoSD 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s both;
+}
+
+.page[data-anim] .ofertaCard[data-visto] .cantoIE {
+  animation: cantoIE 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s both;
+}
+
+.page[data-anim] .ofertaCard[data-visto] .cantoID {
+  animation: cantoID 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s both;
+}
+
+/* o preco cai de 197 ate 97 (Conta.jsx) */
+.preco {
+  font-variant-numeric: tabular-nums;
+}
+
+/* o losango da garantia gira devagar */
+.garantiaLosango {
+  animation: girarLosango 6s linear infinite;
+}
+
+/* ---------- animacoes ---------- */
+
+@keyframes descer {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes palavraSobe {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes arcoSobe {
+  from {
+    opacity: 0;
+    transform: translateY(18%) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes esticar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes tracar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes reflexo {
+  0% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  40%,
+  100% {
+    transform: translateX(380%) skewX(-18deg);
+  }
+}
+
+@keyframes cantoSE {
+  from {
+    opacity: 0;
+    transform: translate(-18px, -18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cantoSD {
+  from {
+    opacity: 0;
+    transform: translate(18px, -18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cantoIE {
+  from {
+    opacity: 0;
+    transform: translate(-18px, 18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cantoID {
+  from {
+    opacity: 0;
+    transform: translate(18px, 18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes girarLosango {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(405deg);
+  }
+}
+
+/* ---------- animacoes (do Cloud Design) ---------- */
+
+@keyframes neonPulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    box-shadow: 0 0 12px #ff2e88, 0 0 36px rgba(255, 46, 136, 0.5);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 18px #ff2e88, 0 0 60px rgba(255, 46, 136, 0.7);
+  }
+}
+
+@keyframes glowDrift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-4vw, 3vh);
+  }
+}
+
+/* o "motion: false" do Cloud Design: tudo parado */
+@media (prefers-reduced-motion: reduce) {
+  .brilho,
+  .linhaNeon,
+  .barra,
+  .arco1,
+  .arco2,
+  .arco3,
+  .heroRotulo,
+  .palavraHero,
+  .heroSub,
+  .heroAcao,
+  .cta::after,
+  .garantiaLosango {
+    animation: none;
+  }
+
+  .cta {
+    transition: none;
+  }
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f0a3d"/>
+      <stop offset="0.6" stop-color="#b02778"/>
+      <stop offset="1" stop-color="#ff9a3d"/>
+    </linearGradient>
+    <linearGradient id="sol" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd76b"/>
+      <stop offset="0.45" stop-color="#ff8a3d"/>
+      <stop offset="1" stop-color="#ff2e88"/>
+    </linearGradient>
+    <clipPath id="disco"><circle cx="32" cy="38" r="18"/></clipPath>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#ceu)"/>
+  <g clip-path="url(#disco)">
+    <rect x="14" y="20" width="36" height="36" fill="url(#sol)"/>
+    <rect x="14" y="36" width="36" height="2" fill="#7a1f6a"/>
+    <rect x="14" y="41" width="36" height="2.5" fill="#7a1f6a"/>
+    <rect x="14" y="46.5" width="36" height="3" fill="#7a1f6a"/>
+  </g>
+  <rect x="0" y="50" width="64" height="14" fill="#14051f"/>
+  <rect x="0" y="50" width="64" height="1.6" fill="#22e4f0"/>
+</svg>
