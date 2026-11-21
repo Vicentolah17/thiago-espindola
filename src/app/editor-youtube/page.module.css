@@ -677,15 +677,22 @@
   filter: none;
 }
 
-/* a foto abre como cortina, de baixo pra cima; a linha rosa se estica */
+/* a foto abre como cortina, de baixo pra cima; a linha rosa se estica.
+   A cortina (clip-path) fica na imagem de DENTRO: se ficasse na
+   moldura, o navegador acharia que ela nao tem area visivel e nunca
+   avisaria que ela entrou na tela (a foto sumia no desktop). */
 .page[data-anim] .fotoMoldura[data-revelar]:not([data-visto]) {
-  clip-path: inset(100% 0 0 0);
   transform: none;
   filter: none;
 }
 
-.page[data-anim] .fotoMoldura[data-revelar] {
-  clip-path: inset(-20px -20px -20px -20px);
+.page[data-anim] .fotoMoldura[data-revelar] > :first-child {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s;
+}
+
+.page[data-anim] .fotoMoldura[data-revelar]:not([data-visto]) > :first-child {
+  clip-path: inset(100% 0 0 0);
 }
 
 .page[data-anim] .fotoMoldura[data-visto] .fotoLinha {
