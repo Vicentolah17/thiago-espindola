@@ -415,8 +415,8 @@
 }
 
 /* ---------- referencias ----------
-   criadores citados como prova; comporta de 1 a 3 cards. Com um so,
-   o card fica a esquerda (respiro assimetrico), sem esticar. */
+   criadores citados como prova; comporta de 1 a 3 cards, sempre
+   centralizados (com um so, ele fica no meio, sem esticar). */
 
 .referencias {
   padding: clamp(72px, 12vw, 140px) 22px;
@@ -425,9 +425,11 @@
 .referenciasCaixa {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 18px;
   max-width: 1080px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .referenciasTitulo {
@@ -441,9 +443,11 @@
 }
 
 .referenciasLista {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 22px;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -452,9 +456,12 @@
 /* a sombra ciano deslocada e a assinatura visual da pagina A */
 .referencia {
   display: flex;
+  flex: 1 1 300px;
   flex-direction: column;
   gap: 18px;
   max-width: 560px;
+  /* o texto do card continua alinhado a esquerda, pra ler melhor */
+  text-align: left;
   padding: 18px;
   border: 1px solid rgba(34, 228, 240, 0.45);
   border-radius: 4px;
