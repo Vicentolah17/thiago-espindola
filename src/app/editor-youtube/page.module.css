@@ -77,9 +77,9 @@
   background: var(--rosa);
   box-shadow: 5px 5px 0 var(--dourado);
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 800;
-  font-size: 17px;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   text-align: center;
   transition: transform 0.15s, box-shadow 0.15s;
@@ -195,7 +195,7 @@
 
 .marca {
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 18px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -217,12 +217,12 @@
 
 .heroTitulo {
   margin: 0;
-  max-width: 17ch;
+  max-width: 16ch;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 800;
-  font-size: clamp(34px, 5.6vw, 82px);
-  line-height: 0.98;
-  letter-spacing: -0.04em;
+  font-weight: 600;
+  font-size: clamp(40px, 6.6vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
@@ -230,6 +230,14 @@
   font-family: var(--gta-editorial), serif;
   font-style: italic;
   font-weight: 600;
+  font-size: 1.04em;
+  letter-spacing: -0.025em;
+}
+
+/* o mesmo contraste reto x italico na dor: a parte apagada sai em Fraunces */
+.dorTexto .apagado {
+  font-family: var(--gta-editorial), serif;
+  font-style: italic;
   letter-spacing: -0.02em;
 }
 
@@ -268,15 +276,23 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* bloco so de texto, centralizado na pagina */
+.centro {
+  display: flex;
+  justify-content: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .dorTexto {
-  margin: 0;
-  grid-column: span 2;
+  margin: 0 auto;
   max-width: 24ch;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 700;
-  font-size: clamp(28px, 3.6vw, 48px);
-  line-height: 1.06;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  font-size: clamp(30px, 4.2vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
@@ -295,10 +311,10 @@
 .saberTitulo {
   margin: 0;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 800;
-  font-size: clamp(34px, 3.6vw, 50px);
+  font-weight: 600;
+  font-size: clamp(36px, 4.2vw, 58px);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 }
 
 .lista {
@@ -335,7 +351,6 @@
 /* "span 2" com uma coluna so (abaixo de 632px a grade de 260px nao
    cabe duas) criaria uma coluna fantasma e scroll lateral */
 @media (max-width: 631px) {
-  .dorTexto,
   .lista,
   .referenciasLista {
     grid-column: auto;
@@ -353,21 +368,15 @@
 .praQuemCaixa {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 28px;
   max-width: 1120px;
   margin: 0 auto;
-}
-
-/* respiro assimetrico: no desktop o bloco anda pra direita */
-@media (min-width: 900px) {
-  .praQuemCaixa {
-    padding-left: 22%;
-  }
+  text-align: center;
 }
 
 .praQuemTraco {
-  transform-origin: left center;
+  transform-origin: center;
   width: 44px;
   height: 2px;
   background: var(--dourado);
@@ -376,12 +385,12 @@
 
 .praQuemTexto {
   margin: 0;
-  max-width: 22ch;
+  max-width: 20ch;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 800;
-  font-size: clamp(32px, 4.4vw, 62px);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  font-weight: 600;
+  font-size: clamp(34px, 5.2vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
@@ -402,10 +411,10 @@
 .referenciasTitulo {
   margin: 0;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 800;
-  font-size: clamp(34px, 3.6vw, 50px);
+  font-weight: 600;
+  font-size: clamp(36px, 4.2vw, 58px);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 }
 
 .referenciasLista {
@@ -452,7 +461,7 @@
 .referenciaNome {
   margin: 4px 0 0;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 20px;
   letter-spacing: -0.02em;
 }
@@ -537,10 +546,10 @@
 
 .preco {
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 800;
-  font-size: clamp(44px, 12.5vw, 104px);
+  font-weight: 600;
+  font-size: clamp(72px, 15vw, 132px);
   line-height: 0.85;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em;
   color: var(--texto);
 }
 

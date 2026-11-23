@@ -59,7 +59,6 @@ export const praQuem = "Pra todo criador que quer parar de postar no vácuo e co
  * O layout comporta de 1 a 3: e so acrescentar itens nesta lista.
  */
 export const referencias = {
-  rotulo: "Referências",
   titulo: "Quem já aplica",
   itens: [
     {

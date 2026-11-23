@@ -156,10 +156,7 @@ export default function EditorShortsPage() {
       {/* referencias: criadores citados como prova (1 a 3 cards) */}
       <section className={styles.referencias}>
         <div className={styles.referenciasCaixa}>
-          <span className={styles.rotulo} data-revelar="">
-            {referencias.rotulo}
-          </span>
-          <h2 className={styles.referenciasTitulo} data-revelar="" style={atraso(1)}>
+          <h2 className={styles.referenciasTitulo} data-revelar="">
             {referencias.titulo}
           </h2>
           <ul className={styles.referenciasLista}>

@@ -1,12 +1,14 @@
-import { Anton, Fraunces, Space_Grotesk, Syne } from "next/font/google";
+import { Anton, Fraunces, Geist, Space_Grotesk } from "next/font/google";
 
 /**
  * Fontes das paginas do rebrand GTA (/editor-shorts e /editor-youtube).
  *
  * - Space Grotesk: corpo e rotulos das DUAS paginas (da unidade entre elas)
  * - Anton: titulos da pagina A (cartaz condensado, vibe GTA/Miami)
- * - Syne ExtraBold: titulos da pagina B (premium)
- * - Fraunces italica: so o destaque da headline principal da pagina B
+ * - Geist SemiBold: titulos da pagina B (premium e sobrio)
+ * - Fraunces italica: os trechos de enfase da pagina B (o destaque da
+ *   headline e a parte "apagada" da dor), o contraste reto x italico
+ *   e o que da o dinamismo
  *
  * Cada pagina carrega so as que usa (ver classesPaginaA / classesPaginaB).
  */
@@ -24,9 +26,9 @@ export const anton = Anton({
   display: "swap",
 });
 
-export const syne = Syne({
+export const geist = Geist({
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["500", "600"],
   variable: "--gta-titulo",
   display: "swap",
 });
@@ -40,4 +42,4 @@ export const fraunces = Fraunces({
 });
 
 export const classesPaginaA = `${corpo.variable} ${anton.variable}`;
-export const classesPaginaB = `${corpo.variable} ${syne.variable} ${fraunces.variable}`;
+export const classesPaginaB = `${corpo.variable} ${geist.variable} ${fraunces.variable}`;

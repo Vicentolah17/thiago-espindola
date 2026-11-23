@@ -112,10 +112,7 @@ export default function EditorYoutubePage() {
 
       {/* dor */}
       <section className={styles.dor}>
-        <div className={styles.grade}>
-          <span className={styles.rotulo} data-revelar="">
-            {dor.rotulo}
-          </span>
+        <div className={styles.centro}>
           <p className={`${styles.dorTexto} ${styles.porPalavra}`} data-revelar="">
             <Palavras texto={dor.texto} className={styles.palavra} />{" "}
             <span className={styles.apagado}>
@@ -133,7 +130,6 @@ export default function EditorYoutubePage() {
       <section className={styles.saber}>
         <div className={styles.grade}>
           <div className={styles.saberCabeca} data-revelar="">
-            <span className={styles.rotulo}>{saber.rotulo}</span>
             <h2 className={styles.saberTitulo}>{saber.titulo}</h2>
           </div>
           <ol className={styles.lista}>
@@ -161,7 +157,6 @@ export default function EditorYoutubePage() {
       <section className={styles.referencias}>
         <div className={styles.grade}>
           <div className={styles.referenciasCabeca} data-revelar="">
-            <span className={styles.rotulo}>{referencias.rotulo}</span>
             <h2 className={styles.referenciasTitulo}>{referencias.titulo}</h2>
           </div>
           <ul className={styles.referenciasLista}>

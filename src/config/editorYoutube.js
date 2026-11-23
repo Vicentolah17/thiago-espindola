@@ -38,13 +38,11 @@ export const hero = {
 };
 
 export const dor = {
-  rotulo: "01 — O problema",
   texto: "Vídeo bom de YouTube dá trabalho de estúdio inteiro.",
   apagado: "Ou você vira a noite editando, ou entrega algo que ninguém assiste até o fim.",
 };
 
 export const saber = {
-  rotulo: "02 — O método",
   titulo: "O que você vai saber fazer",
   itens: [
     "Edição de vídeo longo com padrão profissional",
@@ -63,7 +61,6 @@ export const praQuem = "Pro criador que leva o YouTube a sério e quer um canal 
  * O layout comporta de 1 a 3: e so acrescentar itens nesta lista.
  */
 export const referencias = {
-  rotulo: "03 — Referências",
   titulo: "Quem já aplica",
   itens: [
     {

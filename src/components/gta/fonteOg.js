@@ -4,8 +4,8 @@
  * falhar, devolve [] e a imagem sai com a fonte padrao, sem quebrar o
  * deploy.
  *
- * familia: nome no Google Fonts ("Anton", "Syne")
- * peso: peso a carregar (Anton so tem 400; Syne usamos 800)
+ * familia: nome no Google Fonts ("Anton", "Geist")
+ * peso: peso a carregar (Anton so tem 400; Geist usamos 600)
  */
 export async function fontesOg(familia, peso = 400) {
   try {

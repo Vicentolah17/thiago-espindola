@@ -9,8 +9,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const fonts = await fontesOg("Syne", 800);
-  const titulo = fonts.length ? "Syne" : "sans-serif";
+  const fonts = await fontesOg("Geist", 600);
+  const titulo = fonts.length ? "Geist" : "sans-serif";
 
   return new ImageResponse(
     (
@@ -50,7 +50,7 @@ export default async function Image() {
             flexDirection: "column",
             fontFamily: titulo,
             fontSize: 60,
-            fontWeight: 800,
+            fontWeight: 600,
             lineHeight: 1.05,
             letterSpacing: -2,
           }}
@@ -69,7 +69,7 @@ export default async function Image() {
               boxShadow: "0 0 18px #ff2e88",
             }}
           />
-          <div style={{ display: "flex", fontFamily: titulo, fontSize: 48, fontWeight: 800 }}>R$97</div>
+          <div style={{ display: "flex", fontFamily: titulo, fontSize: 48, fontWeight: 600 }}>R$97</div>
         </div>
       </div>
     ),
