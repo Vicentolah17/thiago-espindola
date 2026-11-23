@@ -155,7 +155,7 @@ export default function EditorYoutubePage() {
 
       {/* referencias: criadores citados como prova (1 a 3 cards) */}
       <section className={styles.referencias}>
-        <div className={styles.grade}>
+        <div className={styles.referenciasCaixa}>
           <div className={styles.referenciasCabeca} data-revelar="">
             <h2 className={styles.referenciasTitulo}>{referencias.titulo}</h2>
           </div>

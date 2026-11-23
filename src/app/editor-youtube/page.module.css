@@ -351,8 +351,7 @@
 /* "span 2" com uma coluna so (abaixo de 632px a grade de 260px nao
    cabe duas) criaria uma coluna fantasma e scroll lateral */
 @media (max-width: 631px) {
-  .lista,
-  .referenciasLista {
+  .lista {
     grid-column: auto;
   }
 }
@@ -395,17 +394,28 @@
 }
 
 /* ---------- referencias ----------
-   criadores citados como prova; comporta de 1 a 3 cards. Com um so,
-   o card fica no comeco da coluna, sem esticar. */
+   criadores citados como prova; comporta de 1 a 3 cards. Titulo em
+   cima e cards centralizados (com um so, ele fica no meio). */
 
 .referencias {
   padding: clamp(96px, 14vw, 180px) 24px;
 }
 
+.referenciasCaixa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 4vw, 44px);
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
 .referenciasCabeca {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 18px;
+  text-align: center;
 }
 
 .referenciasTitulo {
@@ -418,10 +428,11 @@
 }
 
 .referenciasLista {
-  display: grid;
-  grid-column: span 2;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -430,6 +441,7 @@
 .referencia {
   position: relative;
   display: flex;
+  flex: 1 1 300px;
   flex-direction: column;
   gap: 14px;
   max-width: 540px;
