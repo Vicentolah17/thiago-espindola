@@ -66,8 +66,8 @@ export const referencias = {
     {
       nome: "Thiago Espíndola",
       handle: "@thiagoespindola.z",
-      // PLACEHOLDER: prova real do trabalho dele. Sem numero inventado.
-      texto: "[AUTORIDADE: prova real do trabalho do Thiago. Sem número inventado.]",
+      // prova real (dado informado pelo time: 50 mil seguidores em ~3 meses)
+      texto: "Em 3 meses Thiago conseguiu engajar um público de 50K pessoas.",
       // print do perfil no Instagram
       print: {
         src: "/metodo50k/perfil-thiago.webp",
