@@ -45,7 +45,7 @@
 
 .rotulo,
 .rotuloDourado {
-  font-family: var(--gta-mono), monospace;
+  font-family: var(--gta-corpo), sans-serif;
   font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -76,10 +76,10 @@
   border-radius: 3px;
   background: var(--rosa);
   box-shadow: 5px 5px 0 var(--dourado);
-  font-family: var(--gta-display), sans-serif;
+  font-family: var(--gta-titulo), sans-serif;
   font-weight: 800;
-  font-size: 24px;
-  letter-spacing: 0.03em;
+  font-size: 17px;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   text-align: center;
   transition: transform 0.15s, box-shadow 0.15s;
@@ -194,19 +194,11 @@
 }
 
 .marca {
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 900;
-  font-size: 22px;
-  letter-spacing: 0.04em;
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.assinatura {
-  font-family: var(--gta-mono), monospace;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--dourado);
 }
 
 .heroTexto {
@@ -220,18 +212,25 @@
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
-  padding: clamp(72px, 16vh, 180px) 24px clamp(64px, 10vh, 120px);
+  padding: clamp(48px, 11vh, 140px) 24px clamp(64px, 10vh, 120px);
 }
 
 .heroTitulo {
   margin: 0;
-  max-width: 14ch;
-  font-family: var(--gta-display), sans-serif;
+  max-width: 17ch;
+  font-family: var(--gta-titulo), sans-serif;
   font-weight: 800;
-  font-size: clamp(50px, 9vw, 116px);
-  line-height: 0.9;
-  text-transform: uppercase;
+  font-size: clamp(34px, 5.6vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
   text-wrap: balance;
+}
+
+.heroTitulo .rosa {
+  font-family: var(--gta-editorial), serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 /* linha neon rosa que pulsa */
@@ -259,7 +258,7 @@
 }
 
 .heroAcao .cta {
-  max-width: 420px;
+  max-width: 460px;
 }
 
 /* ---------- dor ---------- */
@@ -272,12 +271,12 @@
 .dorTexto {
   margin: 0;
   grid-column: span 2;
-  max-width: 22ch;
-  font-family: var(--gta-display), sans-serif;
+  max-width: 24ch;
+  font-family: var(--gta-titulo), sans-serif;
   font-weight: 700;
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 1;
-  text-transform: uppercase;
+  font-size: clamp(28px, 3.6vw, 48px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
@@ -295,11 +294,11 @@
 
 .saberTitulo {
   margin: 0;
-  font-family: var(--gta-display), sans-serif;
+  font-family: var(--gta-titulo), sans-serif;
   font-weight: 800;
-  font-size: clamp(36px, 4.5vw, 52px);
-  line-height: 0.92;
-  text-transform: uppercase;
+  font-size: clamp(34px, 3.6vw, 50px);
+  line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .lista {
@@ -322,7 +321,7 @@
 }
 
 .listaNumero {
-  font-family: var(--gta-mono), monospace;
+  font-family: var(--gta-corpo), sans-serif;
   font-size: 13px;
   color: var(--dourado);
 }
@@ -337,7 +336,8 @@
    cabe duas) criaria uma coluna fantasma e scroll lateral */
 @media (max-width: 631px) {
   .dorTexto,
-  .lista {
+  .lista,
+  .referenciasLista {
     grid-column: auto;
   }
 }
@@ -353,14 +353,21 @@
 .praQuemCaixa {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 28px;
   max-width: 1120px;
   margin: 0 auto;
-  text-align: center;
+}
+
+/* respiro assimetrico: no desktop o bloco anda pra direita */
+@media (min-width: 900px) {
+  .praQuemCaixa {
+    padding-left: 22%;
+  }
 }
 
 .praQuemTraco {
+  transform-origin: left center;
   width: 44px;
   height: 2px;
   background: var(--dourado);
@@ -369,37 +376,62 @@
 
 .praQuemTexto {
   margin: 0;
-  max-width: 18ch;
-  font-family: var(--gta-display), sans-serif;
+  max-width: 22ch;
+  font-family: var(--gta-titulo), sans-serif;
   font-weight: 800;
-  font-size: clamp(38px, 6vw, 76px);
-  line-height: 0.95;
-  text-transform: uppercase;
+  font-size: clamp(32px, 4.4vw, 62px);
+  line-height: 1;
+  letter-spacing: -0.04em;
   text-wrap: balance;
 }
 
-/* ---------- autoridade ---------- */
+/* ---------- referencias ----------
+   criadores citados como prova; comporta de 1 a 3 cards. Com um so,
+   o card fica no comeco da coluna, sem esticar. */
 
-.autoridade {
+.referencias {
   padding: clamp(96px, 14vw, 180px) 24px;
 }
 
-.autoridadeGrade {
+.referenciasCabeca {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.referenciasTitulo {
+  margin: 0;
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 800;
+  font-size: clamp(34px, 3.6vw, 50px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.referenciasLista {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: 40px 72px;
-  align-items: center;
-  max-width: 1120px;
-  margin: 0 auto;
+  grid-column: span 2;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.fotoMoldura {
+.referencia {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 540px;
+  padding: 20px;
+  border: 1px solid rgba(242, 181, 74, 0.3);
+  background: #0b0b0b;
 }
 
-.fotoLinha {
+/* o fio rosa neon embaixo do card (o mesmo da foto antiga) */
+.referencia::after {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -407,44 +439,38 @@
   height: 2px;
   background: var(--rosa);
   box-shadow: 0 0 16px var(--rosa);
+  transform-origin: left center;
   pointer-events: none;
 }
 
-.autoridadeTexto {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.autoridadeNome {
-  margin: 0;
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 800;
-  font-size: clamp(44px, 6vw, 72px);
-  line-height: 0.9;
-  text-transform: uppercase;
-}
-
-.autoridadeDescricao {
-  margin: 0;
-  max-width: 40ch;
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--texto-2);
-}
-
-/* print do perfil do Thiago, com fio dourado */
-.perfil {
+.referenciaPrint {
   display: block;
   width: 100%;
-  max-width: 460px;
   height: auto;
-  border: 1px solid rgba(242, 181, 74, 0.4);
 }
 
-/* a foto do camelo e vertical: o recorte 16:10 fica no rosto */
-.fotoMoldura img {
-  object-position: 50% 24%;
+.referenciaNome {
+  margin: 4px 0 0;
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.referenciaHandle {
+  margin-left: 6px;
+  font-family: var(--gta-corpo), sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--dourado);
+}
+
+.referenciaProva {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--texto-2);
 }
 
 /* ---------- oferta ---------- */
@@ -457,13 +483,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
   max-width: 620px;
   margin: 0 auto;
   padding: clamp(40px, 7vw, 64px) clamp(26px, 5vw, 52px);
   border: 1px solid rgba(242, 181, 74, 0.45);
-  text-align: center;
 }
 
 /* cantoneiras douradas */
@@ -511,17 +536,18 @@
 }
 
 .preco {
-  font-family: var(--gta-display), sans-serif;
+  font-family: var(--gta-titulo), sans-serif;
   font-weight: 800;
-  font-size: clamp(96px, 17vw, 150px);
-  line-height: 0.8;
+  font-size: clamp(44px, 12.5vw, 104px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
   color: var(--texto);
 }
 
 .garantia {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
   width: 100%;
   padding-top: 20px;
@@ -555,7 +581,7 @@
   gap: 12px;
   max-width: 1120px;
   margin: 0 auto;
-  font-family: var(--gta-mono), monospace;
+  font-family: var(--gta-corpo), sans-serif;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -677,30 +703,13 @@
   filter: none;
 }
 
-/* a foto abre como cortina, de baixo pra cima; a linha rosa se estica.
-   A cortina (clip-path) fica na imagem de DENTRO: se ficasse na
-   moldura, o navegador acharia que ela nao tem area visivel e nunca
-   avisaria que ela entrou na tela (a foto sumia no desktop). */
-.page[data-anim] .fotoMoldura[data-revelar]:not([data-visto]) {
-  transform: none;
-  filter: none;
+/* o fio rosa do card de referencia se estica quando ele entra */
+.page[data-anim] .referencia::after {
+  transform: scaleX(0);
 }
 
-.page[data-anim] .fotoMoldura[data-revelar] > :first-child {
-  clip-path: inset(0 0 0 0);
-  transition: clip-path 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s;
-}
-
-.page[data-anim] .fotoMoldura[data-revelar]:not([data-visto]) > :first-child {
-  clip-path: inset(100% 0 0 0);
-}
-
-.page[data-anim] .fotoMoldura[data-visto] .fotoLinha {
-  animation: esticar 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s both;
-}
-
-.fotoLinha {
-  transform-origin: left center;
+.page[data-anim] .referencia[data-visto]::after {
+  animation: esticar 1s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--atraso, 0ms) + 0.6s) both;
 }
 
 /* as cantoneiras vem de fora e fecham no card */

@@ -1,43 +1,43 @@
-import { Big_Shoulders, Manrope, Space_Mono } from "next/font/google";
+import { Anton, Fraunces, Space_Grotesk, Syne } from "next/font/google";
 
 /**
- * As tres fontes do rebrand GTA (Cloud Design), carregadas uma vez e
- * usadas pelas duas paginas (/editor-shorts e /editor-youtube):
- * - Big Shoulders Display: titulos e botoes. O Google juntou a Display
- *   na familia "Big Shoulders", com eixo de tamanho optico (opsz): a
- *   Display e o opsz no maximo, travado em 72 pelo ESTILO_DISPLAY abaixo.
- * - Manrope: corpo
- * - Space Mono: rotulos pequenos
+ * Fontes das paginas do rebrand GTA (/editor-shorts e /editor-youtube).
+ *
+ * - Space Grotesk: corpo e rotulos das DUAS paginas (da unidade entre elas)
+ * - Anton: titulos da pagina A (cartaz condensado, vibe GTA/Miami)
+ * - Syne ExtraBold: titulos da pagina B (premium)
+ * - Fraunces italica: so o destaque da headline principal da pagina B
+ *
+ * Cada pagina carrega so as que usa (ver classesPaginaA / classesPaginaB).
  */
-export const display = Big_Shoulders({
-  subsets: ["latin"],
-  axes: ["opsz"],
-  variable: "--gta-display",
-  display: "swap",
-  // o next/font nao tem as metricas da Big Shoulders para gerar a
-  // fonte reserva ajustada; sem isso ele so avisa no build
-  adjustFontFallback: false,
-});
-
-export const corpo = Manrope({
+export const corpo = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--gta-corpo",
   display: "swap",
 });
 
-export const mono = Space_Mono({
+export const anton = Anton({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--gta-mono",
+  weight: "400",
+  variable: "--gta-titulo",
   display: "swap",
 });
 
-export const classesFontes = `${display.variable} ${corpo.variable} ${mono.variable}`;
+export const syne = Syne({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--gta-titulo",
+  display: "swap",
+});
 
-/**
- * Trava o tamanho optico da Big Shoulders no maximo (o desenho
- * "Display"). E herdado; Manrope e Space Mono nao tem esse eixo e
- * ignoram.
- */
-export const ESTILO_DISPLAY = { fontVariationSettings: '"opsz" 72' };
+export const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: ["600"],
+  variable: "--gta-editorial",
+  display: "swap",
+});
+
+export const classesPaginaA = `${corpo.variable} ${anton.variable}`;
+export const classesPaginaB = `${corpo.variable} ${syne.variable} ${fraunces.variable}`;

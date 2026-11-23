@@ -1,10 +1,6 @@
-import { ESTILO_DISPLAY, classesFontes } from "@/components/gta/fontes";
+import { classesPaginaA } from "@/components/gta/fontes";
 
-/** Fontes do rebrand GTA, so nesta rota. */
+/** Fontes da pagina A (Anton + Space Grotesk), so nesta rota. */
 export default function EditorShortsLayout({ children }) {
-  return (
-    <div className={classesFontes} style={ESTILO_DISPLAY}>
-      {children}
-    </div>
-  );
+  return <div className={classesPaginaA}>{children}</div>;
 }

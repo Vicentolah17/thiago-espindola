@@ -1,7 +1,6 @@
 import Conta from "@/components/gta/Conta";
 import Cronometro from "@/components/gta/Cronometro";
 import Grao from "@/components/gta/Grao";
-import Imagem from "@/components/gta/Imagem";
 import Palavras, { contarPalavras } from "@/components/gta/Palavras";
 import Revelar from "@/components/gta/Revelar";
 import {
@@ -9,15 +8,14 @@ import {
   NOME_PRODUTO,
   PRECO,
   PRECO_ANIMACAO,
-  autoridade,
   dor,
   hero,
   oferta,
   praQuem,
+  referencias,
   rodape,
   saber,
   seo,
-  topo,
 } from "@/config/editorShorts";
 import styles from "./page.module.css";
 
@@ -80,8 +78,8 @@ export default function EditorShortsPage() {
         </div>
 
         <div className={styles.barra}>
+          {/* so o nome do produto: a marca e neutra */}
           <span className={styles.marca}>{NOME_PRODUTO}</span>
-          <span className={styles.assinatura}>{topo.assinatura}</span>
         </div>
 
         <div className={styles.heroTexto}>
@@ -155,34 +153,36 @@ export default function EditorShortsPage() {
         </div>
       </section>
 
-      {/* autoridade */}
-      <section className={styles.autoridade}>
-        <div className={styles.autoridadeGrade}>
-          <div className={styles.fotoMoldura} data-revelar="">
-            <Imagem src={autoridade.foto.src} alt={autoridade.foto.alt} rotulo={autoridade.foto.rotulo} />
-          </div>
-          <div className={styles.autoridadeTexto}>
-            <span className={styles.rotulo} data-revelar="">
-              {autoridade.rotulo}
-            </span>
-            <h2 className={styles.autoridadeNome} data-revelar="" style={atraso(1)}>
-              {autoridade.nome}
-            </h2>
-            <p className={styles.autoridadeDescricao} data-revelar="" style={atraso(2)}>
-              {autoridade.texto}
-            </p>
-            <img
-              className={styles.perfil}
-              src={autoridade.perfil.src}
-              alt={autoridade.perfil.alt}
-              width={autoridade.perfil.largura}
-              height={autoridade.perfil.altura}
-              loading="lazy"
-              decoding="async"
-              data-revelar=""
-              style={atraso(3)}
-            />
-          </div>
+      {/* referencias: criadores citados como prova (1 a 3 cards) */}
+      <section className={styles.referencias}>
+        <div className={styles.referenciasCaixa}>
+          <span className={styles.rotulo} data-revelar="">
+            {referencias.rotulo}
+          </span>
+          <h2 className={styles.referenciasTitulo} data-revelar="" style={atraso(1)}>
+            {referencias.titulo}
+          </h2>
+          <ul className={styles.referenciasLista}>
+            {referencias.itens.map((r, i) => (
+              <li key={r.nome} className={styles.referencia} data-revelar="" style={atraso(i + 2)}>
+                <img
+                  className={styles.referenciaPrint}
+                  src={r.print.src}
+                  alt={r.print.alt}
+                  width={r.print.largura}
+                  height={r.print.altura}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className={styles.referenciaTexto}>
+                  <p className={styles.referenciaNome}>
+                    {r.nome} <span className={styles.referenciaHandle}>{r.handle}</span>
+                  </p>
+                  <p className={styles.referenciaProva}>{r.texto}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -208,7 +208,9 @@ export default function EditorShortsPage() {
       <footer className={styles.rodape}>
         <div className={styles.rodapeLinha}>
           <span>{NOME_PRODUTO}</span>
-          <span>{rodape.assinatura}</span>
+          <span>
+            © {new Date().getFullYear()} · {rodape.direitos}
+          </span>
         </div>
       </footer>
     </div>

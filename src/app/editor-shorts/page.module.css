@@ -61,7 +61,7 @@
 }
 
 .rotulo {
-  font-family: var(--gta-mono), monospace;
+  font-family: var(--gta-corpo), sans-serif;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -83,8 +83,8 @@
   border-radius: 3px;
   background: var(--rosa);
   box-shadow: 5px 5px 0 var(--ciano);
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 800;
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 400;
   font-size: 24px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -261,19 +261,11 @@
 }
 
 .marca {
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 900;
-  font-size: 22px;
-  letter-spacing: 0.04em;
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-}
-
-.assinatura {
-  font-family: var(--gta-mono), monospace;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ciano);
 }
 
 .heroTexto {
@@ -290,12 +282,12 @@
 
 .heroTitulo {
   margin: 0;
-  max-width: 13ch;
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 900;
-  font-size: clamp(52px, 10.5vw, 128px);
-  line-height: 0.88;
-  letter-spacing: -0.005em;
+  max-width: 15ch;
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 400;
+  font-size: clamp(56px, 8.6vw, 124px);
+  line-height: 0.9;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
   text-wrap: balance;
 }
@@ -336,10 +328,11 @@
 .dorTexto {
   margin: 0;
   max-width: 20ch;
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 800;
-  font-size: clamp(36px, 6vw, 68px);
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 400;
+  font-size: clamp(38px, 6.4vw, 76px);
   line-height: 0.98;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   text-wrap: balance;
 }
@@ -361,10 +354,11 @@
 
 .saberTitulo {
   margin: 0;
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 900;
-  font-size: clamp(40px, 6vw, 72px);
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 400;
+  font-size: clamp(46px, 7vw, 92px);
   line-height: 0.9;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
 }
 
@@ -387,7 +381,7 @@
 
 .listaNumero {
   flex: none;
-  font-family: var(--gta-mono), monospace;
+  font-family: var(--gta-corpo), sans-serif;
   font-size: 13px;
 }
 
@@ -407,70 +401,95 @@
 .praQuemTexto {
   margin: 0;
   max-width: 18ch;
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 900;
-  font-size: clamp(40px, 7vw, 84px);
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 400;
+  font-size: clamp(42px, 7.6vw, 96px);
   line-height: 0.92;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: #14041c;
   text-wrap: balance;
 }
 
-/* ---------- autoridade ---------- */
+/* ---------- referencias ----------
+   criadores citados como prova; comporta de 1 a 3 cards. Com um so,
+   o card fica a esquerda (respiro assimetrico), sem esticar. */
 
-.autoridade {
+.referencias {
   padding: clamp(72px, 12vw, 140px) 22px;
 }
 
-.autoridadeGrade {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-  gap: 36px 56px;
-  align-items: center;
+.referenciasCaixa {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   max-width: 1080px;
   margin: 0 auto;
 }
 
-.fotoMoldura {
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  aspect-ratio: 4 / 5;
-  box-shadow: -8px 8px 0 var(--ciano);
-}
-
-.autoridadeTexto {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.autoridadeNome {
-  margin: 0;
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 900;
-  font-size: clamp(44px, 6vw, 72px);
+.referenciasTitulo {
+  margin: 0 0 18px;
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 400;
+  font-size: clamp(46px, 7vw, 92px);
   line-height: 0.9;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
 }
 
-.autoridadeDescricao {
+.referenciasLista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 22px;
   margin: 0;
-  max-width: 40ch;
-  font-size: 18px;
-  line-height: 1.5;
-  color: #e9dcef;
+  padding: 0;
+  list-style: none;
 }
 
-/* print do perfil do Thiago, com a moldura neon ciano */
-.perfil {
-  display: block;
-  width: 100%;
-  max-width: 440px;
-  height: auto;
+/* a sombra ciano deslocada e a assinatura visual da pagina A */
+.referencia {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 560px;
+  padding: 18px;
   border: 1px solid rgba(34, 228, 240, 0.45);
   border-radius: 4px;
-  box-shadow: 0 0 30px rgba(34, 228, 240, 0.18);
+  background: linear-gradient(180deg, #1a0a2b, #0c0613);
+  box-shadow: -8px 8px 0 var(--ciano);
+}
+
+.referenciaPrint {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.referenciaTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.referenciaNome {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.referenciaHandle {
+  margin-left: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ciano);
+}
+
+.referenciaProva {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e9dcef;
 }
 
 /* ---------- oferta ---------- */
@@ -501,8 +520,8 @@
 }
 
 .preco {
-  font-family: var(--gta-display), sans-serif;
-  font-weight: 900;
+  font-family: var(--gta-titulo), sans-serif;
+  font-weight: 400;
   font-size: clamp(96px, 18vw, 160px);
   line-height: 0.8;
   color: var(--rosa);
@@ -546,7 +565,7 @@
   gap: 12px;
   max-width: 1080px;
   margin: 0 auto;
-  font-family: var(--gta-mono), monospace;
+  font-family: var(--gta-corpo), sans-serif;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -655,8 +674,8 @@
   animation: piscarNeon 0.9s linear calc(var(--atraso, 0ms) + 0.3s) both;
 }
 
-/* a foto entra e a sombra ciano "estica" ate o lugar */
-.page[data-anim] .fotoMoldura[data-revelar]:not([data-visto]) {
+/* o card de referencia entra e a sombra ciano "estica" ate o lugar */
+.page[data-anim] .referencia[data-revelar]:not([data-visto]) {
   transform: translate(-24px, 0);
   box-shadow: 0 0 0 var(--ciano);
 }

@@ -9,8 +9,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const fonts = await fontesOg();
-  const titulo = fonts.length ? "Big Shoulders" : "sans-serif";
+  const fonts = await fontesOg("Anton", 400);
+  const titulo = fonts.length ? "Anton" : "sans-serif";
 
   return new ImageResponse(
     (
@@ -37,8 +37,9 @@ export default async function Image() {
             flexDirection: "column",
             fontFamily: titulo,
             fontSize: 108,
-            fontWeight: 900,
-            lineHeight: 0.9,
+            fontWeight: 400,
+            lineHeight: 0.95,
+            letterSpacing: -1,
           }}
         >
           <span>EDITE REELS, TIKTOK</span>
@@ -54,12 +55,11 @@ export default async function Image() {
               boxShadow: "6px 6px 0 #22e4f0",
               fontFamily: titulo,
               fontSize: 48,
-              fontWeight: 900,
+              fontWeight: 400,
             }}
           >
             R$47
           </div>
-          <div style={{ display: "flex", fontSize: 26, letterSpacing: 3 }}>POR THIAGO</div>
         </div>
       </div>
     ),

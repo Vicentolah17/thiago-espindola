@@ -9,8 +9,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const fonts = await fontesOg();
-  const titulo = fonts.length ? "Big Shoulders" : "sans-serif";
+  const fonts = await fontesOg("Syne", 800);
+  const titulo = fonts.length ? "Syne" : "sans-serif";
 
   return new ImageResponse(
     (
@@ -49,14 +49,15 @@ export default async function Image() {
             display: "flex",
             flexDirection: "column",
             fontFamily: titulo,
-            fontSize: 92,
-            fontWeight: 900,
-            lineHeight: 0.92,
+            fontSize: 60,
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: -2,
           }}
         >
-          <span>EDITE VÍDEOS DE YOUTUBE COM</span>
-          <span style={{ color: "#ff2e88" }}>CARA DE CANAL GRANDE,</span>
-          <span>USANDO IA A TEU FAVOR.</span>
+          <span>Edite vídeos de YouTube com</span>
+          <span style={{ color: "#ff2e88" }}>cara de canal grande,</span>
+          <span>usando IA a teu favor.</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
           <div
@@ -68,8 +69,7 @@ export default async function Image() {
               boxShadow: "0 0 18px #ff2e88",
             }}
           />
-          <div style={{ display: "flex", fontFamily: titulo, fontSize: 48, fontWeight: 900 }}>R$97</div>
-          <div style={{ display: "flex", fontSize: 26, letterSpacing: 3, color: "#f2b54a" }}>POR THIAGO</div>
+          <div style={{ display: "flex", fontFamily: titulo, fontSize: 48, fontWeight: 800 }}>R$97</div>
         </div>
       </div>
     ),

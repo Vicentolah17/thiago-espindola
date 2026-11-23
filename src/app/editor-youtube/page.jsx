@@ -1,6 +1,5 @@
 import Conta from "@/components/gta/Conta";
 import Grao from "@/components/gta/Grao";
-import Imagem from "@/components/gta/Imagem";
 import Palavras, { contarPalavras } from "@/components/gta/Palavras";
 import Revelar from "@/components/gta/Revelar";
 import {
@@ -8,15 +7,14 @@ import {
   NOME_PRODUTO,
   PRECO,
   PRECO_ANIMACAO,
-  autoridade,
   dor,
   hero,
   oferta,
   praQuem,
+  referencias,
   rodape,
   saber,
   seo,
-  topo,
 } from "@/config/editorYoutube";
 import styles from "./page.module.css";
 
@@ -81,8 +79,8 @@ export default function EditorYoutubePage() {
         </div>
 
         <div className={styles.barra}>
+          {/* so o nome do produto: a marca e neutra */}
           <span className={styles.marca}>{NOME_PRODUTO}</span>
-          <span className={styles.assinatura}>{topo.assinatura}</span>
         </div>
 
         <div className={styles.heroTexto}>
@@ -159,40 +157,32 @@ export default function EditorYoutubePage() {
         </div>
       </section>
 
-      {/* autoridade */}
-      <section className={styles.autoridade}>
-        <div className={styles.autoridadeGrade}>
-          <div className={styles.fotoMoldura} data-revelar="">
-            <Imagem
-              src={autoridade.foto.src}
-              alt={autoridade.foto.alt}
-              rotulo={autoridade.foto.rotulo}
-              tom="preto"
-            />
-            <span className={styles.fotoLinha} aria-hidden="true" />
+      {/* referencias: criadores citados como prova (1 a 3 cards) */}
+      <section className={styles.referencias}>
+        <div className={styles.grade}>
+          <div className={styles.referenciasCabeca} data-revelar="">
+            <span className={styles.rotulo}>{referencias.rotulo}</span>
+            <h2 className={styles.referenciasTitulo}>{referencias.titulo}</h2>
           </div>
-          <div className={styles.autoridadeTexto}>
-            <span className={styles.rotulo} data-revelar="">
-              {autoridade.rotulo}
-            </span>
-            <h2 className={styles.autoridadeNome} data-revelar="" style={atraso(1)}>
-              {autoridade.nome}
-            </h2>
-            <p className={styles.autoridadeDescricao} data-revelar="" style={atraso(2)}>
-              {autoridade.texto}
-            </p>
-            <img
-              className={styles.perfil}
-              src={autoridade.perfil.src}
-              alt={autoridade.perfil.alt}
-              width={autoridade.perfil.largura}
-              height={autoridade.perfil.altura}
-              loading="lazy"
-              decoding="async"
-              data-revelar=""
-              style={atraso(3)}
-            />
-          </div>
+          <ul className={styles.referenciasLista}>
+            {referencias.itens.map((r, i) => (
+              <li key={r.nome} className={styles.referencia} data-revelar="" style={atraso(i + 1)}>
+                <img
+                  className={styles.referenciaPrint}
+                  src={r.print.src}
+                  alt={r.print.alt}
+                  width={r.print.largura}
+                  height={r.print.altura}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <p className={styles.referenciaNome}>
+                  {r.nome} <span className={styles.referenciaHandle}>{r.handle}</span>
+                </p>
+                <p className={styles.referenciaProva}>{r.texto}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -222,7 +212,9 @@ export default function EditorYoutubePage() {
       <footer className={styles.rodape}>
         <div className={styles.rodapeLinha}>
           <span>{NOME_PRODUTO}</span>
-          <span>{rodape.assinatura}</span>
+          <span>
+            © {new Date().getFullYear()} · {rodape.direitos}
+          </span>
         </div>
       </footer>
     </div>

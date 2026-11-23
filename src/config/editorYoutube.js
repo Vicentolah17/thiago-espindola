@@ -24,7 +24,6 @@ export const seo = {
     "O método pra entregar vídeo longo profissional sem equipe, usando IA pra acelerar o trabalho pesado. Acesso ao método completo por R$97.",
 };
 
-export const topo = { assinatura: "por Thiago" };
 
 export const hero = {
   rotulo: "YouTube · Vídeo longo · IA",
@@ -58,24 +57,29 @@ export const saber = {
 
 export const praQuem = "Pro criador que leva o YouTube a sério e quer um canal com cara profissional.";
 
-export const autoridade = {
-  rotulo: "03 — Quem ensina",
-  nome: "Thiago",
-  // PLACEHOLDER: prova real do trabalho do Thiago. Sem numero inventado.
-  texto: "[AUTORIDADE: prova real do trabalho do Thiago. Sem número inventado.]",
-  // foto real do Thiago (16:10, recorte no rosto)
-  foto: {
-    src: "/thiago_e_camelo.jpg",
-    alt: "Thiago Espíndola com um camelo, no deserto",
-    rotulo: "Thiago",
-  },
-  // print do perfil do Thiago no Instagram: a prova de autoridade
-  perfil: {
-    src: "/metodo50k/perfil-thiago.webp",
-    largura: 559,
-    altura: 183,
-    alt: "Perfil @thiagoespindola.z no Instagram, com 50,3 mil seguidores",
-  },
+/**
+ * Referencias: criadores citados como prova de que o metodo funciona.
+ * O produto e neutro (nao e "do" ninguem); cada referencia e um card.
+ * O layout comporta de 1 a 3: e so acrescentar itens nesta lista.
+ */
+export const referencias = {
+  rotulo: "03 — Referências",
+  titulo: "Quem já aplica",
+  itens: [
+    {
+      nome: "Thiago Espíndola",
+      handle: "@thiagoespindola.z",
+      // PLACEHOLDER: prova real do trabalho dele. Sem numero inventado.
+      texto: "[AUTORIDADE: prova real do trabalho do Thiago. Sem número inventado.]",
+      // print do perfil no Instagram
+      print: {
+        src: "/metodo50k/perfil-thiago.webp",
+        largura: 559,
+        altura: 183,
+        alt: "Perfil @thiagoespindola.z no Instagram, com 50,3 mil seguidores",
+      },
+    },
+  ],
 };
 
 export const oferta = {
@@ -85,4 +89,5 @@ export const oferta = {
   garantia: "[GARANTIA]",
 };
 
-export const rodape = { assinatura: "Thiago" };
+// rodape neutro: so o nome do produto e o ano (o site nao e "do" ninguem)
+export const rodape = { direitos: "Todos os direitos reservados" };

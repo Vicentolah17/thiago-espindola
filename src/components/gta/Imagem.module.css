@@ -38,7 +38,7 @@
 }
 
 .rotulo {
-  font-family: var(--gta-mono), monospace;
+  font-family: var(--gta-corpo), sans-serif;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
