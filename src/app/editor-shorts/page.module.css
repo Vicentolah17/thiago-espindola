@@ -86,7 +86,7 @@
   background: var(--rosa);
   box-shadow: 5px 5px 0 var(--ciano);
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 24px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -264,7 +264,7 @@
 
 .marca {
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 24px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -286,7 +286,7 @@
   margin: 0;
   max-width: 15ch;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(56px, 8.6vw, 124px);
   line-height: 0.9;
   letter-spacing: -0.015em;
@@ -331,7 +331,7 @@
   margin: 0 auto;
   max-width: 20ch;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(38px, 6.4vw, 76px);
   line-height: 0.98;
   letter-spacing: -0.01em;
@@ -357,7 +357,7 @@
 .saberTitulo {
   margin: 0;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(46px, 7vw, 92px);
   line-height: 0.9;
   letter-spacing: -0.015em;
@@ -405,7 +405,7 @@
   max-width: 18ch;
   text-align: center;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(42px, 7.6vw, 96px);
   line-height: 0.92;
   letter-spacing: -0.01em;
@@ -435,7 +435,7 @@
 .referenciasTitulo {
   margin: 0 0 18px;
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(46px, 7vw, 92px);
   line-height: 0.9;
   letter-spacing: -0.015em;
@@ -531,7 +531,7 @@
 
 .preco {
   font-family: var(--gta-titulo), sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(96px, 18vw, 160px);
   line-height: 0.8;
   color: var(--rosa);

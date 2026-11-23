@@ -9,8 +9,8 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const fonts = await fontesOg("Anton", 400);
-  const titulo = fonts.length ? "Anton" : "sans-serif";
+  const fonts = await fontesOg("Barlow Condensed", 700);
+  const titulo = fonts.length ? "Barlow Condensed" : "sans-serif";
 
   return new ImageResponse(
     (
@@ -37,7 +37,7 @@ export default async function Image() {
             flexDirection: "column",
             fontFamily: titulo,
             fontSize: 108,
-            fontWeight: 400,
+            fontWeight: 700,
             lineHeight: 0.95,
             letterSpacing: -1,
           }}
@@ -55,7 +55,7 @@ export default async function Image() {
               boxShadow: "6px 6px 0 #22e4f0",
               fontFamily: titulo,
               fontSize: 48,
-              fontWeight: 400,
+              fontWeight: 700,
             }}
           >
             R$47

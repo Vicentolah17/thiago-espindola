@@ -1,10 +1,11 @@
-import { Anton, Fraunces, Geist, Space_Grotesk } from "next/font/google";
+import { Barlow_Condensed, Fraunces, Geist, Space_Grotesk } from "next/font/google";
 
 /**
  * Fontes das paginas do rebrand GTA (/editor-shorts e /editor-youtube).
  *
  * - Space Grotesk: corpo e rotulos das DUAS paginas (da unidade entre elas)
- * - Anton: titulos da pagina A (cartaz condensado, vibe GTA/Miami)
+ * - Barlow Condensed Bold: titulos da pagina A (condensada de cartaz,
+ *   vibe GTA/Miami, mas com desenho limpo e profissional)
  * - Geist SemiBold: titulos da pagina B (premium e sobrio)
  * - Fraunces italica: os trechos de enfase da pagina B (o destaque da
  *   headline e a parte "apagada" da dor), o contraste reto x italico
@@ -19,9 +20,9 @@ export const corpo = Space_Grotesk({
   display: "swap",
 });
 
-export const anton = Anton({
+export const barlow = Barlow_Condensed({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["600", "700"],
   variable: "--gta-titulo",
   display: "swap",
 });
@@ -41,5 +42,5 @@ export const fraunces = Fraunces({
   display: "swap",
 });
 
-export const classesPaginaA = `${corpo.variable} ${anton.variable}`;
+export const classesPaginaA = `${corpo.variable} ${barlow.variable}`;
 export const classesPaginaB = `${corpo.variable} ${geist.variable} ${fraunces.variable}`;
